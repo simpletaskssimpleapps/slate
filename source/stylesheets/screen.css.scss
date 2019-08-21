@@ -262,12 +262,13 @@ html, body {
   // I know, it's hackish, but it's the simplist way to make the left
   // half of the content always this background color.
   .dark-box {
-    width: $examples-width;
-    background-color: $examples-bg;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+//    width: $examples-width;
+//    background-color: $examples-bg;
+//    position: absolute;
+//    right: 0;
+//    top: 0;
+//    bottom: 0;
+      display: none
   }
 
   .lang-selector {
