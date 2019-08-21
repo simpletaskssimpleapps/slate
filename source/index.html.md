@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 #  - ruby
 #  - python
 #  - javascript
-   - curl
+   - json
 
 toc_footers:
   - <a href='https://developer.dowjones.com/site/global/develop/authentication/index.gsp'>Sign Up for a Developer Key</a>
