@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;json&quot;]">
+  <body class="index" data-languages="[&quot;xml&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="json">json</a>
+              <a href="#" data-language-name="xml">xml</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -341,18 +341,18 @@
 </ul>
 <h4 id='url-post'>URL (POST)</h4>
 <p><strong>http://</strong>webserver*<em>/api/Public/</em>*version/Session/format</p>
-<h4 id='xml-payload'>XML Payload</h4><pre class="highlight plaintext"><code>&lt;SessionRequest&gt;    
-  &lt;UserId&gt;&lt;/UserId&gt;  
-  &lt;Password&gt;&lt;/Password&gt;  
-  &lt;Namespace&gt;&lt;/Namespace&gt;  
-  &lt;AccountId&gt;&lt;/AccountId&gt;  
-  &lt;AccountPassword&gt;&lt;/AccountPassword&gt;  
-  &lt;EncryptedToken&gt;&lt;/EncryptedToken&gt;  
-  &lt;LongUserId&gt;&lt;/LongUserId&gt;  
-  &lt;Email&gt;&lt;/Email&gt;  
-  &lt;Parts&gt;&lt;/Parts&gt;  
-  &lt;Timeout&gt;&lt;/Timeout&gt;  
-&lt;/SessionRequest&gt;
+<h4 id='xml-payload'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SessionRequest&gt;</span>    
+  <span class="nt">&lt;UserId&gt;&lt;/UserId&gt;</span>  
+  <span class="nt">&lt;Password&gt;&lt;/Password&gt;</span>  
+  <span class="nt">&lt;Namespace&gt;&lt;/Namespace&gt;</span>  
+  <span class="nt">&lt;AccountId&gt;&lt;/AccountId&gt;</span>  
+  <span class="nt">&lt;AccountPassword&gt;&lt;/AccountPassword&gt;</span>  
+  <span class="nt">&lt;EncryptedToken&gt;&lt;/EncryptedToken&gt;</span>  
+  <span class="nt">&lt;LongUserId&gt;&lt;/LongUserId&gt;</span>  
+  <span class="nt">&lt;Email&gt;&lt;/Email&gt;</span>  
+  <span class="nt">&lt;Parts&gt;&lt;/Parts&gt;</span>  
+  <span class="nt">&lt;Timeout&gt;&lt;/Timeout&gt;</span>  
+<span class="nt">&lt;/SessionRequest&gt;</span>
 </code></pre><h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
@@ -440,7 +440,7 @@ Timeout|Integer|The number of minutes that should elapse before the current sess
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="json">json</a>
+                <a href="#" data-language-name="xml">xml</a>
           </div>
       </div>
     </div>
