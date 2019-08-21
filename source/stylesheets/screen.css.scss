@@ -268,7 +268,7 @@ html, body {
 //    right: 0;
 //    top: 0;
 //    bottom: 0;
-      display: none
+     display: none
   }
 
   .lang-selector {
@@ -517,14 +517,16 @@ html, body {
     color: #fff;
 
     margin: 0;
-    width: $examples-width;
+ //   width: 0;
+    width: 100%;
 
-    float:right;
+    float:none;
+//    float:right;
     clear:right;
 
     box-sizing: border-box;
 
-    @extend %right-col;
+//    @extend %right-col;
 
     &>p { margin: 0; }
 
