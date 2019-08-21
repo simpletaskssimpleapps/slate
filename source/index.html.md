@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 #  - ruby
 #  - python
 #  - javascript
-   - json
+   - xml
 
 toc_footers:
   - <a href='https://developer.dowjones.com/site/global/develop/authentication/index.gsp'>Sign Up for a Developer Key</a>
@@ -98,7 +98,7 @@ The Login request creates a dedicated user session and returns a key (Session Id
 **http://**webserver**/api/Public/**version/Session/format
 
 #### XML Payload
-```
+``` xml
 <SessionRequest>    
   <UserId></UserId>  
   <Password></Password>  
