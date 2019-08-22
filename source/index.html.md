@@ -125,11 +125,7 @@ AccountPassword|String|Password associated with the user account.|
 EncryptedToken|String|The token that allows a user to automatically log in.| 
 LongUserId|String|A LongUserId is an alternate identifier that can be used in place of the UserId.|It can be specified by a user or a client when registering with Dow Jones.| 
 Email|String|This element represents a unique address (such as you@yourdomain.com) used to receive and send email to a particular destination (as specified by the user).| 
-Parts|string|Parameter used to request for additional information in the response.
-| Valid values: 
-*   IdleTimeout: The maximum time a session can be idle before the user is automatically logged off.
-*   EncryptedToken: An encrypted form of the user authentication that can used for accessing the web service.
-*   GetnewEncryptedToken: Re-generates the EncryptedToken and returns the new token.|
+Parts|string|Parameter used to request for additional information in the response.| Valid values: <li>IdleTimeout: The maximum time a session can be idle before the user is automatically logged off.<li>EncryptedToken: An encrypted form of the user authentication that can used for accessing the web service.<li>GetnewEncryptedToken: Re-generates the EncryptedToken and returns the new token.|
 Timeout|Integer|The number of minutes that should elapse before the current session automatically expires.|The value should be between 5 and 480.
 
 
