@@ -1,0 +1,1118 @@
+<h1 id='introduction-author-service'>Introduction - Author Service</h1><h1 id='get-authors-by-search-string'>Get Authors By Search String</h1><h2 id='description'>Description</h2>
+<p>This transaction allows a user to search for authors by a search 
+     string. The results can be filtered by Author Id(s), Outlet Id(s), 
+     and Outlet Name.</p>
+<h2 id='url-get'>URL (GET)</h2>
+<p>http://webserver/api/Public/version/Author/format?SessionId=SessionId&amp;Callback=Callback&amp;Offset=Offset&amp;Records=Records&amp;SortBy=SortBy&amp;SearchString=SearchString</p>
+<h2 id='request-parameters'>Request Parameters</h2>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML  and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the SessionId received when the current session was created or the Encrypted Tokenfor the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Offset</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The starting index of the set of records to return.<li>What is Offset?</td>
+<td style="text-align: left">The default value is 0.</td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">Records</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The number of records to return.</td>
+<td style="text-align: left">The default value is 100.</td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">SortBy</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The parameter by which the results must be sorted.</td>
+<td style="text-align: left">Valid values:<li>Name<li>OutletName<li>OutletType<li>OutletFrequency<li>Circulation<li>Email<li>Phone<li>JobTitle</td>
+</tr>
+<tr>
+<td style="text-align: right">7</td>
+<td style="text-align: left">SortOrder</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The order in which the results must be sorted.</td>
+<td style="text-align: left">Valid  values:<li>Ascending<li>Descending</td>
+</tr>
+<tr>
+<td style="text-align: right">8</td>
+<td style="text-align: left">SearchString*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The text on which the search must be performed.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">9</td>
+<td style="text-align: left">AuthorIds</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The  Author Id(s) to filter the search results.</td>
+<td style="text-align: left">Note: Multiple values can be provided.Separate values using pipe (</td>
+</tr>
+<tr>
+<td style="text-align: right">10</td>
+<td style="text-align: left">OutletIds</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The  Outlet Id(s) to filter the search results.</td>
+<td style="text-align: left">Note: Multiple values can be provided.Separate values using pipe (</td>
+</tr>
+<tr>
+<td style="text-align: right">11</td>
+<td style="text-align: left">OutletName</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The  Outlet Name to filter the search results.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>
+indicates Required parameter.</li>
+</ul>
+<h2 id='response-tags'>Response Tags</h2>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">AuthorSearchResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Offset</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The starting index number for the next group of results.<li>What isOffset?</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Records</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The number of records returned in this response.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">TotalRecords</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The total number of records that matched the request.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">Authors</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for information about one or  more authors.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">Author</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for information about one author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">7</td>
+<td style="text-align: left">FirstName</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The first  name of the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">8</td>
+<td style="text-align: left">Id</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier for the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">9</td>
+<td style="text-align: left">LastName</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The last  name of the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">10</td>
+<td style="text-align: left">OutletId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The  unique identifier for the primary publication the author is  associated with.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">11</td>
+<td style="text-align: left">OutletName</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The name of the publication.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">12</td>
+<td style="text-align: left">Circulation</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Circulation  figure for the publication.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">13</td>
+<td style="text-align: left">Email</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The  email address of the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">14</td>
+<td style="text-align: left">JobTitle</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The  job title of the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">15</td>
+<td style="text-align: left">FullName</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The full name of the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">16</td>
+<td style="text-align: left">LastName</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The  last name of the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">17</td>
+<td style="text-align: left">Phone</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The  phone number of the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">18</td>
+<td style="text-align: left">Gender</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The  gender of the author.</td>
+<td style="text-align: left">Valid  values:<li>Male<li>Female<li>NotKnown</td>
+</tr>
+<tr>
+<td style="text-align: right">19</td>
+<td style="text-align: left">Industries</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container  for one or more industries the author writes about.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">20</td>
+<td style="text-align: left">Industry</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container  for industry information. Contains description, Id, name,  and parent Id.</td>
+<td style="text-align: left"><Industry>&lt;Id&gt;Integer&lt;/Id&gt;&lt;Name&gt;String&lt;/Name&gt;&lt;ParentId&gt;Integer&lt;/ParentId&gt;&lt;Description&gt;String&lt;/Description&gt;&lt;/Industry&gt;</td>
+</tr>
+<tr>
+<td style="text-align: right">21</td>
+<td style="text-align: left">Regions</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container  for one or more regions the author writes about.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">22</td>
+<td style="text-align: left">Region</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container  for region information. Contains description, Id, name, and  parent Id.</td>
+<td style="text-align: left"><Region>&lt;Id&gt;Integer&lt;/Id&gt;&lt;Name&gt;String&lt;/Name&gt;&lt;ParentId&gt;Integer&lt;/ParentId&gt;&lt;Description&gt;String&lt;/Description&gt;&lt;/Region&gt;</td>
+</tr>
+<tr>
+<td style="text-align: right">23</td>
+<td style="text-align: left">Subjects</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container  for one or more news subjects theauthor writes about.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">24</td>
+<td style="text-align: left">Subject</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container  for subject details. Contains description, Id, name, and parent  Id.</td>
+<td style="text-align: left"><Subject>&lt;Id&gt;Integer&lt;/Id&gt;&lt;Name&gt;String&lt;/Name&gt;&lt;ParentId&gt;Integer&lt;/ParentId&gt;&lt;Description&gt;String&lt;/Description&gt;&lt;/Subject&gt;</td>
+</tr>
+</tbody></table>
+<h2 id='xml-payload'>XML Payload</h2><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
+      <span class="nt">&lt;Offset&gt;&lt;/Offset&gt;</span>
+      <span class="nt">&lt;Records&gt;&lt;/Records&gt;</span>
+      <span class="nt">&lt;TotalRecords&gt;&lt;/TotalRecords&gt;</span>
+      <span class="nt">&lt;Authors&gt;</span>
+        <span class="nt">&lt;Author&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;OutletName&gt;&lt;/OutletName&gt;</span>
+          <span class="nt">&lt;FullName&gt;&lt;/FullName&gt;</span>
+        <span class="nt">&lt;/Author&gt;</span>
+        ...
+      <span class="nt">&lt;/Authors&gt;</span>
+    <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
+
+</code></pre><h2 id='ab90d23f74'> </h2>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&amp;records=2&amp;sessionId=YourSessionId</p>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
+      <span class="nt">&lt;Offset&gt;</span>2<span class="nt">&lt;/Offset&gt;</span>
+      <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
+      <span class="nt">&lt;TotalRecords&gt;</span>166<span class="nt">&lt;/TotalRecords&gt;</span>
+      <span class="nt">&lt;Authors&gt;</span>
+        <span class="nt">&lt;Author&gt;</span>
+          <span class="nt">&lt;Id&gt;</span>709596<span class="nt">&lt;/Id&gt;</span>
+          <span class="nt">&lt;OutletName&gt;</span>The Times<span class="nt">&lt;/OutletName&gt;</span>
+          <span class="nt">&lt;FullName&gt;</span>Andrew Moss<span class="nt">&lt;/FullName&gt;</span>
+        <span class="nt">&lt;/Author&gt;</span>
+        <span class="nt">&lt;Author&gt;</span>
+          <span class="nt">&lt;Id&gt;</span>889596<span class="nt">&lt;/Id&gt;</span>
+          <span class="nt">&lt;OutletName&gt;</span>The Chicago Times<span class="nt">&lt;/OutletName&gt;</span>
+          <span class="nt">&lt;FullName&gt;</span>Andrew Moss<span class="nt">&lt;/FullName&gt;</span>
+        <span class="nt">&lt;/Author&gt;</span>
+      <span class="nt">&lt;/Authors&gt;</span>
+    <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
+
+</code></pre>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&amp;searchstring=moss&amp;sessionId=YourSessionId</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Authors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> 
+     </span><span class="mi">1465833</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"OutletName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"The Wall Street Journal Europe"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"FullName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Walter S. Mossberg"</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="p">}</span><span class="w">
+    </span><span class="err">    </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h2 id='url-get-2'>URL (GET)</h2>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&amp;records=2&amp;sessionId=YourSessionId</p>
+<h2 id='response'>Response</h2><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
+      <span class="nt">&lt;Offset&gt;</span>2<span class="nt">&lt;/Offset&gt;</span>
+      <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
+      <span class="nt">&lt;TotalRecords&gt;</span>166<span class="nt">&lt;/TotalRecords&gt;</span>
+      <span class="nt">&lt;Authors&gt;</span>
+        <span class="nt">&lt;Author&gt;</span>
+          <span class="nt">&lt;Id&gt;</span>709596<span class="nt">&lt;/Id&gt;</span>
+          <span class="nt">&lt;OutletName&gt;</span>The Times<span class="nt">&lt;/OutletName&gt;</span>
+          <span class="nt">&lt;FullName&gt;</span>Andrew Moss<span class="nt">&lt;/FullName&gt;</span>
+        <span class="nt">&lt;/Author&gt;</span>
+        <span class="nt">&lt;Author&gt;</span>
+          <span class="nt">&lt;Id&gt;</span>889596<span class="nt">&lt;/Id&gt;</span>
+          <span class="nt">&lt;OutletName&gt;</span>The Chicago Times<span class="nt">&lt;/OutletName&gt;</span>
+          <span class="nt">&lt;FullName&gt;</span>Andrew Moss<span class="nt">&lt;/FullName&gt;</span>
+        <span class="nt">&lt;/Author&gt;</span>
+      <span class="nt">&lt;/Authors&gt;</span>
+    <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
+
+</code></pre><h2 id='url-get-3'>URL (GET)</h2>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&amp;searchstring=moss&amp;sessionId=YourSessionId</p>
+<h2 id='response-2'>Response</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Authors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> 
+     </span><span class="mi">1465833</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"OutletName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"The Wall Street Journal Europe"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"FullName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Walter S. Mossberg"</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="p">}</span><span class="w">
+    </span><span class="err">    </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h1 id='get-author-by-id'>Get Author By Id</h1><h2 id='description-2'>Description</h2>
+<p>This transaction retrieves information about an author by Author Id.</p>
+<h2 id='url-get-4'>URL (GET)</h2>
+<p>http://webserver/api/Public/version/Author/id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AuthorId</p>
+<h2 id='request-parameters-2'>Request Parameters</h2>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier for the author.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left">Parameter</td>
+<td style="text-align: left">Type</td>
+<td style="text-align: left">Description</td>
+<td style="text-align: left">Comment</td>
+</tr>
+<tr>
+<td style="text-align: right">---:</td>
+<td style="text-align: left">:--------------------------</td>
+<td style="text-align: left">:--------</td>
+<td style="text-align: left">:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+<td style="text-align: left">:---------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier for the author.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h2 id='response-tags-2'>Response Tags</h2>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">AuthorByIdResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Authors</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left">Parameter</td>
+<td style="text-align: left">Type</td>
+<td style="text-align: left">Description</td>
+<td style="text-align: left">Comment</td>
+</tr>
+<tr>
+<td style="text-align: right">---:</td>
+<td style="text-align: left">:-------------------</td>
+<td style="text-align: left">:-------</td>
+<td style="text-align: left">:----------------------------------</td>
+<td style="text-align: left">:----------</td>
+</tr>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">AuthorByIdResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Authors</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h2 id='xml-payload-2'>XML Payload</h2><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
+  <span class="nt">&lt;Authors&gt;</span>
+    <span class="nt">&lt;Author&gt;</span>
+      <span class="nt">&lt;FirstName&gt;&lt;/FirstName&gt;</span>
+      <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+      <span class="nt">&lt;Industries&gt;</span>
+        <span class="nt">&lt;Industry&gt;</span>
+          <span class="nt">&lt;Description&gt;&lt;/Description&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;ParentId&gt;&lt;/ParentId&gt;</span>
+        <span class="nt">&lt;/Industry&gt;</span>
+        ...
+      <span class="nt">&lt;/Industries&gt;</span>
+      <span class="nt">&lt;LastName&gt;&lt;/LastName&gt;</span>
+      <span class="nt">&lt;Regions&gt;</span>
+        <span class="nt">&lt;Region&gt;</span>
+          <span class="nt">&lt;Description&gt;&lt;/Description&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+          <span class="nt">&lt;ParentId&gt;&lt;/ParentId&gt;</span>
+        <span class="nt">&lt;/Region&gt;</span>
+        ...
+      <span class="nt">&lt;/Regions&gt;</span>
+      <span class="nt">&lt;Subjects&gt;</span>
+        <span class="nt">&lt;Subject&gt;</span>
+          <span class="nt">&lt;Description&gt;&lt;/Description&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;ParentId&gt;&lt;/ParentId&gt;</span>
+        <span class="nt">&lt;/Subject&gt;</span>
+        ...
+      <span class="nt">&lt;/Subjects&gt;</span>
+      <span class="nt">&lt;Address&gt;</span>
+        <span class="nt">&lt;Building&gt;&lt;/Building&gt;</span>
+        <span class="c">&lt;!--Valid elements of type: Region--&gt;</span>
+        <span class="nt">&lt;City&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+        <span class="nt">&lt;/City&gt;</span>
+        <span class="c">&lt;!--Valid elements of type: Region--&gt;</span>
+        <span class="nt">&lt;Country&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+        <span class="nt">&lt;/Country&gt;</span>
+        <span class="nt">&lt;Floor&gt;&lt;/Floor&gt;</span>
+        <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+        <span class="nt">&lt;IsHeadquarters&gt;&lt;/IsHeadquarters&gt;</span>
+        <span class="nt">&lt;Line1&gt;&lt;/Line1&gt;</span>
+        <span class="nt">&lt;Line2&gt;&lt;/Line2&gt;</span>
+        <span class="nt">&lt;PoBox&gt;&lt;/PoBox&gt;</span>
+        <span class="nt">&lt;PostOrZip&gt;&lt;/PostOrZip&gt;</span>
+        <span class="nt">&lt;Room&gt;&lt;/Room&gt;</span>
+        <span class="c">&lt;!--Valid elements of type: Region--&gt;</span>
+        <span class="nt">&lt;State&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+        <span class="nt">&lt;/State&gt;</span>
+      <span class="nt">&lt;/Address&gt;</span>
+      <span class="nt">&lt;Biography&gt;&lt;/Biography&gt;</span>
+      <span class="nt">&lt;Contacts&gt;</span>
+        <span class="nt">&lt;Contact&gt;</span>
+          <span class="nt">&lt;IsIM&gt;&lt;/IsIM&gt;</span>
+          <span class="nt">&lt;IsPreferred&gt;&lt;/IsPreferred&gt;</span>
+          <span class="nt">&lt;TemplateUrl&gt;&lt;/TemplateUrl&gt;</span>
+          <span class="nt">&lt;Type&gt;&lt;/Type&gt;</span>
+          <span class="nt">&lt;TypeName&gt;&lt;/TypeName&gt;</span>
+          <span class="nt">&lt;Value&gt;&lt;/Value&gt;</span>
+        <span class="nt">&lt;/Contact&gt;</span>
+        ...
+      <span class="nt">&lt;/Contacts&gt;</span>
+      <span class="nt">&lt;EmploymentDetails&gt;</span>
+        <span class="nt">&lt;Employment&gt;</span>
+          <span class="nt">&lt;Bureau&gt;&lt;/Bureau&gt;</span>
+          <span class="nt">&lt;Contacts&gt;</span>
+            <span class="nt">&lt;Contact&gt;</span>
+              <span class="nt">&lt;IsIM&gt;&lt;/IsIM&gt;</span>
+              <span class="nt">&lt;IsPreferred&gt;&lt;/IsPreferred&gt;</span>
+              <span class="nt">&lt;TemplateUrl&gt;&lt;/TemplateUrl&gt;</span>
+              <span class="nt">&lt;Type&gt;&lt;/Type&gt;</span>
+              <span class="nt">&lt;TypeName&gt;&lt;/TypeName&gt;</span>
+              <span class="nt">&lt;Value&gt;&lt;/Value&gt;</span>
+            <span class="nt">&lt;/Contact&gt;</span>
+            ...
+          <span class="nt">&lt;/Contacts&gt;</span>
+          <span class="nt">&lt;DateCreated&gt;&lt;/DateCreated&gt;</span>
+          <span class="nt">&lt;DateUpdated&gt;&lt;/DateUpdated&gt;</span>
+          <span class="nt">&lt;Email&gt;&lt;/Email&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;IsPrimaryContact&gt;&lt;/IsPrimaryContact&gt;</span>
+          <span class="nt">&lt;IsPrimaryEmployer&gt;&lt;/IsPrimaryEmployer&gt;</span>
+          <span class="nt">&lt;JobTitle&gt;&lt;/JobTitle&gt;</span>
+          <span class="nt">&lt;OutletId&gt;&lt;/OutletId&gt;</span>
+          <span class="nt">&lt;Role&gt;</span>
+            <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+            <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;/Role&gt;</span>
+          <span class="nt">&lt;TypeName&gt;&lt;/TypeName&gt;</span>
+          <span class="nt">&lt;YearEnd&gt;&lt;/YearEnd&gt;</span>
+          <span class="nt">&lt;YearStart&gt;&lt;/YearStart&gt;</span>
+        <span class="nt">&lt;/Employment&gt;</span>
+        ...
+      <span class="nt">&lt;/EmploymentDetails&gt;</span>
+      <span class="nt">&lt;OutletId&gt;&lt;/OutletId&gt;</span>
+      <span class="nt">&lt;OutletName&gt;&lt;/OutletName&gt;</span>
+      <span class="nt">&lt;PitchNotes&gt;&lt;/PitchNotes&gt;</span>
+      <span class="nt">&lt;WebSite&gt;&lt;/WebSite&gt;</span>
+      <span class="nt">&lt;WorkingLanguages&gt;</span>
+        <span class="nt">&lt;Language&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+        <span class="nt">&lt;/Language&gt;</span>
+        ...
+      <span class="nt">&lt;/WorkingLanguages&gt;</span>
+      <span class="nt">&lt;Books&gt;</span>
+        <span class="nt">&lt;Book&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+        <span class="nt">&lt;/Book&gt;</span>
+        ...
+      <span class="nt">&lt;/Books&gt;</span>
+      <span class="nt">&lt;Circulation&gt;&lt;/Circulation&gt;</span>
+      <span class="nt">&lt;Columns&gt;</span>
+        <span class="nt">&lt;Column&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Industries&gt;</span>
+            <span class="nt">&lt;Industry&gt;</span>
+              <span class="nt">&lt;Description&gt;&lt;/Description&gt;</span>
+              <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+              <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+              <span class="nt">&lt;ParentId&gt;&lt;/ParentId&gt;</span>
+            <span class="nt">&lt;/Industry&gt;</span>
+            <span class="nt">&lt;Industry&gt;</span>
+              <span class="nt">&lt;Description&gt;&lt;/Description&gt;</span>
+              <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+              <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+              <span class="nt">&lt;ParentId&gt;&lt;/ParentId&gt;</span>
+            <span class="nt">&lt;/Industry&gt;</span>
+          <span class="nt">&lt;/Industries&gt;</span>
+          <span class="nt">&lt;LastName&gt;&lt;/LastName&gt;</span>
+          <span class="nt">&lt;Regions&gt;</span>
+            <span class="nt">&lt;Region&gt;</span>
+              <span class="nt">&lt;Description&gt;&lt;/Description&gt;</span>
+              <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+              <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+              <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+              <span class="nt">&lt;ParentId&gt;&lt;/ParentId&gt;</span>
+            <span class="nt">&lt;/Region&gt;</span>
+            <span class="nt">&lt;Region&gt;</span>
+              <span class="nt">&lt;Description&gt;&lt;/Description&gt;</span>
+              <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+              <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+              <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+              <span class="nt">&lt;ParentId&gt;&lt;/ParentId&gt;</span>
+            <span class="nt">&lt;/Region&gt;</span>
+          <span class="nt">&lt;/Regions&gt;</span>
+          <span class="nt">&lt;Subjects&gt;</span>
+            <span class="nt">&lt;Subject&gt;</span>
+              <span class="nt">&lt;Description&gt;&lt;/Description&gt;</span>
+              <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+              <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+              <span class="nt">&lt;ParentId&gt;&lt;/ParentId&gt;</span>
+            <span class="nt">&lt;/Subject&gt;</span>...
+          <span class="nt">&lt;/Subjects&gt;</span>
+          <span class="nt">&lt;AuthorIds&gt;</span>
+            <span class="nt">&lt;int&gt;&lt;/int&gt;</span>
+            <span class="nt">&lt;int&gt;&lt;/int&gt;</span>
+          <span class="nt">&lt;/AuthorIds&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;WebAddress&gt;&lt;/WebAddress&gt;</span>
+        <span class="nt">&lt;/Column&gt;</span>
+        ...
+      <span class="nt">&lt;/Columns&gt;</span>
+      <span class="nt">&lt;DayBirth&gt;&lt;/DayBirth&gt;</span>
+      <span class="nt">&lt;Deceased&gt;&lt;/Deceased&gt;</span>
+      <span class="nt">&lt;EducationDetails&gt;</span>
+        <span class="nt">&lt;Education&gt;</span>
+          <span class="nt">&lt;Degree&gt;</span>
+            <span class="nt">&lt;Subject&gt;&lt;/Subject&gt;</span>
+            <span class="nt">&lt;Type&gt;&lt;/Type&gt;</span>
+          <span class="nt">&lt;/Degree&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Outcome&gt;&lt;/Outcome&gt;</span>
+          <span class="nt">&lt;University&gt;</span>
+            <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+            <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+            <span class="c">&lt;!--Valid elements of type: Region--&gt;</span>
+            <span class="nt">&lt;Country&gt;</span>
+              <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+              <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+              <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+            <span class="nt">&lt;/Country&gt;</span>
+          <span class="nt">&lt;/University&gt;</span>
+          <span class="nt">&lt;Year&gt;&lt;/Year&gt;</span>
+        <span class="nt">&lt;/Education&gt;</span>
+        ...
+      <span class="nt">&lt;/EducationDetails&gt;</span>
+      <span class="nt">&lt;Email&gt;&lt;/Email&gt;</span>
+      <span class="nt">&lt;FullName&gt;&lt;/FullName&gt;</span>
+      <span class="nt">&lt;Gender&gt;&lt;/Gender&gt;</span>
+      <span class="c">&lt;!--Valid elements of type: Region--&gt;</span>
+      <span class="nt">&lt;HomeCity&gt;</span>
+        <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+      <span class="nt">&lt;/HomeCity&gt;</span>
+      <span class="c">&lt;!--Valid elements of type: Region--&gt;</span>
+      <span class="nt">&lt;HomeCountry&gt;</span>
+        <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+      <span class="nt">&lt;/HomeCountry&gt;</span>
+      <span class="c">&lt;!--Valid elements of type: Region--&gt;</span>
+      <span class="nt">&lt;HomeState&gt;</span>
+        <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;&lt;/Code&gt;</span>
+      <span class="nt">&lt;/HomeState&gt;</span>
+      <span class="nt">&lt;JobTitle&gt;&lt;/JobTitle&gt;</span>
+      <span class="nt">&lt;LastArticleWrittenDate&gt;&lt;/LastArticleWrittenDate&gt;</span>
+      <span class="nt">&lt;MiddleName&gt;&lt;/MiddleName&gt;</span>
+      <span class="nt">&lt;MonthBirth&gt;&lt;/MonthBirth&gt;</span>
+      <span class="nt">&lt;NNID&gt;&lt;/NNID&gt;</span>
+      <span class="nt">&lt;NamePrefix&gt;&lt;/NamePrefix&gt;</span>
+      <span class="nt">&lt;NameSuffix&gt;&lt;/NameSuffix&gt;</span>
+      <span class="nt">&lt;NameVariations&gt;</span>
+        <span class="nt">&lt;NameVariation&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;Type&gt;&lt;/Type&gt;</span>
+        <span class="nt">&lt;/NameVariation&gt;</span>
+        ...
+      <span class="nt">&lt;/NameVariations&gt;</span>
+      <span class="nt">&lt;Phone&gt;&lt;/Phone&gt;</span>
+      <span class="nt">&lt;ProprietaryInfoID&gt;&lt;/ProprietaryInfoID&gt;</span>
+      <span class="nt">&lt;SocialNetworks&gt;</span>
+        <span class="nt">&lt;SocialNetwork&gt;</span>
+          <span class="nt">&lt;Id&gt;&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+          <span class="nt">&lt;TemplateUrl&gt;&lt;/TemplateUrl&gt;</span>
+          <span class="nt">&lt;Url&gt;&lt;/Url&gt;</span>
+        <span class="nt">&lt;/SocialNetwork&gt;</span>
+        ...
+      <span class="nt">&lt;/SocialNetworks&gt;</span>
+      <span class="nt">&lt;YearBirth&gt;&lt;/YearBirth&gt;</span>
+    <span class="nt">&lt;/Author&gt;</span>
+  <span class="nt">&lt;/Authors&gt;</span>
+<span class="nt">&lt;/AuthorByIdResponse&gt;</span>
+
+</code></pre><h2 id='ab90d23f74-2'> </h2>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&amp;sessionId=YourSessionId</p>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
+  <span class="nt">&lt;Author&gt;</span>
+    <span class="nt">&lt;FirstName&gt;</span>Adam<span class="nt">&lt;/FirstName&gt;</span>
+    <span class="nt">&lt;Id&gt;</span>709596<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;LastName&gt;</span>Moss<span class="nt">&lt;/LastName&gt;</span>
+    <span class="nt">&lt;Address&gt;</span>
+      <span class="nt">&lt;City&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>24655<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>New York<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;/City&gt;</span>
+      <span class="nt">&lt;Country&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>256<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>United States<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;/Country&gt;</span>
+      <span class="nt">&lt;Id&gt;</span>307683<span class="nt">&lt;/Id&gt;</span>
+      <span class="nt">&lt;Line1&gt;</span>75 Varick Street<span class="nt">&lt;/Line1&gt;</span>
+      <span class="nt">&lt;PostOrZip&gt;</span>10013<span class="nt">&lt;/PostOrZip&gt;</span>
+      <span class="nt">&lt;State&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>346<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>New York<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;/State&gt;</span>
+    <span class="nt">&lt;/Address&gt;</span>
+    <span class="nt">&lt;Biography&gt;</span>http://en.wikipedia.org/wiki/Adam_Moss<span class="nt">&lt;/Biography&gt;</span>
+    <span class="nt">&lt;Contacts</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;EmploymentDetails&gt;</span>
+      <span class="nt">&lt;Employment&gt;</span>
+        <span class="nt">&lt;Contacts&gt;</span>
+          <span class="nt">&lt;Contact&gt;</span>
+            <span class="nt">&lt;Type&gt;</span>PhoneOutlet<span class="nt">&lt;/Type&gt;</span>
+            <span class="nt">&lt;TypeName&gt;</span>Telephone, Office, Department<span class="nt">&lt;/TypeName&gt;</span>
+            <span class="nt">&lt;Value&gt;</span>+1 (212) 508-0700<span class="nt">&lt;/Value&gt;</span>
+          <span class="nt">&lt;/Contact&gt;</span>
+          <span class="nt">&lt;Contact&gt;</span>
+            <span class="nt">&lt;Type&gt;</span>EmailWork<span class="nt">&lt;/Type&gt;</span>
+            <span class="nt">&lt;TypeName&gt;</span>Email, Work<span class="nt">&lt;/TypeName&gt;</span>
+            <span class="nt">&lt;Value&gt;</span>adam_moss@newyorkmag.com<span class="nt">&lt;/Value&gt;</span>
+          <span class="nt">&lt;/Contact&gt;</span>
+        <span class="nt">&lt;/Contacts&gt;</span>
+        <span class="nt">&lt;DateCreated&gt;</span>0001-01-01T00:00:00<span class="nt">&lt;/DateCreated&gt;</span>
+        <span class="nt">&lt;DateUpdated&gt;</span>0001-01-01T00:00:00<span class="nt">&lt;/DateUpdated&gt;</span>
+        <span class="nt">&lt;Email&gt;</span>adam_moss@newyorkmag.com<span class="nt">&lt;/Email&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>3546658<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;IsPrimaryEmployer&gt;</span>true<span class="nt">&lt;/IsPrimaryEmployer&gt;</span>
+        <span class="nt">&lt;JobTitle&gt;</span>Editor in Chief<span class="nt">&lt;/JobTitle&gt;</span>
+        <span class="nt">&lt;OutletId&gt;</span>5210<span class="nt">&lt;/OutletId&gt;</span>
+        <span class="nt">&lt;Role&gt;</span>
+          <span class="nt">&lt;Id&gt;</span>8<span class="nt">&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>Editor<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;/Role&gt;</span>
+        <span class="nt">&lt;TypeName&gt;</span>Staff<span class="nt">&lt;/TypeName&gt;</span>
+        <span class="nt">&lt;YearEnd&gt;</span>0<span class="nt">&lt;/YearEnd&gt;</span>
+        <span class="nt">&lt;YearStart&gt;</span>2004<span class="nt">&lt;/YearStart&gt;</span>
+      <span class="nt">&lt;/Employment&gt;</span>
+    <span class="nt">&lt;/EmploymentDetails&gt;</span>
+    <span class="nt">&lt;OutletId&gt;</span>0<span class="nt">&lt;/OutletId&gt;</span>
+    <span class="nt">&lt;WorkingLanguages&gt;</span>
+      <span class="nt">&lt;Language&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>175<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>English<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;/Language&gt;</span>
+    <span class="nt">&lt;/WorkingLanguages&gt;</span>
+    <span class="nt">&lt;Books</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DayBirth&gt;</span>0<span class="nt">&lt;/DayBirth&gt;</span>
+    <span class="nt">&lt;Deceased&gt;</span>false<span class="nt">&lt;/Deceased&gt;</span>
+    <span class="nt">&lt;EducationDetails</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Gender&gt;</span>Male<span class="nt">&lt;/Gender&gt;</span>
+    <span class="nt">&lt;HomeCity&gt;</span>
+      <span class="nt">&lt;Id&gt;</span>0<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;/HomeCity&gt;</span>
+    <span class="nt">&lt;HomeCountry&gt;</span>
+      <span class="nt">&lt;Id&gt;</span>0<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;/HomeCountry&gt;</span>
+    <span class="nt">&lt;HomeState&gt;</span>
+      <span class="nt">&lt;Id&gt;</span>0<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;/HomeState&gt;</span>
+    <span class="nt">&lt;LastArticleWrittenDate&gt;</span>
+    0001-01-01T00:00:00<span class="nt">&lt;/LastArticleWrittenDate&gt;</span>
+    <span class="nt">&lt;MonthBirth&gt;</span>0<span class="nt">&lt;/MonthBirth&gt;</span>
+    <span class="nt">&lt;NNID&gt;</span>256885<span class="nt">&lt;/NNID&gt;</span>
+    <span class="nt">&lt;NameVariations</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ProprietaryInfoID&gt;</span>0<span class="nt">&lt;/ProprietaryInfoID&gt;</span>
+    <span class="nt">&lt;SocialNetworks</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;YearBirth&gt;</span>0<span class="nt">&lt;/YearBirth&gt;</span>
+  <span class="nt">&lt;/Author&gt;</span>
+<span class="nt">&lt;/AuthorByIdResponse&gt;</span>
+
+</code></pre>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/json?id=1089207&amp;sessionId=YourSessionId</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">709596</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24655</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="w">
+</span><span class="err">            </span><span class="p">},</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
+</span><span class="err">            </span><span class="p">},</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">307683</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75 Varick Street"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"PostOrZip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10013"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">346</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="w">
+</span><span class="err">            </span><span class="p">}</span><span class="w">
+</span><span class="err">        </span><span class="p">},</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Biography"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Adam_Moss"</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"EmploymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">            </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="p">{</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone, Office, Department"</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1 (212) 508-0700"</span><span class="w">
+</span><span class="err">                    </span><span class="p">},</span><span class="w">
+</span><span class="err">                    </span><span class="p">{</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email, Work"</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adam_moss@newyorkmag.com"</span><span class="w">
+</span><span class="err">                    </span><span class="p">}</span><span class="w">
+</span><span class="err">                </span><span class="p">],</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DateUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adam_moss@newyorkmag.com"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3546658</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"IsPrimaryEmployer"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Editor in Chief"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"OutletId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5210</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Editor"</span><span class="w">
+</span><span class="err">                </span><span class="p">},</span><span class="w">
+</span><span class="err">                </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Staff"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"YearEnd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"YearStart"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="w">
+</span><span class="err">            </span><span class="p">}</span><span class="w">
+</span><span class="err">        </span><span class="p">],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"OutletId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"WorkingLanguages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">            </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="w">
+</span><span class="err">            </span><span class="p">}</span><span class="w">
+</span><span class="err">        </span><span class="p">],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Books"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"DayBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Deceased"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"EducationDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"HomeCity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="p">},</span><span class="w">
+</span><span class="err">        </span><span class="s2">"HomeCountry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="p">},</span><span class="w">
+</span><span class="err">        </span><span class="s2">"HomeState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="p">},</span><span class="w">
+</span><span class="err">        </span><span class="s2">"LastArticleWrittenDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"MonthBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"NNID"</span><span class="p">:</span><span class="w"> </span><span class="mi">256885</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"NameVariations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"ProprietaryInfoID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"SocialNetworks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"YearBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h2 id='url-get-5'>URL (GET)</h2>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&amp;sessionId=YourSessionId</p>
+<h2 id='response-3'>Response</h2><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
+  <span class="nt">&lt;Author&gt;</span>
+    <span class="nt">&lt;FirstName&gt;</span>Adam<span class="nt">&lt;/FirstName&gt;</span>
+    <span class="nt">&lt;Id&gt;</span>709596<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;LastName&gt;</span>Moss<span class="nt">&lt;/LastName&gt;</span>
+    <span class="nt">&lt;Address&gt;</span>
+      <span class="nt">&lt;City&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>24655<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>New York<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;/City&gt;</span>
+      <span class="nt">&lt;Country&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>256<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>United States<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;/Country&gt;</span>
+      <span class="nt">&lt;Id&gt;</span>307683<span class="nt">&lt;/Id&gt;</span>
+      <span class="nt">&lt;Line1&gt;</span>75 Varick Street<span class="nt">&lt;/Line1&gt;</span>
+      <span class="nt">&lt;PostOrZip&gt;</span>10013<span class="nt">&lt;/PostOrZip&gt;</span>
+      <span class="nt">&lt;State&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>346<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>New York<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;/State&gt;</span>
+    <span class="nt">&lt;/Address&gt;</span>
+    <span class="nt">&lt;Biography&gt;</span>http://en.wikipedia.org/wiki/Adam_Moss<span class="nt">&lt;/Biography&gt;</span>
+    <span class="nt">&lt;Contacts</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;EmploymentDetails&gt;</span>
+      <span class="nt">&lt;Employment&gt;</span>
+        <span class="nt">&lt;Contacts&gt;</span>
+          <span class="nt">&lt;Contact&gt;</span>
+            <span class="nt">&lt;Type&gt;</span>PhoneOutlet<span class="nt">&lt;/Type&gt;</span>
+            <span class="nt">&lt;TypeName&gt;</span>Telephone, Office, Department<span class="nt">&lt;/TypeName&gt;</span>
+            <span class="nt">&lt;Value&gt;</span>+1 (212) 508-0700<span class="nt">&lt;/Value&gt;</span>
+          <span class="nt">&lt;/Contact&gt;</span>
+          <span class="nt">&lt;Contact&gt;</span>
+            <span class="nt">&lt;Type&gt;</span>EmailWork<span class="nt">&lt;/Type&gt;</span>
+            <span class="nt">&lt;TypeName&gt;</span>Email, Work<span class="nt">&lt;/TypeName&gt;</span>
+            <span class="nt">&lt;Value&gt;</span>adam_moss@newyorkmag.com<span class="nt">&lt;/Value&gt;</span>
+          <span class="nt">&lt;/Contact&gt;</span>
+        <span class="nt">&lt;/Contacts&gt;</span>
+        <span class="nt">&lt;DateCreated&gt;</span>0001-01-01T00:00:00<span class="nt">&lt;/DateCreated&gt;</span>
+        <span class="nt">&lt;DateUpdated&gt;</span>0001-01-01T00:00:00<span class="nt">&lt;/DateUpdated&gt;</span>
+        <span class="nt">&lt;Email&gt;</span>adam_moss@newyorkmag.com<span class="nt">&lt;/Email&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>3546658<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;IsPrimaryEmployer&gt;</span>true<span class="nt">&lt;/IsPrimaryEmployer&gt;</span>
+        <span class="nt">&lt;JobTitle&gt;</span>Editor in Chief<span class="nt">&lt;/JobTitle&gt;</span>
+        <span class="nt">&lt;OutletId&gt;</span>5210<span class="nt">&lt;/OutletId&gt;</span>
+        <span class="nt">&lt;Role&gt;</span>
+          <span class="nt">&lt;Id&gt;</span>8<span class="nt">&lt;/Id&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>Editor<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;/Role&gt;</span>
+        <span class="nt">&lt;TypeName&gt;</span>Staff<span class="nt">&lt;/TypeName&gt;</span>
+        <span class="nt">&lt;YearEnd&gt;</span>0<span class="nt">&lt;/YearEnd&gt;</span>
+        <span class="nt">&lt;YearStart&gt;</span>2004<span class="nt">&lt;/YearStart&gt;</span>
+      <span class="nt">&lt;/Employment&gt;</span>
+    <span class="nt">&lt;/EmploymentDetails&gt;</span>
+    <span class="nt">&lt;OutletId&gt;</span>0<span class="nt">&lt;/OutletId&gt;</span>
+    <span class="nt">&lt;WorkingLanguages&gt;</span>
+      <span class="nt">&lt;Language&gt;</span>
+        <span class="nt">&lt;Id&gt;</span>175<span class="nt">&lt;/Id&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>English<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;/Language&gt;</span>
+    <span class="nt">&lt;/WorkingLanguages&gt;</span>
+    <span class="nt">&lt;Books</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DayBirth&gt;</span>0<span class="nt">&lt;/DayBirth&gt;</span>
+    <span class="nt">&lt;Deceased&gt;</span>false<span class="nt">&lt;/Deceased&gt;</span>
+    <span class="nt">&lt;EducationDetails</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Gender&gt;</span>Male<span class="nt">&lt;/Gender&gt;</span>
+    <span class="nt">&lt;HomeCity&gt;</span>
+      <span class="nt">&lt;Id&gt;</span>0<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;/HomeCity&gt;</span>
+    <span class="nt">&lt;HomeCountry&gt;</span>
+      <span class="nt">&lt;Id&gt;</span>0<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;/HomeCountry&gt;</span>
+    <span class="nt">&lt;HomeState&gt;</span>
+      <span class="nt">&lt;Id&gt;</span>0<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;/HomeState&gt;</span>
+    <span class="nt">&lt;LastArticleWrittenDate&gt;</span>
+    0001-01-01T00:00:00<span class="nt">&lt;/LastArticleWrittenDate&gt;</span>
+    <span class="nt">&lt;MonthBirth&gt;</span>0<span class="nt">&lt;/MonthBirth&gt;</span>
+    <span class="nt">&lt;NNID&gt;</span>256885<span class="nt">&lt;/NNID&gt;</span>
+    <span class="nt">&lt;NameVariations</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ProprietaryInfoID&gt;</span>0<span class="nt">&lt;/ProprietaryInfoID&gt;</span>
+    <span class="nt">&lt;SocialNetworks</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;YearBirth&gt;</span>0<span class="nt">&lt;/YearBirth&gt;</span>
+  <span class="nt">&lt;/Author&gt;</span>
+<span class="nt">&lt;/AuthorByIdResponse&gt;</span>
+
+</code></pre><h2 id='url-get-6'>URL (GET)</h2>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/json?id=1089207&amp;sessionId=YourSessionId</p>
+<h2 id='response-4'>Response</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">709596</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24655</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="w">
+</span><span class="err">            </span><span class="p">},</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
+</span><span class="err">            </span><span class="p">},</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">307683</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75 Varick Street"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"PostOrZip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10013"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">346</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="w">
+</span><span class="err">            </span><span class="p">}</span><span class="w">
+</span><span class="err">        </span><span class="p">},</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Biography"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Adam_Moss"</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"EmploymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">            </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="p">{</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone, Office, Department"</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1 (212) 508-0700"</span><span class="w">
+</span><span class="err">                    </span><span class="p">},</span><span class="w">
+</span><span class="err">                    </span><span class="p">{</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email, Work"</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adam_moss@newyorkmag.com"</span><span class="w">
+</span><span class="err">                    </span><span class="p">}</span><span class="w">
+</span><span class="err">                </span><span class="p">],</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DateUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adam_moss@newyorkmag.com"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3546658</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"IsPrimaryEmployer"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Editor in Chief"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"OutletId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5210</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Editor"</span><span class="w">
+</span><span class="err">                </span><span class="p">},</span><span class="w">
+</span><span class="err">                </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Staff"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"YearEnd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"YearStart"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="w">
+</span><span class="err">            </span><span class="p">}</span><span class="w">
+</span><span class="err">        </span><span class="p">],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"OutletId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"WorkingLanguages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">            </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="w">
+</span><span class="err">            </span><span class="p">}</span><span class="w">
+</span><span class="err">        </span><span class="p">],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Books"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"DayBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Deceased"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"EducationDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"HomeCity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="p">},</span><span class="w">
+</span><span class="err">        </span><span class="s2">"HomeCountry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="p">},</span><span class="w">
+</span><span class="err">        </span><span class="s2">"HomeState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="p">},</span><span class="w">
+</span><span class="err">        </span><span class="s2">"LastArticleWrittenDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"MonthBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"NNID"</span><span class="p">:</span><span class="w"> </span><span class="mi">256885</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"NameVariations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"ProprietaryInfoID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">"SocialNetworks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">"YearBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>

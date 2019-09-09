@@ -1,4 +1,4 @@
-<h2 id='create-alert'>Create Alert</h2><h3 id='description'>Description</h3>
+<h1 id='rest2-alert-api'>REST2 Alert API</h1><h2 id='create-alert'>Create Alert</h2><h3 id='description'>Description</h3>
 <p>This transaction creates a news alert.</p>
 <h3 id='url-post'>URL (POST)</h3>
 <p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback</p>
