@@ -1,17 +1,19 @@
-# REST2 Alert API
+# REST 2 Web Services
 
-## Create Alert
+## Alert API
+
+### Create Alert
 
 
-### Description
+#### Description
 
 This transaction creates a news alert.
 
-### URL (POST)
+#### URL (POST)
 
 http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback=Callback
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -60,7 +62,7 @@ http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback
 ```
 
 
-### Request Parameters
+#### Request Parameters
 
 |    | Parameter                           | Type    | Description                                                                                                                                                                 | Comment                                                                                                                                                                                                                                                                                                        |
 |---:|:------------------------------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -94,14 +96,14 @@ http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback
 | 28 | SourceGenres                        | -       | Container for source genres to search.                                                                                                                                      | **Thisis a payload parameter.**                                                                                                                                                                                                                                                                                |
 | 29 | SourceGenre                         | String  | Represents the content group to search.                                                                                                                                     | Possible values:<li>Publications<li>NewsSites<li>Blogs<li>**Thisis a payload parameter.**                                                                                                                                                                                                                      |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter           | Type    | Description                               | Comment   |
 |---:|:--------------------|:--------|:------------------------------------------|:----------|
 |  1 | CreateAlertResponse | -       | The top-level response container.         |           |
 |  2 | AlertId             | Integer | The Alert Id for the newly created alert. |           |
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -113,11 +115,11 @@ http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback
 
  
 
-### URL (POST)
+#### URL (POST)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId
 
-### Request
+#### Request
 
 
 ```xml
@@ -158,7 +160,7 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId
 ```
 
 
-### Response
+#### Response
 
 
 ```xml
@@ -169,11 +171,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId
 ```
 
 
-### URL (POST)
+#### URL (POST)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId
 
-### Request
+#### Request
 
 
 ```json
@@ -229,7 +231,7 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId
 ```
 
 
-### Response
+#### Response
 
 
 ```json
@@ -240,18 +242,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId
 ```
 
  
-## Update Alert
+### Update Alert
 
 
-### Description
+#### Description
 
 This transaction updates a news alert.
 
-### URL (PUT)
+#### URL (PUT)
 
 http://webserver/api/Public/version/Alert/format?SessionId=SessionId&Callback=Callback
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -301,7 +303,7 @@ http://webserver/api/Public/version/Alert/format?SessionId=SessionId&Callback=Ca
 ```
 
 
-### Request Parameters
+#### Request Parameters
 
 |    | Parameter                           | Type    | Description                                                                                                                                                                 | Comment                                                                                                                                                                                                                                                                                                        |
 |---:|:------------------------------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -336,14 +338,14 @@ http://webserver/api/Public/version/Alert/format?SessionId=SessionId&Callback=Ca
 | 29 | SourceGenres                        | -       | Container for source genres to search.                                                                                                                                      | **Thisis a payload parameter.**                                                                                                                                                                                                                                                                                |
 | 30 | SourceGenre                         | String  | Represents the content group to search.                                                                                                                                     | Possible values:<li>Publications<li>NewsSites<li>Blogs<li>**Thisis a payload parameter.**                                                                                                                                                                                                                      |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter           | Type   | Description                                               | Comment                                                     |
 |---:|:--------------------|:-------|:----------------------------------------------------------|:------------------------------------------------------------|
 |  1 | UpdateAlertResponse | -      | The top-level response container.                         |                                                             |
 |  2 | Message             | String | Message indicating the result of the requested operation. | Valid values are True (successful)and False (unsuccessful). |
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -355,11 +357,11 @@ http://webserver/api/Public/version/Alert/format?SessionId=SessionId&Callback=Ca
 
  
 
-### URL (PUT)
+#### URL (PUT)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId
 
-### Request
+#### Request
 
 
 ```xml
@@ -400,7 +402,7 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId
 ```
 
 
-### Response
+#### Response
 
 
 ```xml
@@ -411,11 +413,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId
 ```
 
 
-### URL (PUT)
+#### URL (PUT)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId
 
-### Request
+#### Request
 
 
 ```json
@@ -477,7 +479,7 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId
 ```
 
 
-### Response
+#### Response
 
 
 ```json
@@ -488,18 +490,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId
 ```
 
  
-## Get Alerts by Product Type
+### Get Alerts by Product Type
 
 
-### Description
+#### Description
 
 This transaction retrieves alert information by Product Type.
 
-### URL (GET)
+#### URL (GET)
 
 http://webserver/api/Public/version/Alert/list/format?SessionId=SessionId&Callback=Callback&ProductType=ProductType&Parts=Parts
 
-### Request Parameters
+#### Request Parameters
 
 |    | Parameter                 | Type   | Description                                                                                                                                                                                           | Comment                                                                                                                  |
 |---:|:--------------------------|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|
@@ -518,7 +520,7 @@ http://webserver/api/Public/version/Alert/list/format?SessionId=SessionId&Callba
 |  5 | Parts                     | String | Parameter to request additional information  in the response.                                                                                                                                         | Valid values:<li>RssUrl - Returns 	 a link to the alert's RSS feed.<li>GroupAlerts - 	 Returns subscribed and assigned group alerts<li>Subscribed - Returns 	 subscribed group alerts<li>Assigned - Returns 	 assigned group alerts<li>PersonalSubscribed - Returns 	 subscribed personal alerts<li>DeDuplicationLevel - 	 Returns duplicate alerts as specified in the DeDuplicationLevel 	 parameter.<li>By default no additional parts are returned.                                                                                                                          |
 |  6 | DeDuplicationLevel        | String | Indicates how duplicate records must be  handled.<li>Note:  When the DeDuplicationLevel is Similar  or NearExact, the  request must use  the offset from the previous response for proper pagination. |                                                                                                                          |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter                    | Type    | Description                                                                                                                                          | Comment                                                                               |
 |---:|:-----------------------------|:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------|
@@ -547,7 +549,7 @@ http://webserver/api/Public/version/Alert/list/format?SessionId=SessionId&Callba
 | 23 | ProductType                  | String  | The type of product the alert is about.                                                                                                              | Valid values:<li>Global<li>IFF<li>IWE                                                 |
 | 24 | NewHits                      | Boolean | Indicates whether the alert contains new  headlines.                                                                                                 | Valid values are True and False.                                                      |
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -586,7 +588,7 @@ http://webserver/api/Public/version/Alert/list/format?SessionId=SessionId&Callba
 ```
 
 
-###  
+####  
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmentbankingalerts&parts=rssurl&sessionId=YourSessionId
 
@@ -695,11 +697,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/list/json?productType=investme
 
  
 
-### URL (GET)
+#### URL (GET)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmentbankingalerts&parts=rssurl&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```xml
@@ -742,11 +744,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmen
 ```
 
 
-### URL (GET)
+#### URL (GET)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/list/json?productType=investmentbankingalerts&parts=rssurl&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```json
@@ -812,18 +814,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/list/json?productType=investme
 ```
 
  
-## Get Alert by Id
+### Get Alert by Id
 
 
-### Description
+#### Description
 
 This transaction retrieves alert details by Alert Id.
 
-### URL (GET)
+#### URL (GET)
 
 http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback=Callback&Id=AlertId&Parts=Parts
 
-### Request Parameters
+#### Request Parameters
 
 |    | Parameter                 | Type    | Description                                                                                                                                                                                      | Comment                                                                                                                                                                                                               |
 |---:|:--------------------------|:--------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -842,7 +844,7 @@ http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback
 |  5 | Parts                     | String  | Parameter to request additional information in the response.                                                                                                                                     | Valid values:<li>rssurl - Provides a link to the alert's RSS feed.<li>DeDuplicationLevel - Returns duplicate alerts as specified in the DeDuplicationLevel parameter.<li>By default no additional parts are returned. |
 |  6 | DeDuplicationLevel        | String  | Indicates how duplicate records must be handled.<li>Note: When the DeDuplicationLevel is Similar or NearExact, the request must use the offset from the previous response for proper pagination. |                                                                                                                                                                                                                       |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter                           | Type    | Description                                                                                                                                        | Comment                                                                                                                                                                                                                                                                                                                                                                         |
 |---:|:------------------------------------|:--------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -875,7 +877,7 @@ http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback
 | 27 | SourceGenre                         | String  | Represents the content group to search.                                                                                                            | Possible values:<li>Publications<li>NewsSites                                                                                                                                                                                                                                                                                                                                   |
 | 28 | Contact                             | String  | The contact person for the alert.                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                 |
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -929,7 +931,7 @@ http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback
 ```
 
 
-###  
+####  
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&parts=rssurl&sessionId=YourSessionId
 
@@ -1018,11 +1020,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/id/json?id=300272176&parts=rss
 
  
 
-### URL (GET)
+#### URL (GET)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&parts=rssurl&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```xml
@@ -1067,11 +1069,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&parts=rssu
 ```
 
 
-### URL (GET)
+#### URL (GET)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/id/json?id=300272176&parts=rssurl&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```json
@@ -1115,18 +1117,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/id/json?id=300272176&parts=rss
 ```
 
  
-## Share Alert
+### Share Alert
 
 
-### Description
+#### Description
 
 This transaction shares an alert by Alert Id. Shared alerts can be subscribed by other users.
 
-### URL (PUT)
+#### URL (PUT)
 
 http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&Callback=Callback&Id=AlertId
 
-### Request Parameters
+#### Request Parameters
 
 |    | Parameter                 | Type    | Description                                                                                                                                                                   | Comment                                                              |
 |---:|:--------------------------|:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
@@ -1135,7 +1137,7 @@ http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&Callb
 |  3 | Callback                  | String  | JSONP callback function name for cross-domain content requests.                                                                                                               | This parameter is applicable when the data is in JSON format only.   |
 |  4 | Id*                       | Integer | The identifier of the alert that must be made public.                                                                                                                         | This value can be obtained from Get Alerts by Product Type response. |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter          | Type   | Description                                               | Comment                                                      |
 |---:|:-------------------|:-------|:----------------------------------------------------------|:-------------------------------------------------------------|
@@ -1143,7 +1145,7 @@ http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&Callb
 |  2 | Message            | String | Message indicating the result of the requested operation. | Valid values are True (successful) and False (unsuccessful). |
 Boldface indicates container element.
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -1154,7 +1156,7 @@ Boldface indicates container element.
 ```
 
 
-###  
+####  
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&sessionId=YourSessionId
 
@@ -1176,11 +1178,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&sessionId=Y
 
  
 
-### URL (PUT)
+#### URL (PUT)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```xml
@@ -1191,11 +1193,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&sessionId=Yo
 ```
 
 
-### URL (PUT)
+#### URL (PUT)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```json
@@ -1206,18 +1208,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&sessionId=Y
 ```
 
  
-## Unshare Alert
+### Unshare Alert
 
 
-### Description
+#### Description
 
 This transaction uhshares an alert by Alert Id. An unshared alert cannot be subscribed by other users.
 
-### URL (DELETE)
+#### URL (DELETE)
 
 http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&Callback=Callback&Id=AlertId
 
-### Request Parameters
+#### Request Parameters
 
 |    | Parameter                 | Type    | Description                                                                                                                                                                   | Comment                                                              |
 |---:|:--------------------------|:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
@@ -1226,7 +1228,7 @@ http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&Callb
 |  3 | Callback                  | String  | JSONP callback function name for cross-domain content requests.                                                                                                               | This parameter is applicable when the data is in JSON format only.   |
 |  4 | Id*                       | Integer | The identifier of the alert that must be made public.                                                                                                                         | This value can be obtained from Get Alerts by Product Type response. |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter            | Type   | Description                                               | Comment                                                      |
 |---:|:---------------------|:-------|:----------------------------------------------------------|:-------------------------------------------------------------|
@@ -1234,7 +1236,7 @@ http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&Callb
 |  2 | Message              | String | Message indicating the result of the requested operation. | Valid values are True (successful) and False (unsuccessful). |
  
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -1245,7 +1247,7 @@ http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&Callb
 ```
 
 
-###  
+####  
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&sessionId=YourSessionId
 
@@ -1267,11 +1269,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&sessionId=Y
 
  
 
-### URL (DELETE)
+#### URL (DELETE)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```xml
@@ -1282,11 +1284,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&sessionId=Yo
 ```
 
 
-### URL (DELETE)
+#### URL (DELETE)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```json
@@ -1297,18 +1299,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&sessionId=Y
 ```
 
  
-## Subscribe Alert by Id
+### Subscribe Alert by Id
 
 
-### Description
+#### Description
 
 This transaction allows the logged-in user to subscribe to an alert by Alert Id.
 
-### URL (PUT)
+#### URL (PUT)
 
 http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&Callback=Callback&Id=AlertId
 
-### Request Parameters
+#### Request Parameters
 
 |    | Parameter                 | Type    | Description                                                                                                                                                                   | Comment                                                              |
 |---:|:--------------------------|:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
@@ -1323,14 +1325,14 @@ http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&C
 |  3 | Callback                  | String  | JSONP callback function name for cross-domain content requests.                                                                                                               | This parameter is applicable when the data is in JSON format only.   |
 |  4 | Id*                       | Integer | The unique identifier of the alert to subscribe.                                                                                                                              |                                                                      |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter              | Type    | Description                             | Comment   |
 |---:|:-----------------------|:--------|:----------------------------------------|:----------|
 |  1 | SubscribeAlertResponse | -       | The top-level response container.       |           |
 |  2 | AlertId                | Integer | The identifier of the alert subscribed. |           |
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -1342,11 +1344,11 @@ http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&C
 
  
 
-### URL (PUT)
+#### URL (PUT)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```xml
@@ -1357,11 +1359,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&ses
 ```
 
 
-### URL (PUT)
+#### URL (PUT)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```json
@@ -1372,18 +1374,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&se
 ```
 
  
-## Unsubscribe Alert by Id
+### Unsubscribe Alert by Id
 
 
-### Description
+#### Description
 
 This transaction allows the logged-in user to unsubscribe from an alert by Alert Id.
 
-### URL (DELETE)
+#### URL (DELETE)
 
 http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&Callback=Callback&Id=AlertId
 
-### Request Parameters
+#### Request Parameters
 
 |    | Parameter                  | Type    | Description                                                                                                                                                                   | Comment                                                              |
 |---:|:---------------------------|:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
@@ -1398,14 +1400,14 @@ http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&C
 |  3 | Callback                   | String  | JSONP callback function name for cross-domain content requests.                                                                                                               | This parameter is applicable when the data is in JSON format only.   |
 |  4 | Id*                        | Integer | The unique identifier of the alert to unsubscribe.                                                                                                                            |                                                                      |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter                | Type   | Description                                               | Comment                                                      |
 |---:|:-------------------------|:-------|:----------------------------------------------------------|:-------------------------------------------------------------|
 |  1 | UnSubscribeAlertResponse | -      | The top-level response container.                         |                                                              |
 |  2 | Message                  | String | Message indicating the result of the requested operation. | Valid values are True (successful) and False (unsuccessful). |
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -1416,11 +1418,11 @@ http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&C
 ```
 
 
-### URL (DELETE)
+#### URL (DELETE)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```xml
@@ -1431,11 +1433,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&ses
 ```
 
 
-### URL (DELETE)
+#### URL (DELETE)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```json
@@ -1446,18 +1448,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&se
 ```
 
  
-## Delete Alert By Id
+### Delete Alert By Id
 
 
-### Description
+#### Description
 
 This transaction deletes an alert by Alert Id.
 
-### URL (DELETE)
+#### URL (DELETE)
 
 http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback=Callback&Id=AlertId
 
-### Parameters
+#### Parameters
 
 |    | Parameter                 | Type   | Description                                                                                                                                                                 | Comment                                                               |
 |---:|:--------------------------|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|
@@ -1472,14 +1474,14 @@ http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback
 |  3 | Callback                  | String | JSONP callback function name for cross-domain content requests.                                                                                                             | This parameter is applicable when the data is in JSON format only.    |
 |  4 | Id*                       | Long   | The identifier of the alert to delete.                                                                                                                                      | This value can be obtained from Get  Alerts by Product Type response. |
 
-### Response Tags
+#### Response Tags
 
 |    | Parameter           | Type   | Description                                               | Comment                                                     |
 |---:|:--------------------|:-------|:----------------------------------------------------------|:------------------------------------------------------------|
 |  1 | DeleteAlertResponse | -      | The top-level response container.                         |                                                             |
 |  2 | Message             | String | Message indicating the result of the requested operation. | Valid values are True (successful)and False (unsuccessful). |
 
-### XML Payload
+#### XML Payload
 
 
 ```xml
@@ -1490,7 +1492,7 @@ http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&Callback
 ```
 
 
-###  
+####  
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/xml?Id=34834&sessionId=YourSessionId
 
@@ -1511,11 +1513,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/json?Id=34834&sessionId=You
 ```
 
 
-### URL(DELETE)
+#### URL(DELETE)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/xml?Id=34834&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```xml
@@ -1526,11 +1528,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/xml?Id=34834&sessionId=Your
 ```
 
 
-### URL (DELETE)
+#### URL (DELETE)
 
 http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/json?Id=34834&sessionId=YourSessionId
 
-### Response
+#### Response
 
 
 ```json
