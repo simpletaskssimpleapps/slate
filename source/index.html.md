@@ -12,7 +12,8 @@ toc_footers:
   - <a href='https://developer.dowjones.com/site/global/develop/authentication/index.gsp'>Sign Up for a Developer Key</a>
   - <a href='https://developer.dowjones.com/site/global/develop/introduction/index.gsp'>Documentation Powered by Dow Jones DNA</a>
 
-# includes:
+includes:
+- REST2_Alert.md
 #  - errors
 
 search: true
