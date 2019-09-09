@@ -219,45 +219,13 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#rest2-alert-api" class="toc-h1 toc-link" data-title="REST2 Alert API">REST2 Alert API</a>
+            <a href="#rest-2-web-services" class="toc-h1 toc-link" data-title="REST 2 Web Services">REST 2 Web Services</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#create-alert" class="toc-h2 toc-link" data-title="Create Alert">Create Alert</a>
+                    <a href="#alert-api" class="toc-h2 toc-link" data-title="Alert API">Alert API</a>
                   </li>
                   <li>
-                    <a href="#update-alert" class="toc-h2 toc-link" data-title="Update Alert">Update Alert</a>
-                  </li>
-                  <li>
-                    <a href="#get-alerts-by-product-type" class="toc-h2 toc-link" data-title="Get Alerts by Product Type">Get Alerts by Product Type</a>
-                  </li>
-                  <li>
-                    <a href="#get-alert-by-id" class="toc-h2 toc-link" data-title="Get Alert by Id">Get Alert by Id</a>
-                  </li>
-                  <li>
-                    <a href="#share-alert" class="toc-h2 toc-link" data-title="Share Alert">Share Alert</a>
-                  </li>
-                  <li>
-                    <a href="#unshare-alert" class="toc-h2 toc-link" data-title="Unshare Alert">Unshare Alert</a>
-                  </li>
-                  <li>
-                    <a href="#subscribe-alert-by-id" class="toc-h2 toc-link" data-title="Subscribe Alert by Id">Subscribe Alert by Id</a>
-                  </li>
-                  <li>
-                    <a href="#unsubscribe-alert-by-id" class="toc-h2 toc-link" data-title="Unsubscribe Alert by Id">Unsubscribe Alert by Id</a>
-                  </li>
-                  <li>
-                    <a href="#delete-alert-by-id" class="toc-h2 toc-link" data-title="Delete Alert By Id">Delete Alert By Id</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#rest2-author-api" class="toc-h1 toc-link" data-title="REST2 Author API">REST2 Author API</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-authors-by-search-string" class="toc-h2 toc-link" data-title="Get Authors By Search String">Get Authors By Search String</a>
-                  </li>
-                  <li>
-                    <a href="#get-author-by-id" class="toc-h2 toc-link" data-title="Get Author By Id">Get Author By Id</a>
+                    <a href="#author-api" class="toc-h2 toc-link" data-title="Author API">Author API</a>
                   </li>
               </ul>
           </li>
@@ -270,11 +238,11 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='rest2-alert-api'>REST2 Alert API</h1><h2 id='create-alert'>Create Alert</h2><h3 id='description'>Description</h3>
+        <h1 id='rest-2-web-services'>REST 2 Web Services</h1><h2 id='alert-api'>Alert API</h2><h3 id='create-alert'>Create Alert</h3><h4 id='description'>Description</h4>
 <p>This transaction creates a news alert.</p>
-<h3 id='url-post'>URL (POST)</h3>
+<h4 id='url-post'>URL (POST)</h4>
 <p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback</p>
-<h3 id='xml-payload'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertRequest&gt;</span>
+<h4 id='xml-payload'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertRequest&gt;</span>
       <span class="nt">&lt;Alert&gt;</span>
         <span class="nt">&lt;AlertName&gt;&lt;/AlertName&gt;</span>
         <span class="nt">&lt;DeduplicationLevel&gt;&lt;/DeduplicationLevel&gt;</span>
@@ -316,7 +284,7 @@
       <span class="nt">&lt;/Alert&gt;</span>
     <span class="nt">&lt;/CreateAlertRequest&gt;</span>
 
-</code></pre><h3 id='request-parameters'>Request Parameters</h3>
+</code></pre><h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -530,7 +498,7 @@
 <td style="text-align: left">Possible values:<li>Publications<li>NewsSites<li>Blogs<li><strong>Thisis a payload parameter.</strong></td>
 </tr>
 </tbody></table>
-<h3 id='response-tags'>Response Tags</h3>
+<h4 id='response-tags'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -555,15 +523,15 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload-2'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
+<h4 id='xml-payload-2'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
       <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
     <span class="nt">&lt;/CreateAlertResponse&gt;</span>
 
 </code></pre>
 <p> </p>
-<h3 id='url-post-2'>URL (POST)</h3>
+<h4 id='url-post-2'>URL (POST)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId</p>
-<h3 id='request'>Request</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertRequest&gt;</span>
+<h4 id='request'>Request</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertRequest&gt;</span>
       <span class="nt">&lt;Alert&gt;</span>
         <span class="nt">&lt;AlertName&gt;</span>createAlert_test12<span class="nt">&lt;/AlertName&gt;</span>
         <span class="nt">&lt;DeduplicationLevel&gt;</span>Off<span class="nt">&lt;/DeduplicationLevel&gt;</span>
@@ -597,13 +565,13 @@
       <span class="nt">&lt;/Alert&gt;</span>
     <span class="nt">&lt;/CreateAlertRequest&gt;</span>
 
-</code></pre><h3 id='response'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
+</code></pre><h4 id='response'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
           <span class="nt">&lt;AlertId&gt;</span>27845254<span class="nt">&lt;/AlertId&gt;</span>
         <span class="nt">&lt;/CreateAlertResponse&gt;</span>
 
-</code></pre><h3 id='url-post-3'>URL (POST)</h3>
+</code></pre><h4 id='url-post-3'>URL (POST)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId</p>
-<h3 id='request-2'>Request</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='request-2'>Request</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Alert"</span><span class="p">:</span><span class="w">
     </span><span class="err">    </span><span class="p">{</span><span class="w">
     </span><span class="err">        </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="s2">"testing1219"</span><span class="p">,</span><span class="w">
@@ -652,17 +620,17 @@
     </span><span class="err">    </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='response-2'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span></code></pre><h4 id='response-2'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
          </span><span class="err">   </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="mi">301672344</span><span class="w">
         </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <p> </p>
-<h2 id='update-alert'>Update Alert</h2><h3 id='description-2'>Description</h3>
+<h3 id='update-alert'>Update Alert</h3><h4 id='description-2'>Description</h4>
 <p>This transaction updates a news alert.</p>
-<h3 id='url-put'>URL (PUT)</h3>
+<h4 id='url-put'>URL (PUT)</h4>
 <p>http://webserver/api/Public/version/Alert/format?SessionId=SessionId&amp;Callback=Callback</p>
-<h3 id='xml-payload-3'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertRequest&gt;</span>
+<h4 id='xml-payload-3'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertRequest&gt;</span>
       <span class="nt">&lt;Alert&gt;</span>
         <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
         <span class="nt">&lt;AlertName&gt;&lt;/AlertName&gt;</span>
@@ -705,7 +673,7 @@
       <span class="nt">&lt;/Alert&gt;</span>
     <span class="nt">&lt;/UpdateAlertRequest&gt;</span>
 
-</code></pre><h3 id='request-parameters-2'>Request Parameters</h3>
+</code></pre><h4 id='request-parameters-2'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -926,7 +894,7 @@
 <td style="text-align: left">Possible values:<li>Publications<li>NewsSites<li>Blogs<li><strong>Thisis a payload parameter.</strong></td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-2'>Response Tags</h3>
+<h4 id='response-tags-2'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -951,15 +919,15 @@
 <td style="text-align: left">Valid values are True (successful)and False (unsuccessful).</td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload-4'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
+<h4 id='xml-payload-4'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
       <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
     <span class="nt">&lt;/UpdateAlertResponse&gt;</span>
 
 </code></pre>
 <p> </p>
-<h3 id='url-put-2'>URL (PUT)</h3>
+<h4 id='url-put-2'>URL (PUT)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId</p>
-<h3 id='request-3'>Request</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertRequest&gt;</span>
+<h4 id='request-3'>Request</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertRequest&gt;</span>
       <span class="nt">&lt;Alert&gt;</span>
         <span class="nt">&lt;AlertId&gt;</span>300279626<span class="nt">&lt;/AlertId&gt;</span>
         <span class="nt">&lt;AlertName&gt;</span>createAlert_101test<span class="nt">&lt;/AlertName&gt;</span>
@@ -993,13 +961,13 @@
       <span class="nt">&lt;/Alert&gt;</span>
     <span class="nt">&lt;/UpdateAlertRequest&gt;</span>
 
-</code></pre><h3 id='response-3'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
+</code></pre><h4 id='response-3'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
           <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
         <span class="nt">&lt;/UpdateAlertResponse&gt;</span>
 
-</code></pre><h3 id='url-put-3'>URL (PUT)</h3>
+</code></pre><h4 id='url-put-3'>URL (PUT)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId</p>
-<h3 id='request-4'>Request</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='request-4'>Request</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Alert"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">        </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
      </span><span class="s2">"301669213"</span><span class="p">,</span><span class="w">
@@ -1054,17 +1022,17 @@
     </span><span class="err">    </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='response-4'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span></code></pre><h4 id='response-4'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
          </span><span class="err">   Message</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
         </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <p> </p>
-<h2 id='get-alerts-by-product-type'>Get Alerts by Product Type</h2><h3 id='description-3'>Description</h3>
+<h3 id='get-alerts-by-product-type'>Get Alerts by Product Type</h3><h4 id='description-3'>Description</h4>
 <p>This transaction retrieves alert information by Product Type.</p>
-<h3 id='url-get'>URL (GET)</h3>
+<h4 id='url-get'>URL (GET)</h4>
 <p>http://webserver/api/Public/version/Alert/list/format?SessionId=SessionId&amp;Callback=Callback&amp;ProductType=ProductType&amp;Parts=Parts</p>
-<h3 id='request-parameters-3'>Request Parameters</h3>
+<h4 id='request-parameters-3'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -1173,7 +1141,7 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-3'>Response Tags</h3>
+<h4 id='response-tags-3'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -1352,7 +1320,7 @@
 <td style="text-align: left">Valid values are True and False.</td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload-5'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
+<h4 id='xml-payload-5'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
       <span class="nt">&lt;AlertDetails&gt;</span>
         <span class="nt">&lt;AlertDetail&gt;</span>
           <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
@@ -1384,7 +1352,7 @@
       <span class="nt">&lt;/AlertDetails&gt;</span>
     <span class="nt">&lt;/AlertResponse&gt;</span>
 
-</code></pre><h3 id='ab90d23f74'> </h3>
+</code></pre><h4 id='ab90d23f74'> </h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
       <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
@@ -1485,9 +1453,9 @@
 
 </span></code></pre>
 <p> </p>
-<h3 id='url-get-2'>URL (GET)</h3>
+<h4 id='url-get-2'>URL (GET)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
-<h3 id='response-5'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
+<h4 id='response-5'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
       <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
       <span class="nt">&lt;TotalRecords&gt;</span>2<span class="nt">&lt;/TotalRecords&gt;</span>
       <span class="nt">&lt;AlertDetails&gt;</span>
@@ -1523,9 +1491,9 @@
       <span class="nt">&lt;/AlertDetails&gt;</span>
     <span class="nt">&lt;/AlertResponse&gt;</span>
 
-</code></pre><h3 id='url-get-3'>URL (GET)</h3>
+</code></pre><h4 id='url-get-3'>URL (GET)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/json?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
-<h3 id='response-6'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-6'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="err">    </span><span class="s2">"AlertDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1586,11 +1554,11 @@
 
 </span></code></pre>
 <p> </p>
-<h2 id='get-alert-by-id'>Get Alert by Id</h2><h3 id='description-4'>Description</h3>
+<h3 id='get-alert-by-id'>Get Alert by Id</h3><h4 id='description-4'>Description</h4>
 <p>This transaction retrieves alert details by Alert Id.</p>
-<h3 id='url-get-4'>URL (GET)</h3>
+<h4 id='url-get-4'>URL (GET)</h4>
 <p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId&amp;Parts=Parts</p>
-<h3 id='request-parameters-4'>Request Parameters</h3>
+<h4 id='request-parameters-4'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -1699,7 +1667,7 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-4'>Response Tags</h3>
+<h4 id='response-tags-4'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -1906,7 +1874,7 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload-6'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
+<h4 id='xml-payload-6'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
   <span class="nt">&lt;Alerts&gt;</span>
     <span class="nt">&lt;Alert&gt;</span>
       <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
@@ -1953,7 +1921,7 @@
   <span class="nt">&lt;/Alerts&gt;</span>
 <span class="nt">&lt;/AlertByIdResponse&gt;</span>
 
-</code></pre><h3 id='ab90d23f74-2'> </h3>
+</code></pre><h4 id='ab90d23f74-2'> </h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
   <span class="nt">&lt;Alerts&gt;</span>
@@ -2034,9 +2002,9 @@
 
 </span></code></pre>
 <p> </p>
-<h3 id='url-get-5'>URL (GET)</h3>
+<h4 id='url-get-5'>URL (GET)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
-<h3 id='response-7'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
+<h4 id='response-7'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
   <span class="nt">&lt;Alerts&gt;</span>
     <span class="nt">&lt;Alert&gt;</span>
       <span class="nt">&lt;AlertId&gt;</span>300272176<span class="nt">&lt;/AlertId&gt;</span>
@@ -2074,9 +2042,9 @@
   <span class="nt">&lt;/Alerts&gt;</span>
 <span class="nt">&lt;/AlertByIdResponse&gt;</span>
 
-</code></pre><h3 id='url-get-6'>URL (GET)</h3>
+</code></pre><h4 id='url-get-6'>URL (GET)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/json?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
-<h3 id='response-8'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-8'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="err">        </span><span class="p">{</span><span class="w">
 </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> </span><span class="mi">300272176</span><span class="p">,</span><span class="w">
@@ -2115,11 +2083,11 @@
 
 </span></code></pre>
 <p> </p>
-<h2 id='share-alert'>Share Alert</h2><h3 id='description-5'>Description</h3>
+<h3 id='share-alert'>Share Alert</h3><h4 id='description-5'>Description</h4>
 <p>This transaction shares an alert by Alert Id. Shared alerts can be subscribed by other users.</p>
-<h3 id='url-put-4'>URL (PUT)</h3>
+<h4 id='url-put-4'>URL (PUT)</h4>
 <p>http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
-<h3 id='request-parameters-5'>Request Parameters</h3>
+<h4 id='request-parameters-5'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2158,7 +2126,7 @@
 <td style="text-align: left">This value can be obtained from Get Alerts by Product Type response.</td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-5'>Response Tags</h3>
+<h4 id='response-tags-5'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2185,11 +2153,11 @@
 </tbody></table>
 
 <p>Boldface indicates container element.</p>
-<h3 id='xml-payload-7'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
+<h4 id='xml-payload-7'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
 <span class="nt">&lt;/ShareAlertResponse&gt;</span>
 
-</code></pre><h3 id='ab90d23f74-3'> </h3>
+</code></pre><h4 id='ab90d23f74-3'> </h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
@@ -2203,25 +2171,25 @@
 
 </span></code></pre>
 <p> </p>
-<h3 id='url-put-5'>URL (PUT)</h3>
+<h4 id='url-put-5'>URL (PUT)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
-<h3 id='response-9'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
+<h4 id='response-9'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/ShareAlertResponse&gt;</span>
 
-</code></pre><h3 id='url-put-6'>URL (PUT)</h3>
+</code></pre><h4 id='url-put-6'>URL (PUT)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
-<h3 id='response-10'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-10'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <p> </p>
-<h2 id='unshare-alert'>Unshare Alert</h2><h3 id='description-6'>Description</h3>
+<h3 id='unshare-alert'>Unshare Alert</h3><h4 id='description-6'>Description</h4>
 <p>This transaction uhshares an alert by Alert Id. An unshared alert cannot be subscribed by other users.</p>
-<h3 id='url-delete'>URL (DELETE)</h3>
+<h4 id='url-delete'>URL (DELETE)</h4>
 <p>http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
-<h3 id='request-parameters-6'>Request Parameters</h3>
+<h4 id='request-parameters-6'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2260,7 +2228,7 @@
 <td style="text-align: left">This value can be obtained from Get Alerts by Product Type response.</td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-6'>Response Tags</h3>
+<h4 id='response-tags-6'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2287,11 +2255,11 @@
 </tbody></table>
 
 <p> </p>
-<h3 id='xml-payload-8'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
+<h4 id='xml-payload-8'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnShareAlertResponse&gt;</span>
 
-</code></pre><h3 id='ab90d23f74-4'> </h3>
+</code></pre><h4 id='ab90d23f74-4'> </h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
@@ -2305,25 +2273,25 @@
 
 </span></code></pre>
 <p> </p>
-<h3 id='url-delete-2'>URL (DELETE)</h3>
+<h4 id='url-delete-2'>URL (DELETE)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
-<h3 id='response-11'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
+<h4 id='response-11'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnShareAlertResponse&gt;</span>
 
-</code></pre><h3 id='url-delete-3'>URL (DELETE)</h3>
+</code></pre><h4 id='url-delete-3'>URL (DELETE)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
-<h3 id='response-12'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-12'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <p> </p>
-<h2 id='subscribe-alert-by-id'>Subscribe Alert by Id</h2><h3 id='description-7'>Description</h3>
+<h3 id='subscribe-alert-by-id'>Subscribe Alert by Id</h3><h4 id='description-7'>Description</h4>
 <p>This transaction allows the logged-in user to subscribe to an alert by Alert Id.</p>
-<h3 id='url-put-7'>URL (PUT)</h3>
+<h4 id='url-put-7'>URL (PUT)</h4>
 <p>http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
-<h3 id='request-parameters-7'>Request Parameters</h3>
+<h4 id='request-parameters-7'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2404,7 +2372,7 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-7'>Response Tags</h3>
+<h4 id='response-tags-7'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2429,31 +2397,31 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload-9'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SubscribeAlertResponse&gt;</span>
+<h4 id='xml-payload-9'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SubscribeAlertResponse&gt;</span>
   <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
 <span class="nt">&lt;/SubscribeAlertResponse&gt;</span>
 
 </code></pre>
 <p> </p>
-<h3 id='url-put-8'>URL (PUT)</h3>
+<h4 id='url-put-8'>URL (PUT)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&amp;sessionId=YourSessionId</p>
-<h3 id='response-13'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SubscribeAlertResponse&gt;</span>
+<h4 id='response-13'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SubscribeAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/SubscribeAlertResponse&gt;</span>
 
-</code></pre><h3 id='url-put-9'>URL (PUT)</h3>
+</code></pre><h4 id='url-put-9'>URL (PUT)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&amp;sessionId=YourSessionId</p>
-<h3 id='response-14'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-14'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <p> </p>
-<h2 id='unsubscribe-alert-by-id'>Unsubscribe Alert by Id</h2><h3 id='description-8'>Description</h3>
+<h3 id='unsubscribe-alert-by-id'>Unsubscribe Alert by Id</h3><h4 id='description-8'>Description</h4>
 <p>This transaction allows the logged-in user to unsubscribe from an alert by Alert Id.</p>
-<h3 id='url-delete-4'>URL (DELETE)</h3>
+<h4 id='url-delete-4'>URL (DELETE)</h4>
 <p>http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
-<h3 id='request-parameters-8'>Request Parameters</h3>
+<h4 id='request-parameters-8'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2534,7 +2502,7 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-8'>Response Tags</h3>
+<h4 id='response-tags-8'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2559,29 +2527,29 @@
 <td style="text-align: left">Valid values are True (successful) and False (unsuccessful).</td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload-10'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnSubscribeAlertResponse&gt;</span>
+<h4 id='xml-payload-10'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnSubscribeAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnSubscribeAlertResponse&gt;</span>
 
-</code></pre><h3 id='url-delete-5'>URL (DELETE)</h3>
+</code></pre><h4 id='url-delete-5'>URL (DELETE)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&amp;sessionId=YourSessionId</p>
-<h3 id='response-15'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnSubscribeAlertResponse&gt;</span>
+<h4 id='response-15'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnSubscribeAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnSubscribeAlertResponse&gt;</span>
 
-</code></pre><h3 id='url-delete-6'>URL (DELETE)</h3>
+</code></pre><h4 id='url-delete-6'>URL (DELETE)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&amp;sessionId=YourSessionId</p>
-<h3 id='response-16'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-16'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <p> </p>
-<h2 id='delete-alert-by-id'>Delete Alert By Id</h2><h3 id='description-9'>Description</h3>
+<h3 id='delete-alert-by-id'>Delete Alert By Id</h3><h4 id='description-9'>Description</h4>
 <p>This transaction deletes an alert by Alert Id.</p>
-<h3 id='url-delete-7'>URL (DELETE)</h3>
+<h4 id='url-delete-7'>URL (DELETE)</h4>
 <p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
-<h3 id='parameters'>Parameters</h3>
+<h4 id='parameters'>Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2662,7 +2630,7 @@
 <td style="text-align: left">This value can be obtained from Get  Alerts by Product Type response.</td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-9'>Response Tags</h3>
+<h4 id='response-tags-9'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2687,11 +2655,11 @@
 <td style="text-align: left">Valid values are True (successful)and False (unsuccessful).</td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload-11'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
+<h4 id='xml-payload-11'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
      <span class="nt">&lt;Message&gt;</span>String content<span class="nt">&lt;/Message&gt;</span>
     <span class="nt">&lt;/DeleteAlertResponse&gt;</span>
 
-</code></pre><h3 id='ab90d23f74-5'> </h3>
+</code></pre><h4 id='ab90d23f74-5'> </h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/xml?Id=34834&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
          <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
@@ -2703,25 +2671,25 @@
     </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='url-delete-8'>URL(DELETE)</h3>
+</span></code></pre><h4 id='url-delete-8'>URL(DELETE)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/xml?Id=34834&amp;sessionId=YourSessionId</p>
-<h3 id='response-17'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
+<h4 id='response-17'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
          <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
         <span class="nt">&lt;/DeleteAlertResponse&gt;</span>
 
-</code></pre><h3 id='url-delete-9'>URL (DELETE)</h3>
+</code></pre><h4 id='url-delete-9'>URL (DELETE)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/json?Id=34834&amp;sessionId=YourSessionId</p>
-<h3 id='response-18'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-18'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h1 id='rest2-author-api'>REST2 Author API</h1><h2 id='get-authors-by-search-string'>Get Authors By Search String</h2><h3 id='description'>Description</h3>
+</span></code></pre><h2 id='author-api'>Author API</h2><h3 id='get-authors-by-search-string'>Get Authors By Search String</h3><h4 id='description'>Description</h4>
 <p>This transaction allows a user to search for authors by a search 
      string. The results can be filtered by Author Id(s), Outlet Id(s), 
      and Outlet Name.</p>
-<h3 id='url-get'>URL (GET)</h3>
+<h4 id='url-get'>URL (GET)</h4>
 <p>http://webserver/api/Public/version/Author/format?SessionId=SessionId&amp;Callback=Callback&amp;Offset=Offset&amp;Records=Records&amp;SortBy=SortBy&amp;SearchString=SearchString</p>
-<h3 id='request-parameters'>Request Parameters</h3>
+<h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2814,7 +2782,7 @@
 <li>
 indicates Required parameter.</li>
 </ul>
-<h3 id='response-tags'>Response Tags</h3>
+<h4 id='response-tags'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2993,7 +2961,7 @@ indicates Required parameter.</li>
 <td style="text-align: left"><Subject>&lt;Id&gt;Integer&lt;/Id&gt;&lt;Name&gt;String&lt;/Name&gt;&lt;ParentId&gt;Integer&lt;/ParentId&gt;&lt;Description&gt;String&lt;/Description&gt;&lt;/Subject&gt;</td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
+<h4 id='xml-payload'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;&lt;/Offset&gt;</span>
       <span class="nt">&lt;Records&gt;&lt;/Records&gt;</span>
       <span class="nt">&lt;TotalRecords&gt;&lt;/TotalRecords&gt;</span>
@@ -3007,7 +2975,7 @@ indicates Required parameter.</li>
       <span class="nt">&lt;/Authors&gt;</span>
     <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
 
-</code></pre><h3 id='ab90d23f74'> </h3>
+</code></pre><h4 id='ab90d23f74'> </h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&amp;records=2&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;</span>2<span class="nt">&lt;/Offset&gt;</span>
@@ -3047,9 +3015,9 @@ indicates Required parameter.</li>
 
 </span></code></pre>
 <p> </p>
-<h3 id='url-get-2'>URL (GET)</h3>
+<h4 id='url-get-2'>URL (GET)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&amp;records=2&amp;sessionId=YourSessionId</p>
-<h3 id='response'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
+<h4 id='response'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;</span>2<span class="nt">&lt;/Offset&gt;</span>
       <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
       <span class="nt">&lt;TotalRecords&gt;</span>166<span class="nt">&lt;/TotalRecords&gt;</span>
@@ -3067,9 +3035,9 @@ indicates Required parameter.</li>
       <span class="nt">&lt;/Authors&gt;</span>
     <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
 
-</code></pre><h3 id='url-get-3'>URL (GET)</h3>
+</code></pre><h4 id='url-get-3'>URL (GET)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&amp;searchstring=moss&amp;sessionId=YourSessionId</p>
-<h3 id='response-2'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-2'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -3087,11 +3055,11 @@ indicates Required parameter.</li>
 
 </span></code></pre>
 <p> </p>
-<h2 id='get-author-by-id'>Get Author By Id</h2><h3 id='description-2'>Description</h3>
+<h3 id='get-author-by-id'>Get Author By Id</h3><h4 id='description-2'>Description</h4>
 <p>This transaction retrieves information about an author by Author Id.</p>
-<h3 id='url-get-4'>URL (GET)</h3>
+<h4 id='url-get-4'>URL (GET)</h4>
 <p>http://webserver/api/Public/version/Author/id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AuthorId</p>
-<h3 id='request-parameters-2'>Request Parameters</h3>
+<h4 id='request-parameters-2'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -3172,7 +3140,7 @@ indicates Required parameter.</li>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='response-tags-2'>Response Tags</h3>
+<h4 id='response-tags-2'>Response Tags</h4>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -3225,7 +3193,7 @@ indicates Required parameter.</li>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='xml-payload-2'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
+<h4 id='xml-payload-2'>XML Payload</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Authors&gt;</span>
     <span class="nt">&lt;Author&gt;</span>
       <span class="nt">&lt;FirstName&gt;&lt;/FirstName&gt;</span>
@@ -3479,7 +3447,7 @@ indicates Required parameter.</li>
   <span class="nt">&lt;/Authors&gt;</span>
 <span class="nt">&lt;/AuthorByIdResponse&gt;</span>
 
-</code></pre><h3 id='ab90d23f74-2'> </h3>
+</code></pre><h4 id='ab90d23f74-2'> </h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Author&gt;</span>
@@ -3656,9 +3624,9 @@ indicates Required parameter.</li>
 
 </span></code></pre>
 <p> </p>
-<h3 id='url-get-5'>URL (GET)</h3>
+<h4 id='url-get-5'>URL (GET)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&amp;sessionId=YourSessionId</p>
-<h3 id='response-3'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
+<h4 id='response-3'>Response</h4><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Author&gt;</span>
     <span class="nt">&lt;FirstName&gt;</span>Adam<span class="nt">&lt;/FirstName&gt;</span>
     <span class="nt">&lt;Id&gt;</span>709596<span class="nt">&lt;/Id&gt;</span>
@@ -3744,9 +3712,9 @@ indicates Required parameter.</li>
   <span class="nt">&lt;/Author&gt;</span>
 <span class="nt">&lt;/AuthorByIdResponse&gt;</span>
 
-</code></pre><h3 id='url-get-6'>URL (GET)</h3>
+</code></pre><h4 id='url-get-6'>URL (GET)</h4>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/json?id=1089207&amp;sessionId=YourSessionId</p>
-<h3 id='response-4'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response-4'>Response</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="err">        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
 </span><span class="err">        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">709596</span><span class="p">,</span><span class="w">
