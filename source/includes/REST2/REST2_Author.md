@@ -1,19 +1,19 @@
-# Introduction - Author Service
+# REST2 Author API
 
-# Get Authors By Search String
+## Get Authors By Search String
 
 
-## Description
+### Description
 
 This transaction allows a user to search for authors by a search 
 	 string. The results can be filtered by Author Id(s), Outlet Id(s), 
 	 and Outlet Name.
 
-## URL (GET)
+### URL (GET)
 
 http://webserver/api/Public/version/Author/format?SessionId=SessionId&Callback=Callback&Offset=Offset&Records=Records&SortBy=SortBy&SearchString=SearchString
 
-## Request Parameters
+### Request Parameters
 
 |    | Parameter                 | Type    | Description                                                                                                                                                                 | Comment                                                                                                           |
 |---:|:--------------------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------|
@@ -32,7 +32,7 @@ http://webserver/api/Public/version/Author/format?SessionId=SessionId&Callback=C
  indicates Required parameter.
 
 
-## Response Tags
+### Response Tags
 
 |    | Parameter            | Type    | Description                                                                          | Comment                                                                                                                        |
 |---:|:---------------------|:--------|:-------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
@@ -61,7 +61,7 @@ http://webserver/api/Public/version/Author/format?SessionId=SessionId&Callback=C
 | 23 | Subjects             | -       | Container  for one or more news subjects theauthor writes about.                     |                                                                                                                                |
 | 24 | Subject              | -       | Container  for subject details. Contains description, Id, name, and parent  Id.      | <Subject>\<Id>Integer\</Id>\<Name>String\</Name>\<ParentId>Integer\</ParentId>\<Description>String\</Description>\</Subject>   |
 
-## XML Payload
+### XML Payload
 
 
 ```xml
@@ -82,7 +82,7 @@ http://webserver/api/Public/version/Author/format?SessionId=SessionId&Callback=C
 ```
 
 
-##  
+###  
 
 http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&records=2&sessionId=YourSessionId
 
@@ -130,11 +130,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&searchstring=m
 
  
 
-## URL (GET)
+### URL (GET)
 
 http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&records=2&sessionId=YourSessionId
 
-## Response
+### Response
 
 
 ```xml
@@ -159,11 +159,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&records
 ```
 
 
-## URL (GET)
+### URL (GET)
 
 http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&searchstring=moss&sessionId=YourSessionId
 
-## Response
+### Response
 
 
 ```json
@@ -186,18 +186,18 @@ http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&searchstring=m
 ```
 
  
-# Get Author By Id
+## Get Author By Id
 
 
-## Description
+### Description
 
 This transaction retrieves information about an author by Author Id.
 
-## URL (GET)
+### URL (GET)
 
 http://webserver/api/Public/version/Author/id/format?SessionId=SessionId&Callback=Callback&Id=AuthorId
 
-## Request Parameters
+### Request Parameters
 
 |    | Parameter                 | Type    | Description                                                                                                                                                                   | Comment                                                              |
 |---:|:--------------------------|:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
@@ -212,7 +212,7 @@ http://webserver/api/Public/version/Author/id/format?SessionId=SessionId&Callbac
 |  3 | Callback                  | String  | JSONP callback function name for cross-domain content requests.                                                                                                               | This parameter is applicable when the data is in JSON format only.   |
 |  4 | Id*                       | Integer | The unique identifier for the author.                                                                                                                                         |                                                                      |
 
-## Response Tags
+### Response Tags
 
 |    | Parameter          | Type   | Description                       | Comment   |
 |---:|:-------------------|:-------|:----------------------------------|:----------|
@@ -223,7 +223,7 @@ http://webserver/api/Public/version/Author/id/format?SessionId=SessionId&Callbac
 |  1 | AuthorByIdResponse | -      | The top-level response container. |           |
 |  2 | Authors            | -      |                                   |           |
 
-## XML Payload
+### XML Payload
 
 
 ```xml
@@ -484,7 +484,7 @@ http://webserver/api/Public/version/Author/id/format?SessionId=SessionId&Callbac
 ```
 
 
-##  
+###  
 
 http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&sessionId=YourSessionId
 
@@ -669,11 +669,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Author/id/json?id=1089207&sessionId=
 
  
 
-## URL (GET)
+### URL (GET)
 
 http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&sessionId=YourSessionId
 
-## Response
+### Response
 
 
 ```xml
@@ -766,11 +766,11 @@ http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&sessionId=Y
 ```
 
 
-## URL (GET)
+### URL (GET)
 
 http://api.beta.dowjones.com/api/Public/2.0/Author/id/json?id=1089207&sessionId=YourSessionId
 
-## Response
+### Response
 
 
 ```json
