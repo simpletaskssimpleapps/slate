@@ -13,7 +13,7 @@ toc_footers:
   - <a href='https://developer.dowjones.com/site/global/develop/introduction/index.gsp'>Documentation Powered by Dow Jones DNA</a>
 
 includes:
-- REST2_API.md
+- REST2_API
 #  - errors
 
 search: true
