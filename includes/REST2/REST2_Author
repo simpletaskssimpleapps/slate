@@ -1,10 +1,10 @@
-<h1 id='introduction-author-service'>Introduction - Author Service</h1><h1 id='get-authors-by-search-string'>Get Authors By Search String</h1><h2 id='description'>Description</h2>
+<h1 id='rest2-author-api'>REST2 Author API</h1><h2 id='get-authors-by-search-string'>Get Authors By Search String</h2><h3 id='description'>Description</h3>
 <p>This transaction allows a user to search for authors by a search 
      string. The results can be filtered by Author Id(s), Outlet Id(s), 
      and Outlet Name.</p>
-<h2 id='url-get'>URL (GET)</h2>
+<h3 id='url-get'>URL (GET)</h3>
 <p>http://webserver/api/Public/version/Author/format?SessionId=SessionId&amp;Callback=Callback&amp;Offset=Offset&amp;Records=Records&amp;SortBy=SortBy&amp;SearchString=SearchString</p>
-<h2 id='request-parameters'>Request Parameters</h2>
+<h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -97,7 +97,7 @@
 <li>
 indicates Required parameter.</li>
 </ul>
-<h2 id='response-tags'>Response Tags</h2>
+<h3 id='response-tags'>Response Tags</h3>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -276,7 +276,7 @@ indicates Required parameter.</li>
 <td style="text-align: left"><Subject>&lt;Id&gt;Integer&lt;/Id&gt;&lt;Name&gt;String&lt;/Name&gt;&lt;ParentId&gt;Integer&lt;/ParentId&gt;&lt;Description&gt;String&lt;/Description&gt;&lt;/Subject&gt;</td>
 </tr>
 </tbody></table>
-<h2 id='xml-payload'>XML Payload</h2><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
+<h3 id='xml-payload'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;&lt;/Offset&gt;</span>
       <span class="nt">&lt;Records&gt;&lt;/Records&gt;</span>
       <span class="nt">&lt;TotalRecords&gt;&lt;/TotalRecords&gt;</span>
@@ -290,7 +290,7 @@ indicates Required parameter.</li>
       <span class="nt">&lt;/Authors&gt;</span>
     <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
 
-</code></pre><h2 id='ab90d23f74'> </h2>
+</code></pre><h3 id='ab90d23f74'> </h3>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&amp;records=2&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;</span>2<span class="nt">&lt;/Offset&gt;</span>
@@ -330,9 +330,9 @@ indicates Required parameter.</li>
 
 </span></code></pre>
 <p> </p>
-<h2 id='url-get-2'>URL (GET)</h2>
+<h3 id='url-get-2'>URL (GET)</h3>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&amp;records=2&amp;sessionId=YourSessionId</p>
-<h2 id='response'>Response</h2><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
+<h3 id='response'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;</span>2<span class="nt">&lt;/Offset&gt;</span>
       <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
       <span class="nt">&lt;TotalRecords&gt;</span>166<span class="nt">&lt;/TotalRecords&gt;</span>
@@ -350,9 +350,9 @@ indicates Required parameter.</li>
       <span class="nt">&lt;/Authors&gt;</span>
     <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
 
-</code></pre><h2 id='url-get-3'>URL (GET)</h2>
+</code></pre><h3 id='url-get-3'>URL (GET)</h3>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&amp;searchstring=moss&amp;sessionId=YourSessionId</p>
-<h2 id='response-2'>Response</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h3 id='response-2'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -370,11 +370,11 @@ indicates Required parameter.</li>
 
 </span></code></pre>
 <p> </p>
-<h1 id='get-author-by-id'>Get Author By Id</h1><h2 id='description-2'>Description</h2>
+<h2 id='get-author-by-id'>Get Author By Id</h2><h3 id='description-2'>Description</h3>
 <p>This transaction retrieves information about an author by Author Id.</p>
-<h2 id='url-get-4'>URL (GET)</h2>
+<h3 id='url-get-4'>URL (GET)</h3>
 <p>http://webserver/api/Public/version/Author/id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AuthorId</p>
-<h2 id='request-parameters-2'>Request Parameters</h2>
+<h3 id='request-parameters-2'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -455,7 +455,7 @@ indicates Required parameter.</li>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h2 id='response-tags-2'>Response Tags</h2>
+<h3 id='response-tags-2'>Response Tags</h3>
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -508,7 +508,7 @@ indicates Required parameter.</li>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h2 id='xml-payload-2'>XML Payload</h2><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
+<h3 id='xml-payload-2'>XML Payload</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Authors&gt;</span>
     <span class="nt">&lt;Author&gt;</span>
       <span class="nt">&lt;FirstName&gt;&lt;/FirstName&gt;</span>
@@ -762,7 +762,7 @@ indicates Required parameter.</li>
   <span class="nt">&lt;/Authors&gt;</span>
 <span class="nt">&lt;/AuthorByIdResponse&gt;</span>
 
-</code></pre><h2 id='ab90d23f74-2'> </h2>
+</code></pre><h3 id='ab90d23f74-2'> </h3>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&amp;sessionId=YourSessionId</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Author&gt;</span>
@@ -939,9 +939,9 @@ indicates Required parameter.</li>
 
 </span></code></pre>
 <p> </p>
-<h2 id='url-get-5'>URL (GET)</h2>
+<h3 id='url-get-5'>URL (GET)</h3>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&amp;sessionId=YourSessionId</p>
-<h2 id='response-3'>Response</h2><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
+<h3 id='response-3'>Response</h3><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Author&gt;</span>
     <span class="nt">&lt;FirstName&gt;</span>Adam<span class="nt">&lt;/FirstName&gt;</span>
     <span class="nt">&lt;Id&gt;</span>709596<span class="nt">&lt;/Id&gt;</span>
@@ -1027,9 +1027,9 @@ indicates Required parameter.</li>
   <span class="nt">&lt;/Author&gt;</span>
 <span class="nt">&lt;/AuthorByIdResponse&gt;</span>
 
-</code></pre><h2 id='url-get-6'>URL (GET)</h2>
+</code></pre><h3 id='url-get-6'>URL (GET)</h3>
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/json?id=1089207&amp;sessionId=YourSessionId</p>
-<h2 id='response-4'>Response</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h3 id='response-4'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="err">        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
 </span><span class="err">        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">709596</span><span class="p">,</span><span class="w">
