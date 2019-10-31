@@ -1,5 +1,3 @@
-## REST 2 Web Services
-
 ### Alert API
 
 #### Create Alert

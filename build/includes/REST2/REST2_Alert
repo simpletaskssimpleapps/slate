@@ -1,0 +1,2446 @@
+<h3 id='alert-api'>Alert API</h3><h4 id='create-alert'>Create Alert</h4><h5 id='description'>Description</h5>
+<p>This transaction creates a news alert.</p>
+<h5 id='url-post'>URL (POST)</h5>
+<p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback</p>
+<h5 id='xml-payload'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertRequest&gt;</span>
+      <span class="nt">&lt;Alert&gt;</span>
+        <span class="nt">&lt;AlertName&gt;&lt;/AlertName&gt;</span>
+        <span class="nt">&lt;DeduplicationLevel&gt;&lt;/DeduplicationLevel&gt;</span>
+        <span class="nt">&lt;ProductType&gt;&lt;/ProductType&gt;</span>
+        <span class="nt">&lt;DeliveryOptions&gt;</span>
+          <span class="nt">&lt;Email&gt;&lt;/Email&gt;</span>
+          <span class="nt">&lt;TimeZone&gt;&lt;/TimeZone&gt;</span>
+          <span class="nt">&lt;MaximumNumberofHeadlinesPerDelivery&gt;&lt;/MaximumNumberofHeadlinesPerDelivery&gt;</span>
+          <span class="nt">&lt;LanguageCode&gt;&lt;/LanguageCode&gt;</span>
+          <span class="nt">&lt;EmailDeliveryContentTypes&gt;</span>
+            <span class="nt">&lt;EmailDeliveryContentType&gt;&lt;/EmailDeliveryContentType&gt;</span>
+            <span class="nt">&lt;EmailDeliveryContentType&gt;&lt;/EmailDeliveryContentType&gt;</span>
+          <span class="nt">&lt;/EmailDeliveryContentTypes&gt;</span>
+          <span class="nt">&lt;DeliveryMethod&gt;&lt;/DeliveryMethod&gt;</span>
+          <span class="nt">&lt;DeliveryTimes&gt;&lt;/DeliveryTimes&gt;</span>
+          <span class="nt">&lt;DocumentType&gt;&lt;/DocumentType&gt;</span>
+          <span class="nt">&lt;SortBy&gt;&lt;/SortBy&gt;</span>
+          <span class="nt">&lt;ResultDisplayFormat&gt;&lt;/ResultDisplayFormat&gt;</span>
+        <span class="nt">&lt;/DeliveryOptions&gt;</span>
+        <span class="nt">&lt;Contact&gt;&lt;/Contact&gt;</span>
+        <span class="nt">&lt;AlertQuery&gt;</span>
+          <span class="nt">&lt;Queries&gt;</span>
+            <span class="nt">&lt;Query&gt;</span>
+              <span class="nt">&lt;QueryString&gt;&lt;/QueryString&gt;</span>
+              <span class="nt">&lt;SearchMode&gt;&lt;/SearchMode&gt;</span>
+              <span class="nt">&lt;Scope&gt;&lt;/Scope&gt;</span>
+            <span class="nt">&lt;/Query&gt;</span>
+            <span class="nt">&lt;Query&gt;</span>
+              <span class="nt">&lt;QueryString&gt;&lt;/QueryString&gt;</span>
+              <span class="nt">&lt;SearchMode&gt;&lt;/SearchMode&gt;</span>
+              <span class="nt">&lt;Scope&gt;&lt;/Scope&gt;</span>
+            <span class="nt">&lt;/Query&gt;</span>
+          <span class="nt">&lt;/Queries&gt;</span>
+          <span class="nt">&lt;SourceGenres&gt;</span>
+            <span class="nt">&lt;SourceGenre&gt;&lt;/SourceGenre&gt;</span>
+            <span class="nt">&lt;SourceGenre&gt;&lt;/SourceGenre&gt;</span>
+          <span class="nt">&lt;/SourceGenres&gt;</span>
+        <span class="nt">&lt;/AlertQuery&gt;</span>
+      <span class="nt">&lt;/Alert&gt;</span>
+    <span class="nt">&lt;/CreateAlertRequest&gt;</span>
+
+</code></pre><h5 id='request-parameters'>Request Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML  and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the SessionId received when the current session was created or the Encrypted Tokenfor the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">CreateAlertRequest*</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for create alert request payload.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">Alert*</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alert details.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">AlertName*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The name for the alert to create.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">7</td>
+<td style="text-align: left">DeduplicationLevel</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The description of the source list.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">8</td>
+<td style="text-align: left">ProductType</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">The type of product the alert is about.</td>
+<td style="text-align: left">Valid values:<li>WealthManagementAlerts<li>InvestmentBankingAlerts<li>WealthManagementTriggers<li>InvestmentBankingTriggers<li>Global<li>WsjProfessional<li>DirectToClient<li>IFF<li>IWE<li>Note: Multiple values can be provided.Separate values using pipe (</td>
+</tr>
+<tr>
+<td style="text-align: right">9</td>
+<td style="text-align: left">DeliveryOptions</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alert&#39;s delivery options.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">10</td>
+<td style="text-align: left">Email</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The email address to which the alert must  be delivered.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">11</td>
+<td style="text-align: left">TimeZone</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The time zone in which the alert is delivered.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">12</td>
+<td style="text-align: left">MaximumNumberofHeadlinesPerDelivery</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The maximum number of headlines per alert.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">13</td>
+<td style="text-align: left">LanguageCode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The code representing the language of  the alert contents.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">14</td>
+<td style="text-align: left">EmailDeliveryContentTypes</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more content types  delivered in Email.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">15</td>
+<td style="text-align: left">EmailDeliveryContentType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of content delivered in the Email.</td>
+<td style="text-align: left">Valid values:<li>Publications<li>NewsSites<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">16</td>
+<td style="text-align: left">DeliveryMethod</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The method in which the alert is delivered.</td>
+<td style="text-align: left">Valid values:<li>Batch      Notifies the user of news pertaining to their interests     and holdings through Email at a specific time of day.   The time period is defined in the DeliveryTimes     parameter.<li>Continuous.   Notifies the user of news pertaining to their interests     and holdings 24 hours/day, 7 days/week. The user receives   the news as soon as it becomes available.<li>Online<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">17</td>
+<td style="text-align: left">DeliveryTimes</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates the time at which the alert  is delivered.</td>
+<td style="text-align: left">Note:  This parameter is applicable only when DeliveryMethod=Batch.<li>Valid values:<li>EarlyMorning<li>Morning<li>Afternoon<li>Both (Morning   and Afternoon)<li>Continuous<li>None<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">18</td>
+<td style="text-align: left">DocumentType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of document delivered in the  alert.</td>
+<td style="text-align: left">Valid values:<li>SNIP   - Article snippet<li>FULL   - Full article<li>FULR      - Full article and      indexing<li>HDLN    - Headline<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">19</td>
+<td style="text-align: left">SortBy</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The parameter by which the results must be sorted.</td>
+<td style="text-align: left">Valid values:<li>Date<li>Relevance<li>ClipTime<li>EventType<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">20</td>
+<td style="text-align: left">ResultDisplayFormat</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the alert is delivered.</td>
+<td style="text-align: left">Valid values:<li>PlainText<li>PlainTextAttachment<li>HTML<li>HTMLAttachment<li>Mobile<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">21</td>
+<td style="text-align: left">Contact</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The contact person for the alert.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">22</td>
+<td style="text-align: left">AlertQuery</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more query components  that determine the alert contents.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">23</td>
+<td style="text-align: left">Queries</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more queries.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">24</td>
+<td style="text-align: left">Query</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for a query.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">25</td>
+<td style="text-align: left">QueryString</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The query string that is used to search  the news for alert contents.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">26</td>
+<td style="text-align: left">SearchMode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates how the search query will be  interpreted.</td>
+<td style="text-align: left">Valid values:<li>Simple     Search<li>Traditional   Search<li>Note:  Click a search mode for details on how to construct the querystring.<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">27</td>
+<td style="text-align: left">Scope</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The scope of the query.</td>
+<td style="text-align: left">Valid values:<li>About<li>Occur<li>None<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">28</td>
+<td style="text-align: left">SourceGenres</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for source genres to search.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">29</td>
+<td style="text-align: left">SourceGenre</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Represents the content group to search.</td>
+<td style="text-align: left">Possible values:<li>Publications<li>NewsSites<li>Blogs<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+</tbody></table>
+<h5 id='response-tags'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">CreateAlertResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">AlertId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The Alert Id for the newly created alert.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='xml-payload-2'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
+      <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
+    <span class="nt">&lt;/CreateAlertResponse&gt;</span>
+
+</code></pre>
+<p> </p>
+<h5 id='url-post-2'>URL (POST)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId</p>
+<h5 id='request'>Request</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertRequest&gt;</span>
+      <span class="nt">&lt;Alert&gt;</span>
+        <span class="nt">&lt;AlertName&gt;</span>createAlert_test12<span class="nt">&lt;/AlertName&gt;</span>
+        <span class="nt">&lt;DeduplicationLevel&gt;</span>Off<span class="nt">&lt;/DeduplicationLevel&gt;</span>
+        <span class="nt">&lt;ProductType&gt;</span>Global<span class="nt">&lt;/ProductType&gt;</span>
+        <span class="nt">&lt;DeliveryOptions&gt;</span>
+          <span class="nt">&lt;Email&gt;</span>dowjonesinc@gmail.com<span class="nt">&lt;/Email&gt;</span>
+          <span class="nt">&lt;TimeZone&gt;</span>+4:30<span class="nt">&lt;/TimeZone&gt;</span>
+          <span class="nt">&lt;MaximumNumberofHeadlinesPerDelivery&gt;</span>10<span class="nt">&lt;/MaximumNumberofHeadlinesPerDelivery&gt;</span>
+          <span class="nt">&lt;LanguageCode&gt;</span>en<span class="nt">&lt;/LanguageCode&gt;</span>
+          <span class="nt">&lt;EmailDeliveryContentTypes&gt;</span>
+            <span class="nt">&lt;EmailDeliveryContentType&gt;</span>
+            publication<span class="nt">&lt;/EmailDeliveryContentType&gt;</span>
+          <span class="nt">&lt;/EmailDeliveryContentTypes&gt;</span>
+          <span class="nt">&lt;DeliveryMethod&gt;</span>Batch<span class="nt">&lt;/DeliveryMethod&gt;</span>
+          <span class="nt">&lt;DeliveryTimes&gt;</span>Afternoon<span class="nt">&lt;/DeliveryTimes&gt;</span>
+          <span class="nt">&lt;DocumentType&gt;</span>FULL<span class="nt">&lt;/DocumentType&gt;</span>
+          <span class="nt">&lt;SortBy&gt;</span>Date<span class="nt">&lt;/SortBy&gt;</span>
+          <span class="nt">&lt;ResultDisplayFormat&gt;</span>Plaintext<span class="nt">&lt;/ResultDisplayFormat&gt;</span>
+        <span class="nt">&lt;/DeliveryOptions&gt;</span>
+        <span class="nt">&lt;AlertQuery&gt;</span>
+          <span class="nt">&lt;Queries&gt;</span>
+            <span class="nt">&lt;Query&gt;</span>
+              <span class="nt">&lt;QueryString&gt;</span>a<span class="nt">&lt;/QueryString&gt;</span>
+              <span class="nt">&lt;SearchMode&gt;</span>simple<span class="nt">&lt;/SearchMode&gt;</span>
+            <span class="nt">&lt;/Query&gt;</span>
+          <span class="nt">&lt;/Queries&gt;</span>
+          <span class="nt">&lt;SourceGenres&gt;</span>
+            <span class="nt">&lt;SourceGenre&gt;</span>publications<span class="nt">&lt;/SourceGenre&gt;</span>
+          <span class="nt">&lt;/SourceGenres&gt;</span>
+        <span class="nt">&lt;/AlertQuery&gt;</span>
+      <span class="nt">&lt;/Alert&gt;</span>
+    <span class="nt">&lt;/CreateAlertRequest&gt;</span>
+
+</code></pre><h5 id='response'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
+          <span class="nt">&lt;AlertId&gt;</span>27845254<span class="nt">&lt;/AlertId&gt;</span>
+        <span class="nt">&lt;/CreateAlertResponse&gt;</span>
+
+</code></pre><h5 id='url-post-3'>URL (POST)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId</p>
+<h5 id='request-2'>Request</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Alert"</span><span class="p">:</span><span class="w">
+    </span><span class="err">    </span><span class="p">{</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="s2">"testing1219"</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"DeduplicationLevel"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+
+    </span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"user@domain.com"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"TimeZone"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"+4:30"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"MaximumNumberofHeadlinesPerDelivery"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"LanguageCode"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"EmailDeliveryContentTypes"</span><span class="p">:</span><span class="w"> 
+
+    </span><span class="err">            </span><span class="p">{</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"EmailDeliveryContentType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"publication"</span><span class="w">
+    </span><span class="err">            </span><span class="p">},</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Batch"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Afternoon"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"FULL"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"SortBy"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Date"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"ResultDisplayFormat"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Plaintext"</span><span class="w">
+    </span><span class="err">         </span><span class="p">},</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"AlertQuery"</span><span class="p">:</span><span class="w">
+    </span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"Queries"</span><span class="p">:</span><span class="w">
+    </span><span class="err">            </span><span class="p">[{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"QueryString"</span><span class="p">:</span><span class="s2">"fds=APPLC 
+     and Watch"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"SearchMode"</span><span class="p">:</span><span class="s2">"simple"</span><span class="w">
+    </span><span class="err">            </span><span class="p">}],</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"SourceGenres"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w"> </span><span class="s2">"SourceGenre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"publications"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="err">        </span><span class="p">},</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"ProductType"</span><span class="w"> 
+     </span><span class="p">:</span><span class="w"> </span><span class="s2">"Global"</span><span class="w">
+    </span><span class="err">    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre><h5 id='response-2'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+         </span><span class="err">   </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="mi">301672344</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h4 id='update-alert'>Update Alert</h4><h5 id='description-2'>Description</h5>
+<p>This transaction updates a news alert.</p>
+<h5 id='url-put'>URL (PUT)</h5>
+<p>http://webserver/api/Public/version/Alert/format?SessionId=SessionId&amp;Callback=Callback</p>
+<h5 id='xml-payload-3'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertRequest&gt;</span>
+      <span class="nt">&lt;Alert&gt;</span>
+        <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
+        <span class="nt">&lt;AlertName&gt;&lt;/AlertName&gt;</span>
+        <span class="nt">&lt;DeduplicationLevel&gt;&lt;/DeduplicationLevel&gt;</span>
+        <span class="nt">&lt;ProductType&gt;&lt;/ProductType&gt;</span>
+        <span class="nt">&lt;DeliveryOptions&gt;</span>
+          <span class="nt">&lt;Email&gt;&lt;/Email&gt;</span>
+          <span class="nt">&lt;TimeZone&gt;&lt;/TimeZone&gt;</span>
+          <span class="nt">&lt;MaximumNumberofHeadlinesPerDelivery&gt;&lt;/MaximumNumberofHeadlinesPerDelivery&gt;</span>
+          <span class="nt">&lt;LanguageCode&gt;&lt;/LanguageCode&gt;</span>
+          <span class="nt">&lt;EmailDeliveryContentTypes&gt;</span>
+            <span class="nt">&lt;EmailDeliveryContentType&gt;&lt;/EmailDeliveryContentType&gt;</span>
+            <span class="nt">&lt;EmailDeliveryContentType&gt;&lt;/EmailDeliveryContentType&gt;</span>
+          <span class="nt">&lt;/EmailDeliveryContentTypes&gt;</span>
+          <span class="nt">&lt;DeliveryMethod&gt;&lt;/DeliveryMethod&gt;</span>
+          <span class="nt">&lt;DeliveryTimes&gt;&lt;/DeliveryTimes&gt;</span>
+          <span class="nt">&lt;DocumentType&gt;&lt;/DocumentType&gt;</span>
+          <span class="nt">&lt;SortBy&gt;&lt;/SortBy&gt;</span>
+          <span class="nt">&lt;ResultDisplayFormat&gt;&lt;/ResultDisplayFormat&gt;</span>
+        <span class="nt">&lt;/DeliveryOptions&gt;</span>
+        <span class="nt">&lt;Contact&gt;&lt;/Contact&gt;</span>
+        <span class="nt">&lt;AlertQuery&gt;</span>
+          <span class="nt">&lt;Queries&gt;</span>
+            <span class="nt">&lt;Query&gt;</span>
+              <span class="nt">&lt;QueryString&gt;&lt;/QueryString&gt;</span>
+              <span class="nt">&lt;SearchMode&gt;&lt;/SearchMode&gt;</span>
+              <span class="nt">&lt;Scope&gt;&lt;/Scope&gt;</span>
+            <span class="nt">&lt;/Query&gt;</span>
+            <span class="nt">&lt;Query&gt;</span>
+              <span class="nt">&lt;QueryString&gt;&lt;/QueryString&gt;</span>
+              <span class="nt">&lt;SearchMode&gt;&lt;/SearchMode&gt;</span>
+              <span class="nt">&lt;Scope&gt;&lt;/Scope&gt;</span>
+            <span class="nt">&lt;/Query&gt;</span>
+          <span class="nt">&lt;/Queries&gt;</span>
+          <span class="nt">&lt;SourceGenres&gt;</span>
+            <span class="nt">&lt;SourceGenre&gt;&lt;/SourceGenre&gt;</span>
+            <span class="nt">&lt;SourceGenre&gt;&lt;/SourceGenre&gt;</span>
+          <span class="nt">&lt;/SourceGenres&gt;</span>
+        <span class="nt">&lt;/AlertQuery&gt;</span>
+      <span class="nt">&lt;/Alert&gt;</span>
+    <span class="nt">&lt;/UpdateAlertRequest&gt;</span>
+
+</code></pre><h5 id='request-parameters-2'>Request Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML  and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the SessionId received when the current session was created or the Encrypted Tokenfor the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">UpdateAlertRequest*</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for create alert request payload.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">Alert*</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alert details.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">AlertId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">7</td>
+<td style="text-align: left">AlertName*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The name for the alert to create.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">8</td>
+<td style="text-align: left">DeduplicationLevel</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The description of the source list.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">9</td>
+<td style="text-align: left">ProductType</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">The type of product the alert is about.</td>
+<td style="text-align: left">Valid values:<li>WealthManagementAlerts<li>InvestmentBankingAlerts<li>WealthManagementTriggers<li>InvestmentBankingTriggers<li>Global<li>WsjProfessional<li>DirectToClient<li>IFF<li>IWE<li>Note: Multiple values can be provided.Separate values using pipe (</td>
+</tr>
+<tr>
+<td style="text-align: right">10</td>
+<td style="text-align: left">DeliveryOptions</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alert&#39;s delivery options.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">11</td>
+<td style="text-align: left">Email</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The email address to which the alert must  be delivered.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">12</td>
+<td style="text-align: left">TimeZone</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The time zone in which the alert is delivered.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">13</td>
+<td style="text-align: left">MaximumNumberofHeadlinesPerDelivery</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The maximum number of headlines per alert.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">14</td>
+<td style="text-align: left">LanguageCode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The code representing the language of  the alert contents.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">15</td>
+<td style="text-align: left">EmailDeliveryContentTypes</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more content types  delivered in Email.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">16</td>
+<td style="text-align: left">EmailDeliveryContentType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of content delivered in the Email.</td>
+<td style="text-align: left">Valid values:<li>Publications<li>NewsSites<li>Blogs<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">17</td>
+<td style="text-align: left">DeliveryMethod</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The method in which the alert is delivered.</td>
+<td style="text-align: left">Valid values:<li>Batch      Notifies the user of news pertaining to their interests     and holdings through Email at a specific time of day.   The time period is defined in the DeliveryTimes     parameter.<li>Continuous.   Notifies the user of news pertaining to their interests     and holdings 24 hours/day, 7 days/week. The user receives   the news as soon as it becomes available.<li>Online<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">18</td>
+<td style="text-align: left">DeliveryTimes</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates the time at which the alert  is delivered.</td>
+<td style="text-align: left">Note:  This parameter is applicable only when DeliveryMethod=Batch.<li>Valid values:<li>EarlyMorning<li>Morning<li>Afternoon<li>Both (Morning   and Afternoon)<li>Continuous<li>None<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">19</td>
+<td style="text-align: left">DocumentType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of document delivered in the  alert.</td>
+<td style="text-align: left">Valid values:<li>SNIP   - Article snippet<li>FULL   - Full article<li>FULR      - Full article and      indexing<li>HDLN    - Headline<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">20</td>
+<td style="text-align: left">SortBy</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The parameter by which the results must be sorted.</td>
+<td style="text-align: left">Valid values:<li>Date<li>Relevance<li>ClipTime<li>EventType<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">21</td>
+<td style="text-align: left">ResultDisplayFormat</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the alert is delivered.</td>
+<td style="text-align: left">Valid values:<li>PlainText<li>PlainTextAttachment<li>HTML<li>HTMLAttachment<li>Mobile<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">22</td>
+<td style="text-align: left">Contact</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The contact person for the alert.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">23</td>
+<td style="text-align: left">AlertQuery</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more query components  that determine the alert contents.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">24</td>
+<td style="text-align: left">Queries</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more queries.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">25</td>
+<td style="text-align: left">Query</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for a query.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">26</td>
+<td style="text-align: left">QueryString</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The query string that is used to search  the news for alert contents.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">27</td>
+<td style="text-align: left">SearchMode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates how the search query will be  interpreted.</td>
+<td style="text-align: left">Valid values:<li>Simple     Search<li>Traditional   Search<li>Note:  Click a search mode for details on how to construct the querystring.<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">28</td>
+<td style="text-align: left">Scope</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The scope of the query.</td>
+<td style="text-align: left">Valid values:<li>About<li>Occur<li>None<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">29</td>
+<td style="text-align: left">SourceGenres</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for source genres to search.</td>
+<td style="text-align: left"><strong>Thisis a payload parameter.</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">30</td>
+<td style="text-align: left">SourceGenre</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Represents the content group to search.</td>
+<td style="text-align: left">Possible values:<li>Publications<li>NewsSites<li>Blogs<li><strong>Thisis a payload parameter.</strong></td>
+</tr>
+</tbody></table>
+<h5 id='response-tags-2'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">UpdateAlertResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Message</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Message indicating the result of the requested operation.</td>
+<td style="text-align: left">Valid values are True (successful)and False (unsuccessful).</td>
+</tr>
+</tbody></table>
+<h5 id='xml-payload-4'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
+      <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
+    <span class="nt">&lt;/UpdateAlertResponse&gt;</span>
+
+</code></pre>
+<p> </p>
+<h5 id='url-put-2'>URL (PUT)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId</p>
+<h5 id='request-3'>Request</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertRequest&gt;</span>
+      <span class="nt">&lt;Alert&gt;</span>
+        <span class="nt">&lt;AlertId&gt;</span>300279626<span class="nt">&lt;/AlertId&gt;</span>
+        <span class="nt">&lt;AlertName&gt;</span>createAlert_101test<span class="nt">&lt;/AlertName&gt;</span>
+        <span class="nt">&lt;DeduplicationLevel&gt;</span>Off<span class="nt">&lt;/DeduplicationLevel&gt;</span>
+        <span class="nt">&lt;ProductType&gt;</span>Global<span class="nt">&lt;/ProductType&gt;</span>
+        <span class="nt">&lt;DeliveryOptions&gt;</span>
+          <span class="nt">&lt;Email&gt;</span>dowjonesinc@gmail.com<span class="nt">&lt;/Email&gt;</span>
+          <span class="nt">&lt;TimeZone&gt;</span>+4:30<span class="nt">&lt;/TimeZone&gt;</span>
+          <span class="nt">&lt;MaximumNumberofHeadlinesPerDelivery&gt;</span>10<span class="nt">&lt;/MaximumNumberofHeadlinesPerDelivery&gt;</span>
+          <span class="nt">&lt;LanguageCode&gt;</span>en<span class="nt">&lt;/LanguageCode&gt;</span>
+          <span class="nt">&lt;EmailDeliveryContentTypes&gt;</span>
+            <span class="nt">&lt;EmailDeliveryContentType&gt;</span>publication<span class="nt">&lt;/EmailDeliveryContentType&gt;</span>
+          <span class="nt">&lt;/EmailDeliveryContentTypes&gt;</span>
+          <span class="nt">&lt;DeliveryMethod&gt;</span>Batch<span class="nt">&lt;/DeliveryMethod&gt;</span>
+          <span class="nt">&lt;DeliveryTimes&gt;</span>Afternoon<span class="nt">&lt;/DeliveryTimes&gt;</span>
+          <span class="nt">&lt;DocumentType&gt;</span>FULL<span class="nt">&lt;/DocumentType&gt;</span>
+          <span class="nt">&lt;SortBy&gt;</span>Date<span class="nt">&lt;/SortBy&gt;</span>
+          <span class="nt">&lt;ResultDisplayFormat&gt;</span>Plaintext<span class="nt">&lt;/ResultDisplayFormat&gt;</span>
+        <span class="nt">&lt;/DeliveryOptions&gt;</span>
+        <span class="nt">&lt;AlertQuery&gt;</span>
+          <span class="nt">&lt;Queries&gt;</span>
+            <span class="nt">&lt;Query&gt;</span>
+              <span class="nt">&lt;QueryString&gt;</span>a<span class="nt">&lt;/QueryString&gt;</span>
+              <span class="nt">&lt;SearchMode&gt;</span>simple<span class="nt">&lt;/SearchMode&gt;</span>
+            <span class="nt">&lt;/Query&gt;</span>
+          <span class="nt">&lt;/Queries&gt;</span>
+          <span class="nt">&lt;SourceGenres&gt;</span>
+            <span class="nt">&lt;SourceGenre&gt;</span>publications<span class="nt">&lt;/SourceGenre&gt;</span>
+          <span class="nt">&lt;/SourceGenres&gt;</span>
+        <span class="nt">&lt;/AlertQuery&gt;</span>
+      <span class="nt">&lt;/Alert&gt;</span>
+    <span class="nt">&lt;/UpdateAlertRequest&gt;</span>
+
+</code></pre><h5 id='response-3'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
+          <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+        <span class="nt">&lt;/UpdateAlertResponse&gt;</span>
+
+</code></pre><h5 id='url-put-3'>URL (PUT)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId</p>
+<h5 id='request-4'>Request</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Alert"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"301669213"</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"test123"</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"DeduplicationLevel"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Global"</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"user@domain.com"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"TimeZone"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"+4:30"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"MaximumNumberofHeadlinesPerDelivery"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"LanguageCode"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"EmailDeliveryContentTypes"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"EmailDeliveryContentType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Publication"</span><span class="w">
+    </span><span class="err">            </span><span class="p">},</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Afternoon"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"FULL"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"SortBy"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Date"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"ResultDisplayFormat"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Plaintext"</span><span class="w">
+    </span><span class="err">        </span><span class="p">},</span><span class="w">
+    </span><span class="err">        </span><span class="s2">"AlertQuery"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"Queries"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">[</span><span class="w">
+    </span><span class="err">                </span><span class="p">{</span><span class="w">
+    </span><span class="err">                    </span><span class="s2">"QueryString"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"fds=APPLC or Watch"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                    </span><span class="s2">"SearchMode"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"traditional"</span><span class="w">
+    </span><span class="err">                </span><span class="p">}</span><span class="w">
+    </span><span class="err">            </span><span class="p">],</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"SourceGenres"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">[</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"Publications"</span><span class="w">
+    </span><span class="err">            </span><span class="p">]</span><span class="w">
+    </span><span class="err">        </span><span class="p">}</span><span class="w">
+    </span><span class="err">    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre><h5 id='response-4'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+         </span><span class="err">   Message</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h4 id='get-alerts-by-product-type'>Get Alerts by Product Type</h4><h5 id='description-3'>Description</h5>
+<p>This transaction retrieves alert information by Product Type.</p>
+<h5 id='url-get'>URL (GET)</h5>
+<p>http://webserver/api/Public/version/Alert/list/format?SessionId=SessionId&amp;Callback=Callback&amp;ProductType=ProductType&amp;Parts=Parts</p>
+<h5 id='request-parameters-3'>Request Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML  and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the SessionId received when the current session was created or the Encrypted Tokenfor the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">ProductType*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of product the alert is about.</td>
+<td style="text-align: left">Valid values:<li>Global<li>IFF<li>IWE<li>Note: Multiple values can be provided.Separate values using pipe (</td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">Parts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Parameter to request additional information  in the response.</td>
+<td style="text-align: left">Valid values:<li>RssUrl - Returns    a link to the alert&#39;s RSS feed.<li>GroupAlerts -    Returns subscribed and assigned group alerts<li>Subscribed - Returns    subscribed group alerts<li>Assigned - Returns   assigned group alerts<li>PersonalSubscribed - Returns   subscribed personal alerts<li>DeDuplicationLevel -      Returns duplicate alerts as specified in the DeDuplicationLevel     parameter.<li>By default no additional parts are returned.</td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">DeDuplicationLevel</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates how duplicate records must be  handled.<li>Note:  When the DeDuplicationLevel is Similar  or NearExact, the  request must use  the offset from the previous response for proper pagination.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left">Parameter</td>
+<td style="text-align: left">Type</td>
+<td style="text-align: left">Description</td>
+<td style="text-align: left">Comment</td>
+</tr>
+<tr>
+<td style="text-align: right">---:</td>
+<td style="text-align: left">:--------------------------</td>
+<td style="text-align: left">:-------</td>
+<td style="text-align: left">:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+<td style="text-align: left">:-------------------------------------------------------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML  and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the SessionId received when the current session was created or the Encrypted Tokenfor the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">ProductType*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of product the alert is about.</td>
+<td style="text-align: left">Valid values:<li>Global<li>IFF<li>IWE<li>Note: Multiple values can be provided.Separate values using pipe (</td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">Parts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Parameter to request additional information  in the response.</td>
+<td style="text-align: left">Valid values:<li>RssUrl - Returns    a link to the alert&#39;s RSS feed.<li>GroupAlerts -    Returns subscribed and assigned group alerts<li>Subscribed - Returns    subscribed group alerts<li>Assigned - Returns   assigned group alerts<li>PersonalSubscribed - Returns   subscribed personal alerts<li>DeDuplicationLevel -      Returns duplicate alerts as specified in the DeDuplicationLevel     parameter.<li>By default no additional parts are returned.</td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">DeDuplicationLevel</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates how duplicate records must be  handled.<li>Note:  When the DeDuplicationLevel is Similar  or NearExact, the  request must use  the offset from the previous response for proper pagination.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='response-tags-3'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">AlertResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Records</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The number of records returned in this response.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">TotalRecords</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The total number of records that matched the request.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">AlertDetails</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more alerts.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">AlertDetail</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alert details.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">AlertId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier for the alert.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">7</td>
+<td style="text-align: left">AlertName</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The name of the alert.</td>
+<td style="text-align: left">This parameter is case sensitive.</td>
+</tr>
+<tr>
+<td style="text-align: right">8</td>
+<td style="text-align: left">DeduplicationLevel</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Deduplication  applied to the alert contents.</td>
+<td style="text-align: left">Valid  values:<li>Off<li>Similar<li>VirtuallyIdentical</td>
+</tr>
+<tr>
+<td style="text-align: right">9</td>
+<td style="text-align: left">DeliveryOptions</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alert&#39;s delivery settings.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">10</td>
+<td style="text-align: left">Email</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The email address to which the alert is  delivered.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">11</td>
+<td style="text-align: left">LanguageCode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The code representing the language of  the alert contents.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">12</td>
+<td style="text-align: left">TimeZone</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The time zone in which the alert is delivered.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">13</td>
+<td style="text-align: left">DeliveryMethod</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The method in which the alert is delivered.</td>
+<td style="text-align: left">Valid values:<li>Batch    Notifies the user of news pertaining to their interests     and holdings through Email at a specific time of day.   The time period is defined in the DeliveryTimes     parameter.<li>Continuous.   Notifies the user of news pertaining to their interests     and holdings 24 hours/day, 7 days/week. The user receives   the news as soon as it becomes available.<li>Online</td>
+</tr>
+<tr>
+<td style="text-align: right">14</td>
+<td style="text-align: left">DeliveryTimes</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates the time at which the email  is delivered.</td>
+<td style="text-align: left">Note:  This parameter is applicable only when DeliveryMethod=Batch.<li>Valid values:<li>EarlyMorning<li>Morning<li>Afternoon<li>Both (Morning     and Afternoon)<li>Continuous<li>None</td>
+</tr>
+<tr>
+<td style="text-align: right">15</td>
+<td style="text-align: left">DocumentType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of document delivered in the  alert.</td>
+<td style="text-align: left">Valid values:<li>SNIP     - Article snippet<li>FULL   - Full article<li>FULR      - Full article and      indexing<li>HDLN    - Headline</td>
+</tr>
+<tr>
+<td style="text-align: right">16</td>
+<td style="text-align: left">EmailDeliveryContentTypes</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more content types  delivered in Email.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">17</td>
+<td style="text-align: left">EmailDeliveryContentType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of content delivered in the Email.</td>
+<td style="text-align: left">Valid values:<li>Publications<li>NewsSites</td>
+</tr>
+<tr>
+<td style="text-align: right">18</td>
+<td style="text-align: left">ResultDisplayFormat</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the alert is delivered.</td>
+<td style="text-align: left">Valid values:<li>PlainText<li>PlainTextAttachment<li>HTML<li>HTMLAttachment<li>Mobile</td>
+</tr>
+<tr>
+<td style="text-align: right">19</td>
+<td style="text-align: left">SortBy</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The parameter by which the results must be sorted.</td>
+<td style="text-align: left">Valid values:<li>Date<li>Relevance<li>ClipTime<li>EventType</td>
+</tr>
+<tr>
+<td style="text-align: right">20</td>
+<td style="text-align: left">IsGroupAlert</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">Indicates if this is a group alert.</td>
+<td style="text-align: left">Valid values are True and False.</td>
+</tr>
+<tr>
+<td style="text-align: right">21</td>
+<td style="text-align: left">OwnershipType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates the ownership of the alert.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">22</td>
+<td style="text-align: left">PrivateRSSLink/PublicRSSLink</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">A URL that links to the alert&#39;s RSS feed.<li>Note:  PrivateRSSLink is returned for personal alerts and PublicRSSLink  is returned for shared alerts.</td>
+<td style="text-align: left">Note:  This value is returned only if Parts=RssUrl in the request.</td>
+</tr>
+<tr>
+<td style="text-align: right">23</td>
+<td style="text-align: left">ProductType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of product the alert is about.</td>
+<td style="text-align: left">Valid values:<li>Global<li>IFF<li>IWE</td>
+</tr>
+<tr>
+<td style="text-align: right">24</td>
+<td style="text-align: left">NewHits</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">Indicates whether the alert contains new  headlines.</td>
+<td style="text-align: left">Valid values are True and False.</td>
+</tr>
+</tbody></table>
+<h5 id='xml-payload-5'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
+      <span class="nt">&lt;AlertDetails&gt;</span>
+        <span class="nt">&lt;AlertDetail&gt;</span>
+          <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
+          <span class="nt">&lt;AlertName&gt;&lt;/AlertName&gt;</span>
+          <span class="nt">&lt;DeliveryOptions&gt;</span>
+            <span class="nt">&lt;Email&gt;&lt;/Email&gt;</span>
+            <span class="nt">&lt;LanguageCode&gt;&lt;/LanguageCode&gt;</span>
+            <span class="nt">&lt;MaximumNumberofHeadlinesPerDelivery&gt;&lt;/MaximumNumberofHeadlinesPerDelivery&gt;</span>
+            <span class="nt">&lt;TimeZone&gt;&lt;/TimeZone&gt;</span>
+           <span class="nt">&lt;DeDuplicationLevel&gt;&lt;/DeduplicationLevel&gt;</span>
+            <span class="nt">&lt;DeliveryMethod&gt;&lt;/DeliveryMethod&gt;</span>
+            <span class="nt">&lt;DeliveryTimes&gt;&lt;/DeliveryTimes&gt;</span>
+            <span class="nt">&lt;DocumentType&gt;&lt;/DocumentType&gt;</span>
+            <span class="nt">&lt;EmailDeliveryContentTypes&gt;</span>
+              <span class="nt">&lt;EmailDeliveryContentType&gt;&lt;/EmailDeliveryContentType&gt;</span>
+              <span class="nt">&lt;EmailDeliveryContentType&gt;&lt;/EmailDeliveryContentType&gt;</span>
+            <span class="nt">&lt;/EmailDeliveryContentTypes&gt;</span>
+            <span class="nt">&lt;ResultDisplayFormat&gt;&lt;/ResultDisplayFormat&gt;</span>
+            <span class="nt">&lt;SortBy&gt;&lt;/SortBy&gt;</span>
+          <span class="nt">&lt;/DeliveryOptions&gt;</span>
+          <span class="nt">&lt;IsGroupAlert&gt;&lt;/IsGroupAlert&gt;</span>
+          <span class="nt">&lt;OwnershipType&gt;&lt;/OwnershipType&gt;</span>
+          <span class="nt">&lt;PrivateRSSLink&gt;&lt;/PrivateRSSLink&gt;</span>
+          <span class="nt">&lt;ProductType&gt;&lt;/ProductType&gt;</span>
+          <span class="nt">&lt;PublicRSSLink&gt;&lt;/PublicRSSLink&gt;</span>
+          <span class="nt">&lt;NewHits&gt;&lt;/NewHits&gt;</span>
+        <span class="nt">&lt;/AlertDetail&gt;</span>
+        ...
+      <span class="nt">&lt;/AlertDetails&gt;</span>
+    <span class="nt">&lt;/AlertResponse&gt;</span>
+
+</code></pre><h5 id='ab90d23f74'> </h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
+      <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
+      <span class="nt">&lt;TotalRecords&gt;</span>2<span class="nt">&lt;/TotalRecords&gt;</span>
+      <span class="nt">&lt;AlertDetails&gt;</span>
+        <span class="nt">&lt;AlertDetail&gt;</span>
+          <span class="nt">&lt;AlertId&gt;</span>300271887<span class="nt">&lt;/AlertId&gt;</span>
+          <span class="nt">&lt;AlertName&gt;</span>1719_test<span class="nt">&lt;/AlertName&gt;</span>
+          <span class="nt">&lt;DeliveryOptions&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>naresh@naresh1.com<span class="nt">&lt;/Email&gt;</span>
+            <span class="nt">&lt;DeliveryMethod&gt;</span>Online<span class="nt">&lt;/DeliveryMethod&gt;</span>
+            <span class="nt">&lt;DeliveryTimes&gt;</span>Morning<span class="nt">&lt;/DeliveryTimes&gt;</span>
+          <span class="nt">&lt;/DeliveryOptions&gt;</span>
+          <span class="nt">&lt;IsGroupAlert&gt;</span>false<span class="nt">&lt;/IsGroupAlert&gt;</span>
+          <span class="nt">&lt;OwnershipType&gt;</span>Personal<span class="nt">&lt;/OwnershipType&gt;</span>
+          <span class="nt">&lt;PrivateRSSLink&gt;</span>      http://rss.int.factiva.com/headlines.aspx?folderid=300271887<span class="ni">&amp;amp;</span>EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShQvtlkO57o8J8vKcrwg86DEVG1OmvAPNru1fn0MiaLZ6e4iECja37Tx2DBitb%2fR6DpQ8MObdP7syk6gYMMRFPsvjACWRo2ueYlS90Y3D86ypkS8Dgu6azTE2csb3StPQNTip6mFbVYDlWnV0GjHsJ1r7Fr57J4mi%2ffc430vb1PrdhZ47SNeTNbvobGCkM9Kxjp1h6CM9wNJUIYUCixG0UeA5ycME1r5kgM%3d%7c2<span class="nt">&lt;/PrivateRSSLink&gt;</span>
+          <span class="nt">&lt;ProductType&gt;</span>IFF<span class="nt">&lt;/ProductType&gt;</span>
+          <span class="nt">&lt;NewHits&gt;</span>true<span class="nt">&lt;/NewHits&gt;</span>
+        <span class="nt">&lt;/AlertDetail&gt;</span>
+        <span class="nt">&lt;AlertDetail&gt;</span>
+          <span class="nt">&lt;AlertId&gt;</span>300271343<span class="nt">&lt;/AlertId&gt;</span>
+          <span class="nt">&lt;AlertName&gt;</span>a_twst<span class="nt">&lt;/AlertName&gt;</span>
+          <span class="nt">&lt;DeliveryOptions&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>new1@new.com<span class="nt">&lt;/Email&gt;</span>
+            <span class="nt">&lt;TimeZone&gt;</span>-05:00|1<span class="nt">&lt;/TimeZone&gt;</span>
+            <span class="nt">&lt;DeliveryMethod&gt;</span>Batch<span class="nt">&lt;/DeliveryMethod&gt;</span>
+            <span class="nt">&lt;DeliveryTimes&gt;</span>Both<span class="nt">&lt;/DeliveryTimes&gt;</span>
+          <span class="nt">&lt;/DeliveryOptions&gt;</span>
+          <span class="nt">&lt;IsGroupAlert&gt;</span>false<span class="nt">&lt;/IsGroupAlert&gt;</span>
+          <span class="nt">&lt;OwnershipType&gt;</span>Personal<span class="nt">&lt;/OwnershipType&gt;</span>
+          <span class="nt">&lt;PrivateRSSLink&gt;</span>      http://rss.int.factiva.com/headlines.aspx?folderid=300271343<span class="ni">&amp;amp;</span>EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShRY7vfCUZ73JTYMBcpGF%2bm646zrokgh0V8j3fm2TlDpXGKypeaIDqIpvPKIAP7xRYVz9xaN3e376eZ%2b7w23yPzEVU2CzuMjoS7diKj7ei4ci8kcHU%2fJ%2b4FMz9CatOzhiv58HF9YJzZLL4X75l91eupTJ7Kv4GWmMkiBtD38mkAl3RQFAp2Xr9IApwK91CTE0XziX4vj3JW9ZojHPtphKZbO%7c2<span class="nt">&lt;/PrivateRSSLink&gt;</span>
+          <span class="nt">&lt;ProductType&gt;</span>IFF<span class="nt">&lt;/ProductType&gt;</span>
+          <span class="nt">&lt;NewHits&gt;</span>true<span class="nt">&lt;/NewHits&gt;</span>
+        <span class="nt">&lt;/AlertDetail&gt;</span>
+      <span class="nt">&lt;/AlertDetails&gt;</span>
+    <span class="nt">&lt;/AlertResponse&gt;</span>
+
+</code></pre>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/json?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"AlertDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+     </span><span class="mi">300271887</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"1719_test"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"naresh@naresh1.com"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Morning"</span><span class="w">
+    </span><span class="err">            </span><span class="p">},</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> 
+     </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300271887&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShQvtlkO57o8J8vKcrwg86DEVG1OmvAPNru1fn0MiaLZ6e4iECja37Tx2DBitb%2fR6DpQ8MObdP7syk6gYMMRFPsvjACWRo2ueYlS90Y3D86ypkS8Dgu6azTE2csb3StPQNTip6mFbVYDlWnV0GjHsJ1r7Fr57J4mi%2ffc430vb1PrdhZ47SNeTNbvobGCkM9Kxjp1h6CM9wNJUIYUCixG0UeA5ycME1r5kgM%3d%7c2"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"IFF"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"NewHits"</span><span class="p">:</span><span class="w"> 
+     </span><span class="kc">true</span><span class="w">
+    </span><span class="err">        </span><span class="p">},</span><span class="w">
+    </span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+     </span><span class="mi">300271343</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"a_twst"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"new1@new.com"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"TimeZone"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"-05:00|1"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Batch"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Both"</span><span class="w">
+    </span><span class="err">            </span><span class="p">},</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> 
+     </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300271343&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShRY7vfCUZ73JTYMBcpGF%2bm646zrokgh0V8j3fm2TlDpXGKypeaIDqIpvPKIAP7xRYVz9xaN3e376eZ%2b7w23yPzEVU2CzuMjoS7diKj7ei4ci8kcHU%2fJ%2b4FMz9CatOzhiv58HF9YJzZLL4X75l91eupTJ7Kv4GWmMkiBtD38mkAl3RQFAp2Xr9IApwK91CTE0XziX4vj3JW9ZojHPtphKZbO%7c2"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"IFF"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"NewHits"</span><span class="p">:</span><span class="w"> 
+     </span><span class="kc">true</span><span class="w">
+    </span><span class="err">        </span><span class="p">}</span><span class="w">
+    </span><span class="err">    </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h5 id='url-get-2'>URL (GET)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+<h5 id='response-5'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
+      <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
+      <span class="nt">&lt;TotalRecords&gt;</span>2<span class="nt">&lt;/TotalRecords&gt;</span>
+      <span class="nt">&lt;AlertDetails&gt;</span>
+        <span class="nt">&lt;AlertDetail&gt;</span>
+          <span class="nt">&lt;AlertId&gt;</span>300271887<span class="nt">&lt;/AlertId&gt;</span>
+          <span class="nt">&lt;AlertName&gt;</span>1719_test<span class="nt">&lt;/AlertName&gt;</span>
+          <span class="nt">&lt;DeliveryOptions&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>naresh@naresh1.com<span class="nt">&lt;/Email&gt;</span>
+            <span class="nt">&lt;DeliveryMethod&gt;</span>Online<span class="nt">&lt;/DeliveryMethod&gt;</span>
+            <span class="nt">&lt;DeliveryTimes&gt;</span>Morning<span class="nt">&lt;/DeliveryTimes&gt;</span>
+          <span class="nt">&lt;/DeliveryOptions&gt;</span>
+          <span class="nt">&lt;IsGroupAlert&gt;</span>false<span class="nt">&lt;/IsGroupAlert&gt;</span>
+          <span class="nt">&lt;OwnershipType&gt;</span>Personal<span class="nt">&lt;/OwnershipType&gt;</span>
+          <span class="nt">&lt;PrivateRSSLink&gt;</span>      http://rss.int.factiva.com/headlines.aspx?folderid=300271887<span class="ni">&amp;amp;</span>EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShQvtlkO57o8J8vKcrwg86DEVG1OmvAPNru1fn0MiaLZ6e4iECja37Tx2DBitb%2fR6DpQ8MObdP7syk6gYMMRFPsvjACWRo2ueYlS90Y3D86ypkS8Dgu6azTE2csb3StPQNTip6mFbVYDlWnV0GjHsJ1r7Fr57J4mi%2ffc430vb1PrdhZ47SNeTNbvobGCkM9Kxjp1h6CM9wNJUIYUCixG0UeA5ycME1r5kgM%3d%7c2<span class="nt">&lt;/PrivateRSSLink&gt;</span>
+          <span class="nt">&lt;ProductType&gt;</span>IFF<span class="nt">&lt;/ProductType&gt;</span>
+          <span class="nt">&lt;NewHits&gt;</span>true<span class="nt">&lt;/NewHits&gt;</span>
+        <span class="nt">&lt;/AlertDetail&gt;</span>
+        <span class="nt">&lt;AlertDetail&gt;</span>
+          <span class="nt">&lt;AlertId&gt;</span>300271343<span class="nt">&lt;/AlertId&gt;</span>
+          <span class="nt">&lt;AlertName&gt;</span>a_twst<span class="nt">&lt;/AlertName&gt;</span>
+          <span class="nt">&lt;DeliveryOptions&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>new1@new.com<span class="nt">&lt;/Email&gt;</span>
+            <span class="nt">&lt;TimeZone&gt;</span>-05:00|1<span class="nt">&lt;/TimeZone&gt;</span>
+            <span class="nt">&lt;DeliveryMethod&gt;</span>Batch<span class="nt">&lt;/DeliveryMethod&gt;</span>
+            <span class="nt">&lt;DeliveryTimes&gt;</span>Both<span class="nt">&lt;/DeliveryTimes&gt;</span>
+          <span class="nt">&lt;/DeliveryOptions&gt;</span>
+          <span class="nt">&lt;IsGroupAlert&gt;</span>false<span class="nt">&lt;/IsGroupAlert&gt;</span>
+          <span class="nt">&lt;OwnershipType&gt;</span>Personal<span class="nt">&lt;/OwnershipType&gt;</span>
+          <span class="nt">&lt;PrivateRSSLink&gt;</span>      http://rss.int.factiva.com/headlines.aspx?folderid=300271343<span class="ni">&amp;amp;</span>EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShRY7vfCUZ73JTYMBcpGF%2bm646zrokgh0V8j3fm2TlDpXGKypeaIDqIpvPKIAP7xRYVz9xaN3e376eZ%2b7w23yPzEVU2CzuMjoS7diKj7ei4ci8kcHU%2fJ%2b4FMz9CatOzhiv58HF9YJzZLL4X75l91eupTJ7Kv4GWmMkiBtD38mkAl3RQFAp2Xr9IApwK91CTE0XziX4vj3JW9ZojHPtphKZbO%7c2<span class="nt">&lt;/PrivateRSSLink&gt;</span>
+          <span class="nt">&lt;ProductType&gt;</span>IFF<span class="nt">&lt;/ProductType&gt;</span>
+          <span class="nt">&lt;NewHits&gt;</span>true<span class="nt">&lt;/NewHits&gt;</span>
+        <span class="nt">&lt;/AlertDetail&gt;</span>
+      <span class="nt">&lt;/AlertDetails&gt;</span>
+    <span class="nt">&lt;/AlertResponse&gt;</span>
+
+</code></pre><h5 id='url-get-3'>URL (GET)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/json?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+<h5 id='response-6'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"AlertDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+     </span><span class="mi">300271887</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"1719_test"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"naresh@naresh1.com"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Morning"</span><span class="w">
+    </span><span class="err">            </span><span class="p">},</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> 
+     </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300271887&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShQvtlkO57o8J8vKcrwg86DEVG1OmvAPNru1fn0MiaLZ6e4iECja37Tx2DBitb%2fR6DpQ8MObdP7syk6gYMMRFPsvjACWRo2ueYlS90Y3D86ypkS8Dgu6azTE2csb3StPQNTip6mFbVYDlWnV0GjHsJ1r7Fr57J4mi%2ffc430vb1PrdhZ47SNeTNbvobGCkM9Kxjp1h6CM9wNJUIYUCixG0UeA5ycME1r5kgM%3d%7c2"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"IFF"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"NewHits"</span><span class="p">:</span><span class="w"> 
+     </span><span class="kc">true</span><span class="w">
+    </span><span class="err">        </span><span class="p">},</span><span class="w">
+    </span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+     </span><span class="mi">300271343</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"a_twst"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"new1@new.com"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"TimeZone"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"-05:00|1"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Batch"</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Both"</span><span class="w">
+    </span><span class="err">            </span><span class="p">},</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> 
+     </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300271343&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShRY7vfCUZ73JTYMBcpGF%2bm646zrokgh0V8j3fm2TlDpXGKypeaIDqIpvPKIAP7xRYVz9xaN3e376eZ%2b7w23yPzEVU2CzuMjoS7diKj7ei4ci8kcHU%2fJ%2b4FMz9CatOzhiv58HF9YJzZLL4X75l91eupTJ7Kv4GWmMkiBtD38mkAl3RQFAp2Xr9IApwK91CTE0XziX4vj3JW9ZojHPtphKZbO%7c2"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">"IFF"</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">"NewHits"</span><span class="p">:</span><span class="w"> 
+     </span><span class="kc">true</span><span class="w">
+    </span><span class="err">        </span><span class="p">}</span><span class="w">
+    </span><span class="err">    </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h4 id='get-alert-by-id'>Get Alert by Id</h4><h5 id='description-4'>Description</h5>
+<p>This transaction retrieves alert details by Alert Id.</p>
+<h5 id='url-get-4'>URL (GET)</h5>
+<p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId&amp;Parts=Parts</p>
+<h5 id='request-parameters-4'>Request Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The identifier for the alert to retrieve.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">Parts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Parameter to request additional information in the response.</td>
+<td style="text-align: left">Valid values:<li>rssurl - Provides a link to the alert&#39;s RSS feed.<li>DeDuplicationLevel - Returns duplicate alerts as specified in the DeDuplicationLevel parameter.<li>By default no additional parts are returned.</td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">DeDuplicationLevel</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates how duplicate records must be handled.<li>Note: When the DeDuplicationLevel is Similar or NearExact, the request must use the offset from the previous response for proper pagination.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left">Parameter</td>
+<td style="text-align: left">Type</td>
+<td style="text-align: left">Description</td>
+<td style="text-align: left">Comment</td>
+</tr>
+<tr>
+<td style="text-align: right">---:</td>
+<td style="text-align: left">:--------------------------</td>
+<td style="text-align: left">:--------</td>
+<td style="text-align: left">:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+<td style="text-align: left">:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The identifier for the alert to retrieve.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">Parts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Parameter to request additional information in the response.</td>
+<td style="text-align: left">Valid values:<li>rssurl - Provides a link to the alert&#39;s RSS feed.<li>DeDuplicationLevel - Returns duplicate alerts as specified in the DeDuplicationLevel parameter.<li>By default no additional parts are returned.</td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">DeDuplicationLevel</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates how duplicate records must be handled.<li>Note: When the DeDuplicationLevel is Similar or NearExact, the request must use the offset from the previous response for proper pagination.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='response-tags-4'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">AlertByIdResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Alerts</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alerts.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Alert</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alert details.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">AlertId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier for the alert.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">5</td>
+<td style="text-align: left">AlertName</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The name of the alert.</td>
+<td style="text-align: left">This parameter is case sensitive.</td>
+</tr>
+<tr>
+<td style="text-align: right">6</td>
+<td style="text-align: left">DeduplicationLevel</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Deduplication applied to the alert contents.</td>
+<td style="text-align: left">Valid values:<li>Off<li>Similar<li>VirtuallyIdentical</td>
+</tr>
+<tr>
+<td style="text-align: right">7</td>
+<td style="text-align: left">DeliveryOptions</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for alert delivery settings.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">8</td>
+<td style="text-align: left">Email</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The email address to which the alert is delivered.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">9</td>
+<td style="text-align: left">LanguageCode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The code representing the language of the alert contents.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">10</td>
+<td style="text-align: left">MaximumNumberofHeadlinesPerDelivery</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The maximum number of headlines in each alert delivered.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">11</td>
+<td style="text-align: left">TimeZone</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The time zone in which the alert is delivered.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">12</td>
+<td style="text-align: left">DeliveryMethod</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The method in which the alert is delivered.</td>
+<td style="text-align: left">Valid values:<li>Batch<li>Continuous. Notifies the user of news pertaining to their interests and holdings 24 hours/day, 7 days/week. The user receives the news as soon as it becomes available.<li>Feed. Notifies the user of news pertaining to their interests and holdings at a specific time of day. The time period is defined by the DeliveryTimes parameter.<li>Online</td>
+</tr>
+<tr>
+<td style="text-align: right">13</td>
+<td style="text-align: left">DeliveryTimes</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates the time at which the email is delivered.</td>
+<td style="text-align: left">Note: This parameter is applicable only when DeliveryMethod=Feed.<li>Valid values:<li>None<li>Morning<li>Afternoon<li>Both<li>Continuous</td>
+</tr>
+<tr>
+<td style="text-align: right">14</td>
+<td style="text-align: left">DocumentType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of content delivered in the alert.</td>
+<td style="text-align: left">Valid values:<li>SNIP - Article snippet<li>FULL - Full article<li>FULR - Full article and indexing<li>HDLN - Headline</td>
+</tr>
+<tr>
+<td style="text-align: right">15</td>
+<td style="text-align: left">ResultDisplayFormat</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the alert is delivered.</td>
+<td style="text-align: left">Valid values:<li>PlainText<li>PlainTextAttachment<li>HTML<li>HTMLAttachment<li>Mobile</td>
+</tr>
+<tr>
+<td style="text-align: right">16</td>
+<td style="text-align: left">SortBy</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The parameter by which the results must be sorted.</td>
+<td style="text-align: left">Valid values:<li>Date<li>Relevance<li>ClipTime<li>EventType</td>
+</tr>
+<tr>
+<td style="text-align: right">17</td>
+<td style="text-align: left">IsGroupAlert</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">Indicates if this is a group alert.</td>
+<td style="text-align: left">Valid values are True and False.</td>
+</tr>
+<tr>
+<td style="text-align: right">18</td>
+<td style="text-align: left">PrivateRSSLink/PublicRSSLink</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">A URL that links to the alert&#39;s RSS feed.<li>Note: PrivateRSSLink is returned for personal alerts and PublicRSSLink is returned for shared alerts.</td>
+<td style="text-align: left">Note: This value is returned only if Parts=RssUrl in the request.</td>
+</tr>
+<tr>
+<td style="text-align: right">19</td>
+<td style="text-align: left">ProductType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The type of product the alert is about.</td>
+<td style="text-align: left">Valid values:<li>WealthManagementAlerts<li>InvestmentBankingAlerts<li>WealthManagementTriggers<li>InvestmentBankingTriggers<li>Global<li>WsjProfessional<li>DirectToClient<li>IFF<li>IWE</td>
+</tr>
+<tr>
+<td style="text-align: right">20</td>
+<td style="text-align: left">AlertQuery</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for components of query used to create the alert.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">21</td>
+<td style="text-align: left">Queries</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for one or more queries.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">22</td>
+<td style="text-align: left">Query</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for a query.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">23</td>
+<td style="text-align: left">QueryString</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The query string used to set up the alert.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">24</td>
+<td style="text-align: left">Scope</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The scope of the query.</td>
+<td style="text-align: left">Valid values:<li>About<li>Occur<li>None</td>
+</tr>
+<tr>
+<td style="text-align: right">25</td>
+<td style="text-align: left">SearchMode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Indicates how the search query was interpreted.</td>
+<td style="text-align: left">Valid values:<li>Traditional<li>Simple</td>
+</tr>
+<tr>
+<td style="text-align: right">26</td>
+<td style="text-align: left">SourceGenres</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">Container for source genres to search.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">27</td>
+<td style="text-align: left">SourceGenre</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Represents the content group to search.</td>
+<td style="text-align: left">Possible values:<li>Publications<li>NewsSites</td>
+</tr>
+<tr>
+<td style="text-align: right">28</td>
+<td style="text-align: left">Contact</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The contact person for the alert.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='xml-payload-6'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
+  <span class="nt">&lt;Alerts&gt;</span>
+    <span class="nt">&lt;Alert&gt;</span>
+      <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
+      <span class="nt">&lt;AlertName&gt;&lt;/AlertName&gt;</span>
+      <span class="nt">&lt;DeliveryOptions&gt;</span>
+        <span class="nt">&lt;Email&gt;&lt;/Email&gt;</span>
+        <span class="nt">&lt;LanguageCode&gt;&lt;/LanguageCode&gt;</span>
+        <span class="nt">&lt;MaximumNumberofHeadlinesPerDelivery&gt;&lt;/MaximumNumberofHeadlinesPerDelivery&gt;</span>
+        <span class="nt">&lt;TimeZone&gt;&lt;/TimeZone&gt;</span>
+       <span class="nt">&lt;DeDuplicationLevel&gt;&lt;/DeDuplicationlevel&gt;</span>
+        <span class="nt">&lt;DeliveryMethod&gt;&lt;/DeliveryMethod&gt;</span>
+        <span class="nt">&lt;DeliveryTimes&gt;&lt;/DeliveryTimes&gt;</span>
+        <span class="nt">&lt;DocumentType&gt;&lt;/DocumentType&gt;</span>
+        <span class="nt">&lt;EmailDeliveryContentTypes&gt;</span>
+          <span class="nt">&lt;EmailDeliveryContentType&gt;</span>String
+          content<span class="nt">&lt;/EmailDeliveryContentType&gt;</span>
+          <span class="nt">&lt;EmailDeliveryContentType&gt;</span>String
+          content<span class="nt">&lt;/EmailDeliveryContentType&gt;</span>
+        <span class="nt">&lt;/EmailDeliveryContentTypes&gt;</span>
+        <span class="nt">&lt;ResultDisplayFormat&gt;&lt;/ResultDisplayFormat&gt;</span>
+        <span class="nt">&lt;SortBy&gt;&lt;/SortBy&gt;</span>
+      <span class="nt">&lt;/DeliveryOptions&gt;</span>
+      <span class="nt">&lt;IsGroupAlert&gt;&lt;/IsGroupAlert&gt;</span>
+      <span class="nt">&lt;OwnershipType&gt;&lt;/OwnershipType&gt;</span>
+      <span class="nt">&lt;PrivateRSSLink&gt;&lt;/PrivateRSSLink&gt;</span>
+      <span class="nt">&lt;ProductType&gt;&lt;/ProductType&gt;</span>
+      <span class="nt">&lt;PublicRSSLink&gt;&lt;/PublicRSSLink&gt;</span>
+      <span class="nt">&lt;AlertQuery&gt;</span>
+        <span class="nt">&lt;Queries&gt;</span>
+          <span class="nt">&lt;Query&gt;</span>
+            <span class="nt">&lt;QueryString&gt;&lt;/QueryString&gt;</span>
+            <span class="nt">&lt;Scope&gt;&lt;/Scope&gt;</span>
+            <span class="nt">&lt;SearchMode&gt;&lt;/SearchMode&gt;</span>
+          <span class="nt">&lt;/Query&gt;</span>
+          ......
+        <span class="nt">&lt;/Queries&gt;</span>
+        <span class="nt">&lt;SourceGenres&gt;</span>
+          <span class="nt">&lt;SourceGenre&gt;&lt;/SourceGenre&gt;</span>
+          ......
+        <span class="nt">&lt;/SourceGenres&gt;</span>
+      <span class="nt">&lt;/AlertQuery&gt;</span>
+      <span class="nt">&lt;Contact&gt;&lt;/Contact&gt;</span>
+    <span class="nt">&lt;/Alert&gt;</span>
+  <span class="nt">&lt;/Alerts&gt;</span>
+<span class="nt">&lt;/AlertByIdResponse&gt;</span>
+
+</code></pre><h5 id='ab90d23f74-2'> </h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
+  <span class="nt">&lt;Alerts&gt;</span>
+    <span class="nt">&lt;Alert&gt;</span>
+      <span class="nt">&lt;AlertId&gt;</span>300272176<span class="nt">&lt;/AlertId&gt;</span>
+      <span class="nt">&lt;AlertName&gt;</span>TestAlert_10<span class="nt">&lt;/AlertName&gt;</span>
+      <span class="nt">&lt;DeliveryOptions&gt;</span>
+        <span class="nt">&lt;MaximumNumberofHeadlinesPerDelivery&gt;</span>10<span class="nt">&lt;/MaximumNumberofHeadlinesPerDelivery&gt;</span>
+        <span class="nt">&lt;DeliveryMethod&gt;</span>Online<span class="nt">&lt;/DeliveryMethod&gt;</span>
+        <span class="nt">&lt;DeliveryTimes&gt;</span>None<span class="nt">&lt;/DeliveryTimes&gt;</span>
+        <span class="nt">&lt;DocumentType&gt;</span>SNIP<span class="nt">&lt;/DocumentType&gt;</span>
+        <span class="nt">&lt;EmailDeliveryContentTypes&gt;</span>
+          <span class="nt">&lt;EmailDeliveryContentType&gt;</span>
+          publication<span class="nt">&lt;/EmailDeliveryContentType&gt;</span>
+        <span class="nt">&lt;/EmailDeliveryContentTypes&gt;</span>
+        <span class="nt">&lt;ResultDisplayFormat&gt;</span>HTML<span class="nt">&lt;/ResultDisplayFormat&gt;</span>
+        <span class="nt">&lt;SortBy&gt;</span>Date<span class="nt">&lt;/SortBy&gt;</span>
+      <span class="nt">&lt;/DeliveryOptions&gt;</span>
+      <span class="nt">&lt;IsGroupAlert&gt;</span>false<span class="nt">&lt;/IsGroupAlert&gt;</span>
+      <span class="nt">&lt;OwnershipType&gt;</span>Personal<span class="nt">&lt;/OwnershipType&gt;</span>
+      <span class="nt">&lt;PrivateRSSLink&gt;</span>http://rss.int.factiva.com/headlines.aspx?folderid=300272176<span class="ni">&amp;amp;</span>EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FdBObL1FYBTMwyfFdusyqpGQTuZvic5pr8C2%2bZ9jF%2faaEnlGhmAQpLrJRXGJ3ldjKpVGmNNgXZKqaQrzFINL2sEGe7SbQTj1mE67hOPnyWYhJcI1S%2fgT2puts%2fC85qm1uz5fljam8t3HoWwov6S5z1SbNOrNcPFyI0Tyjvs%2fXY7L%2bqvoGjoWJUpmsUXyoR5ldkhK8lRD24hFan32BwflSrDfUFW3d0tqbE1nIkLPfEKbMA%2finah5jc3AqZTlrwUl0%7c2<span class="nt">&lt;/PrivateRSSLink&gt;</span>
+      <span class="nt">&lt;ProductType&gt;</span>InvestmentBankingAlerts<span class="nt">&lt;/ProductType&gt;</span>
+      <span class="nt">&lt;AlertQuery&gt;</span>
+        <span class="nt">&lt;Queries&gt;</span>
+          <span class="nt">&lt;Query&gt;</span>
+            <span class="nt">&lt;QueryString&gt;</span>obama<span class="nt">&lt;/QueryString&gt;</span>
+            <span class="nt">&lt;SearchMode&gt;</span>Simple<span class="nt">&lt;/SearchMode&gt;</span>
+          <span class="nt">&lt;/Query&gt;</span>
+        <span class="nt">&lt;/Queries&gt;</span>
+        <span class="nt">&lt;SourceGenres&gt;</span>
+          <span class="nt">&lt;SourceGenre&gt;</span>Publications<span class="nt">&lt;/SourceGenre&gt;</span>
+          <span class="nt">&lt;SourceGenre&gt;</span>NewsSites<span class="nt">&lt;/SourceGenre&gt;</span>
+        <span class="nt">&lt;/SourceGenres&gt;</span>
+      <span class="nt">&lt;/AlertQuery&gt;</span>
+      <span class="nt">&lt;Contact&gt;</span>contactperson<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;/Alert&gt;</span>
+  <span class="nt">&lt;/Alerts&gt;</span>
+<span class="nt">&lt;/AlertByIdResponse&gt;</span>
+
+</code></pre>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/json?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">        </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> </span><span class="mi">300272176</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InfyTestAlert_10"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"MaximumNumberofHeadlinesPerDelivery"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNIP"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"EmailDeliveryContentTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"publication"</span><span class="w">
+</span><span class="err">                </span><span class="p">],</span><span class="w">
+</span><span class="err">                </span><span class="s2">"ResultDisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HTML"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"SortBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date"</span><span class="w">
+</span><span class="err">            </span><span class="p">},</span><span class="w">
+</span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300272176&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FdBObL1FYBTMwyfFdusyqpGQTuZvic5pr8C2%2bZ9jF%2faaEnlGhmAQpLrJRXGJ3ldjKpVGmNNgXZKqaQrzFINL2sEGe7SbQTj1mE67hOPnyWYhJcI1S%2fgT2puts%2fC85qm1uz5fljam8t3HoWwov6S5z1SbNOrNcPFyI0Tyjvs%2fXY7L%2bqvoGjoWJUpmsUXyoR5ldkhK8lRD24hFan32BwflSrDfUFW3d0tqbE1nIkLPfEKbMA%2finah5jc3AqZTlrwUl0%7c2"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvestmentBankingAlerts"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"AlertQuery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Queries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="p">{</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"QueryString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"obama"</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"SearchMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simple"</span><span class="w">
+</span><span class="err">                    </span><span class="p">}</span><span class="w">
+</span><span class="err">                </span><span class="p">],</span><span class="w">
+</span><span class="err">                </span><span class="s2">"SourceGenres"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"Publications"</span><span class="p">,</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"NewsSites"</span><span class="w">
+</span><span class="err">                </span><span class="p">]</span><span class="w">
+</span><span class="err">            </span><span class="p">},</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactperson"</span><span class="w">
+</span><span class="err">        </span><span class="p">}</span><span class="w">
+</span><span class="err">    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h5 id='url-get-5'>URL (GET)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+<h5 id='response-7'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
+  <span class="nt">&lt;Alerts&gt;</span>
+    <span class="nt">&lt;Alert&gt;</span>
+      <span class="nt">&lt;AlertId&gt;</span>300272176<span class="nt">&lt;/AlertId&gt;</span>
+      <span class="nt">&lt;AlertName&gt;</span>TestAlert_10<span class="nt">&lt;/AlertName&gt;</span>
+      <span class="nt">&lt;DeliveryOptions&gt;</span>
+        <span class="nt">&lt;MaximumNumberofHeadlinesPerDelivery&gt;</span>10<span class="nt">&lt;/MaximumNumberofHeadlinesPerDelivery&gt;</span>
+        <span class="nt">&lt;DeliveryMethod&gt;</span>Online<span class="nt">&lt;/DeliveryMethod&gt;</span>
+        <span class="nt">&lt;DeliveryTimes&gt;</span>None<span class="nt">&lt;/DeliveryTimes&gt;</span>
+        <span class="nt">&lt;DocumentType&gt;</span>SNIP<span class="nt">&lt;/DocumentType&gt;</span>
+        <span class="nt">&lt;EmailDeliveryContentTypes&gt;</span>
+          <span class="nt">&lt;EmailDeliveryContentType&gt;</span>
+          publication<span class="nt">&lt;/EmailDeliveryContentType&gt;</span>
+        <span class="nt">&lt;/EmailDeliveryContentTypes&gt;</span>
+        <span class="nt">&lt;ResultDisplayFormat&gt;</span>HTML<span class="nt">&lt;/ResultDisplayFormat&gt;</span>
+        <span class="nt">&lt;SortBy&gt;</span>Date<span class="nt">&lt;/SortBy&gt;</span>
+      <span class="nt">&lt;/DeliveryOptions&gt;</span>
+      <span class="nt">&lt;IsGroupAlert&gt;</span>false<span class="nt">&lt;/IsGroupAlert&gt;</span>
+      <span class="nt">&lt;OwnershipType&gt;</span>Personal<span class="nt">&lt;/OwnershipType&gt;</span>
+      <span class="nt">&lt;PrivateRSSLink&gt;</span>http://rss.int.factiva.com/headlines.aspx?folderid=300272176<span class="ni">&amp;amp;</span>EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FdBObL1FYBTMwyfFdusyqpGQTuZvic5pr8C2%2bZ9jF%2faaEnlGhmAQpLrJRXGJ3ldjKpVGmNNgXZKqaQrzFINL2sEGe7SbQTj1mE67hOPnyWYhJcI1S%2fgT2puts%2fC85qm1uz5fljam8t3HoWwov6S5z1SbNOrNcPFyI0Tyjvs%2fXY7L%2bqvoGjoWJUpmsUXyoR5ldkhK8lRD24hFan32BwflSrDfUFW3d0tqbE1nIkLPfEKbMA%2finah5jc3AqZTlrwUl0%7c2<span class="nt">&lt;/PrivateRSSLink&gt;</span>
+      <span class="nt">&lt;ProductType&gt;</span>InvestmentBankingAlerts<span class="nt">&lt;/ProductType&gt;</span>
+      <span class="nt">&lt;AlertQuery&gt;</span>
+        <span class="nt">&lt;Queries&gt;</span>
+          <span class="nt">&lt;Query&gt;</span>
+            <span class="nt">&lt;QueryString&gt;</span>obama<span class="nt">&lt;/QueryString&gt;</span>
+            <span class="nt">&lt;SearchMode&gt;</span>Simple<span class="nt">&lt;/SearchMode&gt;</span>
+          <span class="nt">&lt;/Query&gt;</span>
+        <span class="nt">&lt;/Queries&gt;</span>
+        <span class="nt">&lt;SourceGenres&gt;</span>
+          <span class="nt">&lt;SourceGenre&gt;</span>Publications<span class="nt">&lt;/SourceGenre&gt;</span>
+          <span class="nt">&lt;SourceGenre&gt;</span>NewsSites<span class="nt">&lt;/SourceGenre&gt;</span>
+        <span class="nt">&lt;/SourceGenres&gt;</span>
+      <span class="nt">&lt;/AlertQuery&gt;</span>
+      <span class="nt">&lt;Contact&gt;</span>contactperson<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;/Alert&gt;</span>
+  <span class="nt">&lt;/Alerts&gt;</span>
+<span class="nt">&lt;/AlertByIdResponse&gt;</span>
+
+</code></pre><h5 id='url-get-6'>URL (GET)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/json?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+<h5 id='response-8'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">        </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> </span><span class="mi">300272176</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InfyTestAlert_10"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"MaximumNumberofHeadlinesPerDelivery"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNIP"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"EmailDeliveryContentTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"publication"</span><span class="w">
+</span><span class="err">                </span><span class="p">],</span><span class="w">
+</span><span class="err">                </span><span class="s2">"ResultDisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HTML"</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">"SortBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date"</span><span class="w">
+</span><span class="err">            </span><span class="p">},</span><span class="w">
+</span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300272176&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FdBObL1FYBTMwyfFdusyqpGQTuZvic5pr8C2%2bZ9jF%2faaEnlGhmAQpLrJRXGJ3ldjKpVGmNNgXZKqaQrzFINL2sEGe7SbQTj1mE67hOPnyWYhJcI1S%2fgT2puts%2fC85qm1uz5fljam8t3HoWwov6S5z1SbNOrNcPFyI0Tyjvs%2fXY7L%2bqvoGjoWJUpmsUXyoR5ldkhK8lRD24hFan32BwflSrDfUFW3d0tqbE1nIkLPfEKbMA%2finah5jc3AqZTlrwUl0%7c2"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvestmentBankingAlerts"</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">"AlertQuery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">"Queries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="p">{</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"QueryString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"obama"</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">"SearchMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simple"</span><span class="w">
+</span><span class="err">                    </span><span class="p">}</span><span class="w">
+</span><span class="err">                </span><span class="p">],</span><span class="w">
+</span><span class="err">                </span><span class="s2">"SourceGenres"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"Publications"</span><span class="p">,</span><span class="w">
+</span><span class="err">                    </span><span class="s2">"NewsSites"</span><span class="w">
+</span><span class="err">                </span><span class="p">]</span><span class="w">
+</span><span class="err">            </span><span class="p">},</span><span class="w">
+</span><span class="err">            </span><span class="s2">"Contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactperson"</span><span class="w">
+</span><span class="err">        </span><span class="p">}</span><span class="w">
+</span><span class="err">    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h4 id='share-alert'>Share Alert</h4><h5 id='description-5'>Description</h5>
+<p>This transaction shares an alert by Alert Id. Shared alerts can be subscribed by other users.</p>
+<h5 id='url-put-4'>URL (PUT)</h5>
+<p>http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+<h5 id='request-parameters-5'>Request Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The identifier of the alert that must be made public.</td>
+<td style="text-align: left">This value can be obtained from Get Alerts by Product Type response.</td>
+</tr>
+</tbody></table>
+<h5 id='response-tags-5'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">ShareAlertResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Message</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Message indicating the result of the requested operation.</td>
+<td style="text-align: left">Valid values are True (successful) and False (unsuccessful).</td>
+</tr>
+</tbody></table>
+
+<p>Boldface indicates container element.</p>
+<h5 id='xml-payload-7'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
+<span class="nt">&lt;/ShareAlertResponse&gt;</span>
+
+</code></pre><h5 id='ab90d23f74-3'> </h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+<span class="nt">&lt;/ShareAlertResponse&gt;</span>
+
+</code></pre>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h5 id='url-put-5'>URL (PUT)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
+<h5 id='response-9'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+<span class="nt">&lt;/ShareAlertResponse&gt;</span>
+
+</code></pre><h5 id='url-put-6'>URL (PUT)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
+<h5 id='response-10'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h4 id='unshare-alert'>Unshare Alert</h4><h5 id='description-6'>Description</h5>
+<p>This transaction uhshares an alert by Alert Id. An unshared alert cannot be subscribed by other users.</p>
+<h5 id='url-delete'>URL (DELETE)</h5>
+<p>http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+<h5 id='request-parameters-6'>Request Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The identifier of the alert that must be made public.</td>
+<td style="text-align: left">This value can be obtained from Get Alerts by Product Type response.</td>
+</tr>
+</tbody></table>
+<h5 id='response-tags-6'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">UnShareAlertResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Message</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Message indicating the result of the requested operation.</td>
+<td style="text-align: left">Valid values are True (successful) and False (unsuccessful).</td>
+</tr>
+</tbody></table>
+
+<p> </p>
+<h5 id='xml-payload-8'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
+<span class="nt">&lt;/UnShareAlertResponse&gt;</span>
+
+</code></pre><h5 id='ab90d23f74-4'> </h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+<span class="nt">&lt;/UnShareAlertResponse&gt;</span>
+
+</code></pre>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h5 id='url-delete-2'>URL (DELETE)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
+<h5 id='response-11'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+<span class="nt">&lt;/UnShareAlertResponse&gt;</span>
+
+</code></pre><h5 id='url-delete-3'>URL (DELETE)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
+<h5 id='response-12'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h4 id='subscribe-alert-by-id'>Subscribe Alert by Id</h4><h5 id='description-7'>Description</h5>
+<p>This transaction allows the logged-in user to subscribe to an alert by Alert Id.</p>
+<h5 id='url-put-7'>URL (PUT)</h5>
+<p>http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+<h5 id='request-parameters-7'>Request Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier of the alert to subscribe.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left">Parameter</td>
+<td style="text-align: left">Type</td>
+<td style="text-align: left">Description</td>
+<td style="text-align: left">Comment</td>
+</tr>
+<tr>
+<td style="text-align: right">---:</td>
+<td style="text-align: left">:--------------------------</td>
+<td style="text-align: left">:--------</td>
+<td style="text-align: left">:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+<td style="text-align: left">:---------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier of the alert to subscribe.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='response-tags-7'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">SubscribeAlertResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">AlertId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The identifier of the alert subscribed.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='xml-payload-9'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SubscribeAlertResponse&gt;</span>
+  <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
+<span class="nt">&lt;/SubscribeAlertResponse&gt;</span>
+
+</code></pre>
+<p> </p>
+<h5 id='url-put-8'>URL (PUT)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&amp;sessionId=YourSessionId</p>
+<h5 id='response-13'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SubscribeAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+<span class="nt">&lt;/SubscribeAlertResponse&gt;</span>
+
+</code></pre><h5 id='url-put-9'>URL (PUT)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&amp;sessionId=YourSessionId</p>
+<h5 id='response-14'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h4 id='unsubscribe-alert-by-id'>Unsubscribe Alert by Id</h4><h5 id='description-8'>Description</h5>
+<p>This transaction allows the logged-in user to unsubscribe from an alert by Alert Id.</p>
+<h5 id='url-delete-4'>URL (DELETE)</h5>
+<p>http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+<h5 id='request-parameters-8'>Request Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedTokend*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier of the alert to unsubscribe.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left">Parameter</td>
+<td style="text-align: left">Type</td>
+<td style="text-align: left">Description</td>
+<td style="text-align: left">Comment</td>
+</tr>
+<tr>
+<td style="text-align: right">---:</td>
+<td style="text-align: left">:---------------------------</td>
+<td style="text-align: left">:--------</td>
+<td style="text-align: left">:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+<td style="text-align: left">:---------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedTokend*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the Session Id received when the current session was created or the Encrypted Token for the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">The unique identifier of the alert to unsubscribe.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='response-tags-8'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">UnSubscribeAlertResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Message</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Message indicating the result of the requested operation.</td>
+<td style="text-align: left">Valid values are True (successful) and False (unsuccessful).</td>
+</tr>
+</tbody></table>
+<h5 id='xml-payload-10'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnSubscribeAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
+<span class="nt">&lt;/UnSubscribeAlertResponse&gt;</span>
+
+</code></pre><h5 id='url-delete-5'>URL (DELETE)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&amp;sessionId=YourSessionId</p>
+<h5 id='response-15'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnSubscribeAlertResponse&gt;</span>
+  <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+<span class="nt">&lt;/UnSubscribeAlertResponse&gt;</span>
+
+</code></pre><h5 id='url-delete-6'>URL (DELETE)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&amp;sessionId=YourSessionId</p>
+<h5 id='response-16'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p> </p>
+<h4 id='delete-alert-by-id'>Delete Alert By Id</h4><h5 id='description-9'>Description</h5>
+<p>This transaction deletes an alert by Alert Id.</p>
+<h5 id='url-delete-7'>URL (DELETE)</h5>
+<p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+<h5 id='parameters'>Parameters</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML  and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the SessionId received when the current session was created or the Encrypted Tokenfor the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Long</td>
+<td style="text-align: left">The identifier of the alert to delete.</td>
+<td style="text-align: left">This value can be obtained from Get  Alerts by Product Type response.</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left">Parameter</td>
+<td style="text-align: left">Type</td>
+<td style="text-align: left">Description</td>
+<td style="text-align: left">Comment</td>
+</tr>
+<tr>
+<td style="text-align: right">---:</td>
+<td style="text-align: left">:--------------------------</td>
+<td style="text-align: left">:-------</td>
+<td style="text-align: left">:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+<td style="text-align: left">:----------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">Format*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The format in which the request and response data must be processed.</td>
+<td style="text-align: left">Valid formats are XML  and JSON.</td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">SessionId/EncryptedToken*</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Credential to identify the logged-in user. This can be either the SessionId received when the current session was created or the Encrypted Tokenfor the user&#39;s credentials.</td>
+<td style="text-align: left">This value can be provided in the Request Header or the Request URL.</td>
+</tr>
+<tr>
+<td style="text-align: right">3</td>
+<td style="text-align: left">Callback</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">JSONP callback function name for cross-domain content requests.</td>
+<td style="text-align: left">This parameter is applicable when the data is in JSON format only.</td>
+</tr>
+<tr>
+<td style="text-align: right">4</td>
+<td style="text-align: left">Id*</td>
+<td style="text-align: left">Long</td>
+<td style="text-align: left">The identifier of the alert to delete.</td>
+<td style="text-align: left">This value can be obtained from Get  Alerts by Product Type response.</td>
+</tr>
+</tbody></table>
+<h5 id='response-tags-9'>Response Tags</h5>
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">1</td>
+<td style="text-align: left">DeleteAlertResponse</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">The top-level response container.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">2</td>
+<td style="text-align: left">Message</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Message indicating the result of the requested operation.</td>
+<td style="text-align: left">Valid values are True (successful)and False (unsuccessful).</td>
+</tr>
+</tbody></table>
+<h5 id='xml-payload-11'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
+     <span class="nt">&lt;Message&gt;</span>String content<span class="nt">&lt;/Message&gt;</span>
+    <span class="nt">&lt;/DeleteAlertResponse&gt;</span>
+
+</code></pre><h5 id='ab90d23f74-5'> </h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/xml?Id=34834&amp;sessionId=YourSessionId</p>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
+         <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+        <span class="nt">&lt;/DeleteAlertResponse&gt;</span>
+
+</code></pre>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/json?Id=34834&amp;sessionId=YourSessionId</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre><h5 id='url-delete-8'>URL(DELETE)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/xml?Id=34834&amp;sessionId=YourSessionId</p>
+<h5 id='response-17'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
+         <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
+        <span class="nt">&lt;/DeleteAlertResponse&gt;</span>
+
+</code></pre><h5 id='url-delete-9'>URL (DELETE)</h5>
+<p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/json?Id=34834&amp;sessionId=YourSessionId</p>
+<h5 id='response-18'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>

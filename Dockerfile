@@ -4,7 +4,7 @@ EXPOSE 4567
 RUN apk update \
  && apk add coreutils git make g++ nodejs
 
-RUN git clone https://github.com/lord/slate /slate/source_orig
+RUN git clone https://github.com/slatedocs/slate /slate/source_orig
 
 RUN cd /slate/source_orig && bundle install
 
