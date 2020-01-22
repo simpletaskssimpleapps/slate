@@ -19,9 +19,14 @@ Options:
       --push-only          Only push but not build
 "
 
+# Original build function
+# run_build() {
+#  bundle exec middleman build --clean
+# }
 
+recursive build function
 run_build() {
-  bundle exec middleman build --clean
+  find . -type d -name .html -exec sh -c "bundle exec middleman build --clean" \;
 }
 
 parse_args() {
