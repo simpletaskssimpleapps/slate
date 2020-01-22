@@ -20,6 +20,12 @@ includes:
 search: true
 ---
 
-# Dow Jones Sessions and Authentication Services
+# Dow Jones DNA Web Services
 
-<%= partial 'quick_start/sessions_and_authentication/sessions_and_authentication.md.erb' %>
+<a href="http://openid.net" target="_blank">Link to external site</a>
+
+<a href="https://simpletaskssimpleapps.github.io/slate/#author-api" target="_blank">Link to REST 2 Alert API</a>
+
+[I'm a relative link](/includes/REST2/REST2_Alert.md)
+
+<%= partial 'includes/REST2_API.md.erb' %>
