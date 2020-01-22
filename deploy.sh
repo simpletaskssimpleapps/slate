@@ -27,11 +27,12 @@ Options:
 # recursive build function
 run_build() {
   bundle exec middleman build --clean
+  for i in $(find . -name 'index'); do mv $i $i.html; done
 }
 
-ren_file(){
-for i in $(find . -name 'index'); do mv $i $i.html; done
-}
+# ren_file(){
+# for i in $(find . -name 'index'); do mv $i $i.html; done
+# }
 
 
 parse_args() {
@@ -217,11 +218,11 @@ sanitize() {
 
 if [[ $1 = --source-only ]]; then
   run_build
-  ren_file
+#   ren_file
 elif [[ $1 = --push-only ]]; then
   main "$@"
 else
   run_build
-  ren_file
+#   ren_file
   main "$@"
 fi
