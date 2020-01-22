@@ -26,7 +26,7 @@ Options:
 
 # recursive build function
 run_build() {
-  find . -type d -name .html -exec sh -c "bundle exec middleman build --clean" \;
+  find . -type d -name .md -exec sh -c "bundle exec middleman build --clean" \;
 }
 
 parse_args() {
