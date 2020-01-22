@@ -27,8 +27,12 @@ Options:
 # recursive build function
 run_build() {
   bundle exec middleman build --clean
-  find . -type d -name '.md' -exec sh -c 'cd "{}" && pwd && rename index index.html' \;
 }
+
+ren_file(){
+find . -type d -name '.md' -exec sh -c 'cd "{}" && pwd && rename index index.html' \;
+}
+
 
 parse_args() {
   # Set args from a local environment file.
@@ -213,9 +217,11 @@ sanitize() {
 
 if [[ $1 = --source-only ]]; then
   run_build
+  ren_file
 elif [[ $1 = --push-only ]]; then
   main "$@"
 else
   run_build
+  ren_file
   main "$@"
 fi
