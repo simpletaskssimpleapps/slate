@@ -27,7 +27,6 @@ Options:
 # recursive build function
 run_build() {
   bundle exec middleman build --clean
-  for i in $(find . -name 'index'); do mv $i $i.html; done
 }
 
 # ren_file(){
@@ -87,6 +86,8 @@ main() {
   parse_args "$@"
 
   enable_expanded_output
+  # Renames all index files to index.html
+  for i in $(find . -name 'index'); do mv $i $i.html; done
 
   if ! git diff --exit-code --quiet --cached; then
     echo Aborting due to uncommitted changes in the index >&2
@@ -218,11 +219,9 @@ sanitize() {
 
 if [[ $1 = --source-only ]]; then
   run_build
-#   ren_file
 elif [[ $1 = --push-only ]]; then
   main "$@"
 else
   run_build
-#   ren_file
   main "$@"
 fi
