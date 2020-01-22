@@ -27,7 +27,7 @@ Options:
 # recursive build function
 run_build() {
   bundle exec middleman build --clean
-  find . -type d -name '.md' -exec sh -c 'cd "{}" && pwd && bundle exec middleman build --clean' \;
+  find . -type d -name '.md' -exec sh -c 'cd "{}" && pwd && rename index index.html' \;
 }
 
 parse_args() {
