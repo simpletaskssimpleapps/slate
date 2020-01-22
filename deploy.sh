@@ -30,7 +30,7 @@ run_build() {
 }
 
 ren_file(){
-find . -type d -name '.md' -exec sh -c 'cd "{}" && pwd && rename index index.html' \;
+find . -type d -name 'index' -exec sh -c 'cd "{}" && pwd && rename index index.html' \;
 }
 
 
