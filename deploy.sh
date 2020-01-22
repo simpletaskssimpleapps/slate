@@ -24,7 +24,7 @@ Options:
 #  bundle exec middleman build --clean
 # }
 
-recursive build function
+# recursive build function
 run_build() {
   find . -type d -name .html -exec sh -c "bundle exec middleman build --clean" \;
 }
