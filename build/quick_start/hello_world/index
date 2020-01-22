@@ -1,0 +1,63 @@
+<h1 id='getting-started'>Getting Started</h1>
+<p>You can access Dow Jones content via a wide range of tools, including APIs (REST 1, REST 2, and SOAP), and XML feeds via FTP. Depending on the content you need to access, you can perform the authentication process with a single API key in the request headers, or using the OAuth 2.0 authentication method. You will receive an email containing your relevant credentials from the Dow Jones Developer Support team.</p>
+<h2 id='hello-world-factiva-snapshots'>Hello World: Factiva Snapshots</h2>
+<p>The following is an example query object. Learn more about searching and filtering in API Essentials.</p>
+<pre class="highlight plaintext"><code>request_body = {
+  "query": {
+    "where": "language_code='en'",
+    "includes": {
+      "company_codes": ["exxn"] # only documents that contain company_code "exxn" will be returned
+    },
+    "limit": 10000
+  }
+}
+</code></pre>
+<p>Use your API Key to authenticate to Factiva Snapshots. The following is an example of the <code>headers</code> object required for authentication:</p>
+<pre class="highlight plaintext"><code>headers = {
+    'content-type': 'application/json', 
+    'user-key': '{USER_KEY}'
+}
+</code></pre>
+<p>The Snapshots API works asynchronously. First, you make a Post request to the Snapshots URL endpoint as follows:</p>
+<pre class="highlight plaintext"><code>snapshot_url = "https://api.dowjones.com/alpha/extractions/documents"
+
+requests.post(snapshot_url, data=json.dumps(request_body), headers=headers)
+</code></pre>
+<p>If successful, this request generates a snapshot creation job. The following is an example response:</p>
+<pre class="highlight plaintext"><code>{
+  "data": {
+    "attributes": {
+      "current_state": "JOB_QUEUED",
+      "extraction_type": "documents"
+    },
+    "id": "dj-synhub-extraction-mixoflettersandnumber1234567890"
+  },
+  "links": {
+    "self": "https://api.dowjones.com/alpha/extractions/documents/dj-synhub-extraction-sample-extraction"
+  }
+}
+</code></pre>
+<p>You can use Get requests sent to the URL in <code>response.links.self</code> to monitor the status of your snapshot, as follows:</p>
+<pre class="highlight plaintext"><code>requests.get(self_link, headers=headers)
+</code></pre>
+<p>Once the snapshot is complete, <code>response.data.attributes.current_state</code> displays the message <code>JOB_STATE_DONE</code>. You then get a new key called <code>files</code>, which contains the file download links, as follows:</p>
+<pre class="highlight plaintext"><code>{
+  "data": {
+    "attributes": {
+      "current_state": "JOB_STATE_DONE",
+      "files": [
+        {
+          "uri": "https://api.dowjones.com/alpha/extractions/stream?file=dj-syndicationhub-dev-delivery/part-00000-of-0001.avro"
+        },
+        {
+          "uri": "https://api.dowjones.com/alpha/extractions/stream?file=dj-syndicationhub-dev-delivery/format=avro/jwhuvuexzy/part-00001-of-00001.avro"
+        }]
+    },
+    "id": "dj-synhub-extraction-sample-extraction"
+  },
+  "links": {
+    "self": "https://api.dowjones.com/alpha/extractions/dj-synhub-extraction-sample-extraction"
+  }
+}
+</code></pre>
+<p>Access these links directly to download the relevant files.</p>

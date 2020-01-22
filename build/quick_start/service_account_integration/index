@@ -1,0 +1,279 @@
+<p><span id="#service-account"></span></p>
+<h1 id='service-account-integration'>Service Account Integration</h1>
+<p>The Service Account Integration follows the next steps. See below the sequence of steps for a detailed description of each.  </p>
+
+<ol>
+<li><a href="#service-1-retrieving-the-authn-tokens">Retrieve AuthN Tokens</a>—Request the tokens on a server-to-server call providing the account username and password. On successful authentication, the Dow Jones Identity Server generates an AuthN Access token, an AuthN ID token, and optionally a Refresh token. Otherwise, it returns an error.</li>
+</ol>
+
+<p></br><strong>Note</strong>: In Service Account Integration, the AuthN Access token is generated, but it is not used in the flow.</p>
+
+<ol>
+<li><p><a href="#service-2-retrieving-the-authz-access-token">Retrieve an AuthZ Access Token</a>—Send the AuthN tokens received in Step 1 on a server-to-server call to get an AuthZ Access token, which is the one used to access the resources.</p></li>
+<li><p><a href="#service-3-using-the-authz-access-token-to-make-api-calls">Use the AuthZ Access Token in API Calls</a>—In each request, include the AuthZ Access token. If the Access token is valid, the Resource server returns an API response.</p></li>
+<li><p><a href="#service-4-refreshing-the-access-token">Refresh the AuthZ Access Token when it Expires</a>—When AuthZ Access tokens expire, the Resource server returns a 401 HTTP error code. The expiration date is also given in the <code>expires_in</code> response parameter of Step 2. Use the Refresh token on a server-to-server call to renew the AuthN ID token previously received in Step 1. Re-execute Step 2 using the renewed AuthN ID token to generate a fresh AuthZ Access token.</p></li>
+</ol>
+
+<p><span id="service-1-retrieving-the-authn-tokens"></span></p>
+<h2 id='1-retrieving-authn-tokens'>1. Retrieving AuthN Tokens</h2>
+<p>Use the endpoint <code>POST /token</code> to request the AuthN tokens and optionally a Refresh token.</p>
+<h3 id='url'>URL</h3>
+<p><code>https://accounts.dowjones.com/oauth2/v1/token</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p>The following table lists the parameters that configure the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>client_id</code>*</td>
+<td>Specifies the unique Auth0-registered client identifier.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>connection</code>*</td>
+<td>Specifies the custom name of the Auth0 connection  configured for the service account users. Set its value to <code>service-account</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>device</code>* </br> (when <code>scope</code> specifies <code>offline_access</code>)</td>
+<td>Specifies if a Refresh token is requested. In Service Account Integration, this parameter is mandatory when requesting a Refresh token, <code>scope=openid service_account_id offline_access</code>. In such case, set its value to any string, for example, the unique mobile device identifier. This string value acts as a unique identifier under which the Refresh token is listed and could be revoked by an admin either from the Auth0 Dashboard or from the Auth0 Management API, forcing the user to re-login.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>grant_type</code>*</td>
+<td>Specifies the type of access grant. Set its value to <code>password</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>password</code>*</td>
+<td>Specifies the service account password provided.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>scope</code>*</td>
+<td>Specifies the scope returned in the AuthN ID token. </br>To get only the two AuthN tokens, set its value to <code>openid service_account_id</code>. </br>To get the two AuthN tokens plus the Refresh token, set its value to <code>openid service_account_id offline_access</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>username</code>*</td>
+<td>Specifies the service account username or email provided.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: The asterisk indicates a required parameter.</p>
+<h3 id='sample-http-request'>Sample HTTP Request</h3><pre class="highlight plaintext"><code>POST
+https://accounts.dowjones.com/oauth2/v1/token
+client_id: "CLIENT_ID",
+connection: "service-account",
+device: "orion-tablet",
+grant_type: "password",
+password: "PASSWORD",
+scope: "openid service_account_id offline_access",
+username: "user-serviceaccount@dowjones.com"
+</code></pre><h3 id='response-body'>Response Body</h3>
+<p>The following table lists the elements sent in the response. The token returns as a JSON object with status = 200. If any error occurs, status ≠ 200.</p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access_token</code></td>
+<td>Represents the issued AuthN Access token used to access the user profile. This token is not used in the flow.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>id_token</code></td>
+<td>Represents the issued AuthN ID token as a signed JWT.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>refresh_token</code></td>
+<td>Represents the issued Refresh token, which is used to refresh the AuthN ID token when it expires. An application must securely store the Refresh token, because it enables a user to remain authenticated forever. </br><strong>Note</strong>: The response returns the Refresh token only if the value of the <code>scope</code> parameter in the POST /token request equals <code>openid service_account_id offline_access</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td>Represents the token type. Generally, access tokens are of type Bearer.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response'>Sample Response</h3>
+<p>The following is an example of a typical successful response showing all the elements of the token object.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImoR1JUaENOek5CTVRGRU56TkVPQSJ9.eyJzZXJ2aWNlX2FjY291bnRfaWQiOiI5UFJPMDAwMjAwIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmludC5hY2NvdW50cy5kb3dqb25lcy5jb20vIiwic3iIjoiYXV0aDB8NTlkYRjMjExZDhkNDExNGYwNDcyMWE0IiwiYXVkIjoiSmI4RTRQbGJoZEIyYU5ZRFEwQTg0VXJBVDROZGpGMDgiLCJleHAiOjE1MDgwNTcxMzksImhdCI6MTUwNzc5NzkzOX0.meO4n-2zGPw1Pzco7p2VcDEVnMvugte5QduztTu4jSSwmHYw1mNLkeWpoAjP_ID020DRdDuQ7Am6JbRvDduCzNVDHnmjR365QOh4Audh8AoiMREYfiZJk6UbWmFST909QvJaTe78kTrF7LyTVCU0ZkoecHrVazg454Sq38fyIJ8TKO-ncVUv9Lr1hPlxmmOd8fLzXzeGzrvDigXYmIN9Zq9wY3k8zsrecMR0Q4GRuGMBwxht9b6pcOhoxaSKkLkjKbv6nGEoICD4ImiPxhBKghkD27VIDtppDaVRcyC5QHxg7VYtxg0bLjlYLZF78_sp2vEnMhb-08mKAs8brF6A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KMSm3v6ZKGCysDv2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fOQRVhisivQbQgXWvzKtVkkz4XwKzmTHwmqhMU8Swx2P4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><span id="service-2-retrieving-the-authz-access-token"></span></p>
+<h2 id='2-retrieving-an-authz-access-token'>2. Retrieving an AuthZ Access Token</h2>
+<p>Use the endpoint <code>POST /token</code> to exchange the AuthN ID token for the AuthZ access token.</p>
+<h3 id='url-2'>URL</h3>
+<p><code>https://accounts.dowjones.com/oauth2/v1/token</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<p>The following table lists the parameters that configure the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>assertion</code>*</td>
+<td>Specifies one of the following:</br> - The AuthN ID token obtained in the <code>id_token</code> response parameter of Step 1. </br> - The renewed AuthN ID token obtained in the <code>access_token</code> response parameter of Step 4.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>client_id</code>*</td>
+<td>Specifies the unique Auth0-registered client identifier.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>grant_type</code>*</td>
+<td>Identifies the passed AuthN ID token as the grant type to get an access token. Set its value to <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>scope</code>*</td>
+<td>Specifies the level of access that the client requests. Set its value to <code>openid pib</code>.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: The asterisk indicates a required parameter.</p>
+<h3 id='sample-http-request-2'>Sample HTTP Request</h3><pre class="highlight plaintext"><code>POST
+https://accounts.dowjones.com/oauth2/v1/token
+assertion: "AUTHN_ID_TOKEN_RECEIVED",
+client_id: "CLIENT_ID",
+grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+scope: "openid pib"
+</code></pre><h3 id='response-body-2'>Response Body</h3>
+<p>The following table lists the elements sent in the response. A successful response returns the AuthZ Access token as a JSON object with status = 200. If any error occurs, status ≠ 200.</p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access_token</code></td>
+<td>Represents the final AuthZ Access token issued that serves to access the resources. It is a signed JWT, containing the claims requested in the scope parameter. For the <code>pib</code> scope, there is a <code>pib</code> object in the JWT, which contains PIB-specific user properties such as <code>encrypted_token</code>, <code>service_account_id</code>, etc.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>expires_in</code></td>
+<td>Represents the duration of the AuthZ Access token in seconds.</td>
+<td>integer</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td>Represents the token type. Generally, access tokens are of type Bearer.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response-2'>Sample Response</h3>
+<p>The following is an example of a typical successful response showing all the elements of the token object.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+     </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik0wRkNRakJEUV6TkVPQSJ9.eyJwaWIiOnsibWFzdGVyX2FwcF9pZCI6IkpiOEU0UGxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4IiwiZW5jcnlwdGVkX3Rva2VuIjoiSTAwX0pVWVRLTUJYRzQ0VElOQllHVVhXVVNCUEY1WVdZMkxJTzU1RUVXQ0dHWTRHWVUyQkhGUVdHTUxYTVo1RkM0M1lPNVpET01LTtCU0hRM0NFT05CRlVXU1lNUlhFS1JTSE1OSERTUUpMS05UU1dMM1NPRlhWUzVURkdBMlhHUUtZTlZMSFVWUlJPRVpHV09LUEpCQ0RTSzNJT1JXSE81Q0hOUkZYS00yVktWUlhNVUxTSzVZVEVUQlBHRkhVWVdKNUk0Iiwic2VydmljZV9hY2NvdW50X2lkIjoiOVBSTzAwMDIwMCJ9LCJpc3MiOiJodHRwczovL2F1dGguaW50LmFjY291bnzLmRvd2pvbmVzLmNvbS8iLCJzdWIiOiJhdXRoMHw1OWRiNGMyMTFkOGQ0MTE0ZjA0NzIxYTQiLCJhdWQiOiJKYjhNFBsYmhkQjJhTllEUTBBODRVckFUNE5kakYwOCIsImV4cCI6MTUwODA1ODM3MCwiaWF0IjoxNTA3Nzk5MTcwLCJhenAiOiJKYjhFNFBsYmhkQjJhTllEUTBBODRVckFUNE5kakYwOCJ9.PPqOloY1AjKgdabnQBXQ9bx5JZQoti8G5BriQfMqJvhOvJA05fGZUyvUXSyLqEdinb8T5fWUtOiEZW0d8S_cjaNUPn0K99IXBOHmWexUw82idqRk3tDQeOe1Ob9VcFQ3ypoSyCZsZ9QszGagitYGBHZpwh64tdzO79LgK_dc_QO9xnsqN3fCQSvWP5XSTE1jcF2V7dEhLmlgsNs968ndJFLj9mwmP7wwVRj_uismmOZQ_IyqZJUqPG55oPxrLFigQhlZILmSF75AQLNPpAhsl3mr1cAmv6PJAka7hMqudu_Y1JoBtZ0dv9RsirtAnbooa4BZPK2NoASHbd6UA"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">259200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><span id="service-3-using-the-authz-access-token-to-make-api-calls"></span></p>
+<h2 id='3-using-the-authz-access-token-to-make-api-calls'>3. Using the AuthZ Access Token to Make API Calls</h2>
+<p>Anytime the client application makes an API request to the Resource server, include the AuthZ access token obtained from the Authorization server. If the Resource server determines that the access token is valid, it authorizes access to the resources and returns an API response.</p>
+
+<p><span id="service-4-refreshing-the-access-token"></span></p>
+<h2 id='4-refreshing-the-authz-access-token'>4. Refreshing the AuthZ Access Token</h2>
+<p>Use the endpoint <code>POST /token</code> to refresh the AuthN ID token previously issued. After refreshing, <a href="#service-2-retrieving-the-authz-access-token">retrieve a new AuthZ Access token</a> to continue having access to the Resource server.</p>
+
+<p>In Auth0, the number of requests to this endpoint using the same Refresh token from the same IP address has a limit. When this limit is reached, all subsequent requests fail for a certain time. For this reason, obtain new tokens using the Refresh token, only if the AuthZ Access token has expired.</p>
+<h3 id='url-3'>URL</h3>
+<p><code>https://accounts.dowjones.com/oauth2/v1/token</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<p>The following table lists the parameters that configure the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>client_id</code>*</td>
+<td>Specifies the unique Auth0-registered client identifier.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>grant_type</code>*</td>
+<td>Specifies the OAuth 2.0 specification value for refresh tokens. Set its value to <code>refresh_token</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>refresh_token</code>*</td>
+<td>Specifies the Refresh token returned in the <code>refresh_token</code> parameter of Step 1. </br><strong>Note</strong>: Refresh tokens are returned only if the value of the <code>scope</code> parameter of the <code>POST /token</code> request of Step 1 equals <code>openid service_account_id offline_access</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>scope</code>*</td>
+<td>Specifies the level of access of the regenerated AuthN ID token. Set its value to <code>openid service_account_id</code>.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: The asterisk indicates a required parameter.</p>
+<h3 id='sample-http-request-3'>Sample HTTP Request</h3><pre class="highlight plaintext"><code>POST https://accounts.dowjones.com/oauth2/v1/token
+client_id: "CLIENT_ID",
+grant_type: "refresh_token",
+refresh_token: "REFRESH_TOKEN_RECEIVED",
+scope: "openid service_account_id"
+</code></pre><h3 id='response-body-3'>Response Body</h3>
+<p>The following table lists the elements sent in the response. The token returns as a JSON object with status = 200. If any error occurs, status ≠ 200.</p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access_token</code></td>
+<td>Represents the renewed AuthN ID token as a signed JWT. This new token is used to produce a new AuthZ Access token. Assign its value to the <code>assertion</code> parameter when re-executing Step 2.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>expires_in</code></td>
+<td>Represents the duration of the new AuthN ID token in seconds.</td>
+<td>integer</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td>Represents the token type. Generally, access tokens are of type Bearer.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response-3'>Sample Response</h3>
+<p>The following is an example of a typical successful response showing all the elements of the token object.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1N0UWpoR1JUaENOek5CTVRGRU56TkVPQSJ9.eyJwaWIiOnsic2lkIjoiNUVnTmNLYXdfWGp2ZEx0em9GLVRTOFAzT0M4cm9LMlAiLCJrbWxpIjoiMCIsImlsIjoiZW4ifSwiaXNzIjoiaHR0cHM6Ly9hdXRoLmludC5hY2NvdW50cy5kb3db25lcy5jb20vIiwic3ViIjoiYX0aDB8Vk5KUUVSlYzUUJEMk5QWSIsImF1ZCI6IkpiOEU0UGxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4IiwiZXhwIjoxNTA5MDE3NDcyLCJpYXQiOjE1MDg3NTgyNzIsImF6cCI6IkpiOEU0UGxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4In0.QqRSbYxlPXwICoAYLRloUakI1Wgv5Tfqxy903W_gEcMqr3LgAhL-LaBNvBtyiaaWOMNkZ1HHPyFspUO-szBBHuBi5bQ4y1YhXh9zM3S8IikDL55W6RmnLftazv3gponIsUNmZ0KIDr2QK3Fxxv8tc0yGypNko9k3gXboa7JDjsaVHdQdgDPwImFr_W0Xoip6pu9-Rhdo9gfSf811kPyeuOtzQvE-acL4TIAFIszvrtqi0hktukvgPgmfvQ3iHK4j4ZxEurWF36RsA-m0_gP13RXLp7-a2tnoGqWg-zIXR-elXtpMDFGAaIlrLq3Y22XK0PVorUHmw3txanyPgQQ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">259200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>

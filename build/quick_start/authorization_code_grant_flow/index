@@ -1,0 +1,380 @@
+<h1 id='authorization-code-grant-flow'>Authorization Code Grant Flow</h1>
+<p>The Authorization Code Grant flow follows the next steps. See below the sequence of steps for a detailed description of each.  </p>
+
+<ol>
+<li><a href="#grant-1-authenticating-the-user">Retrieve an Authorization Code</a>—Request the code on a user agent (browser). On successful authentication, the Dow Jones Identity Server redirects the user to the specified URL (parameter <code>redirect_uri</code>) and sends the authorization code. Otherwise, the server returns an error. To receive a Refresh token in the next step, request it in this step through the <code>scope</code> query parameter. See the <a href="#query-param">Query Parameters table</a> of Step 1 in the detailed description.</li>
+<li><a href="#grant-2-exchanging-the-authorization-code-for-the-authn-token">Exchange the Authorization Code for AuthN Tokens</a>—Send both the authorization code received and the client secret on a server-to-server call. The Authorization server sends back an AuthN Access token, an AuthN ID token, and a Refresh token if requested in the previous step. Make sure to keep the returned Refresh token safe because it can be reused multiple times for gaining access without having to re-enter your credentials.</li>
+<li><a href="#grant-3-retrieving-the-authz-access-token">Retrieve an AuthZ Access Token</a>—Send the AuthN tokens received in Step 2 on a server-to-server call to get an AuthZ Access token, which is the one used to access the API resources.</li>
+<li><a href="#grant-4-using-the-authz-access-token-to-make-api-calls">Use the AuthZ Access Token in API Calls</a>—In each request, include the AuthZ Access token. If the Access token is valid, the Resource server returns an API response.</li>
+<li><a href="#grant-5-refreshing-the-access-token">Refresh the AuthZ Access Token when it Expires</a>—When AuthZ Access tokens expire, the Resource server returns a 401 HTTP error code. The expiration date is also given in the <code>expires_in</code> response parameter of Step 3. Use the Refresh token on a server-to-server call to renew the AuthN ID token previously received in Step 2. Re-execute Step 3 using the renewed AuthN ID token to generate a fresh AuthZ Access token.</li>
+<li><a href="#grant—6-logging-out">Log Out</a>—Perform this step on a user agent (browser) to invalidate the PIB session ID contained in the AuthZ Access token and to delete the browser auto-login session established in Step 1.</li>
+</ol>
+
+<p><span id="grant-1-authenticating-the-user"></span></p>
+<h2 id='1-retrieving-an-authorization-code'>1. Retrieving an Authorization Code</h2>
+<p>Use the endpoint <code>GET /authorize</code> to retrieve the authorization code.
+</br><strong>Note</strong>: You must perform this step on a user agent (browser).</p>
+<h3 id='url'>URL</h3>
+<p><code>https://accounts.dowjones.com/oauth2/v1/authorize</code></p>
+
+<p><span id="query-param"></span></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p>The following table lists the query parameters that configure the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>client_id</code>*</td>
+<td>Specifies the unique Auth0-registered client identifier.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>connection</code></td>
+<td>Specifies the custom name of the Auth0 connection used to identify the user. Default value: <code>DJPIB</code> (for PIB product authentication).</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>device</code></td>
+<td>Specifies if a Refresh token is requested. </br>When requesting a Refresh token, set its value to any string, for example, the unique mobile device identifier. This string value acts as a unique identifier under which the Refresh token is listed and could be revoked by an admin either from the Auth0 Dashboard or from the Auth0 Management API, forcing the user to re-log in. </br>When a value is not specified, the Refresh token is preserved under an <code>ignore</code> device string.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>redirect_uri</code>*</td>
+<td>Specifies the URL to which, after successful authorization, the server sends the authorization code that is later exchanged. </br><strong>Note</strong>: The provided value must be whitelisted in Auth0 for the <code>client_id</code> specified.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>response_type</code>*</td>
+<td>Specifies the type of flow to execute: Authorization Code or Implicit. To request an Authorization Code grant, set its value to <code>code</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>scope</code>*</td>
+<td>Specifies the scope returned in the AuthN ID token. </br>To get only the two AuthN tokens, set its value to <code>openid pib</code>. </br>To get the two AuthN tokens plus the Refresh token, set its value to <code>openid pib offline_access</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>Specifies the caller state that is propagated back to the <code>redirect_uri</code> on successful authentication.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: The asterisk indicates a required parameter.</p>
+<h3 id='sample-http-request'>Sample HTTP Request</h3><pre class="highlight plaintext"><code>GET
+https://accounts.dowjones.com/oauth2/v1/authorize?
+client_id=CLIENT_ID&amp;
+redirect_uri=REDIRECT_URI&amp;
+response_type=code&amp;
+scope=openid%20pib%20offline_access&amp;
+state=abc
+</code></pre><h3 id='response'>Response</h3>
+<p>Successful response: An authorization code sent to the URL specified in the parameter <code>redirect_uri</code>.</p>
+
+<p><span id="grant-2-exchanging-the-authorization-code-for-the-authn-token"></span></p>
+<h2 id='2-exchanging-the-authorization-code-for-authn-tokens'>2. Exchanging the Authorization Code for AuthN Tokens</h2>
+<p>Use the endpoint <code>POST /token</code> to exchange the authorization code for the AuthN tokens and optionally a Refresh token.</p>
+<h3 id='url-2'>URL</h3>
+<p><code>https://accounts.dowjones.com/oauth2/v1/token</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p>The following table lists the parameters that configure the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>client_id</code>*</td>
+<td>Specifies the unique Auth0-registered client identifier.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>client_secret</code>*</td>
+<td>Specifies the unique Auth0-registered client secret for the given <code>client_id</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>code</code>*</td>
+<td>Specifies the code returned by the <code>GET /authorize</code> request of Step 1. </br><strong>Note</strong>: You can use a code only once in a call to this endpoint. Further calls using the same code fail.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>grant_type</code>*</td>
+<td>Specifies the type of access grant. Set its value to <code>authorization_code</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>redirect_uri</code>*</td>
+<td>Specifies a URL that matches the one specified in the <code>redirect_uri</code> parameter of Step 1.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: The asterisk indicates a required parameter.</p>
+<h3 id='sample-http-request-2'>Sample HTTP Request</h3><pre class="highlight plaintext"><code>POST
+https://accounts.dowjones.com/oauth2/v1/token
+client_id: "CLIENT_ID",
+client_secret: "CLIENT_SECRET",
+code: "AUTH_CODE_RECEIVED",
+grant_type: "authorization_code",
+redirect_uri: "REDIRECT_URI"
+</code></pre><h3 id='response-body'>Response Body</h3>
+<p>The following table lists the elements sent in the response. The tokens return as a JSON object with status = 200. If any error occurs, status ≠ 200.</p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access_token</code></td>
+<td>Represents the issued AuthN Access token used to access the user profile.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>expires_in</code></td>
+<td>Represents the duration of the AuthN ID token in seconds.</td>
+<td>integer</td>
+</tr>
+<tr>
+<td><code>id_token</code></td>
+<td>Represents the issued AuthN ID token as a signed JWT.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>refresh_token</code></td>
+<td>Represents the issued Refresh token that is used to refresh the AuthN ID token when it expires. An application must securely store the Refresh token, because it enables a user to remain authenticated forever. </br><strong>Note</strong>: The response returns the Refresh token only if the value of the <code>scope</code> parameter of the <code>GET /authorize</code> request of Step 1 equals <code>openid pib offline_access</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td>Represents the token type. Generally, access tokens are of type Bearer.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response'>Sample Response</h3>
+<p>The following is an example of a typical successful response showing all the elements of the token object.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik0wRkNRakJEUVRNeVFUTTNSREUwTWpGRE5VWkNNekE0UWpoR1JUaENOek5CTVRGRU56TkVPQSJ9.eyJwaWIiOnsic2lkIjoiNXNrZFVnUFVNeThjQUFCOTg3WHR3OU5BWVZsejN1SGCIsImlsIjoiZW4ifSwiaXNzIjoiaHR0cHM6Ly9hdRoLmludC5hY2NvdW50cy5kb3dqb25lcy5jb20vIiwic3ViIjoiYXV0aDB8Vk5KUUVQSlYzUUJEMk5QWSIsImF1ZCI6IkpiOEU0UxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4IiwiZXhwIjoxNTA5MDExMjQwLCJpYXQiOjE1MDg3NTIwNDAsIm5vbmNlIjoic29tdW5pcXVldmFsdWUxMjMifQ.IeNKj7ftoQPaMqDoX4LbpzFaL7akt3e4Y-7GMcFEaF3lFCs-O5dZdJS-OfYDGqTrnqkU9YseDD4bchgGh6PCobS8-CzT2N8dU7pwfWrggBenDg7Ko0ixEUocee4uJMpXufIrYrBKdE4oo7pTBj0ISd52R9YfaxlgDtj8bUq1xSlgOT86y8bDXC-6JA-5m8qmYcZaFcBU1CXtpiCwSeG7IPcpGV5zPjNHhHwA434ZZRcN2Qvra4K50PaIIgBxTR0M8JiDf1VcI92eI3GejP9PPQYRBF6bEPWw0g7oX_bf916IcxOmDIGK_FVjm01v6lgUI-XAr-oruvJ638K6g"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mZR7bZoJbnjndxCF"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G3W6uVBbtidMCnTaHjP7cQQOyRDLL13WQbJBnCOkqGpkt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><span id="grant-3-retrieving-the-authz-access-token"></span></p>
+<h2 id='3-retrieving-an-authz-access-token'>3. Retrieving an AuthZ Access Token</h2>
+<p>Use the endpoint <code>POST /token</code> to exchange the AuthN tokens for the AuthZ Access token.</p>
+<h3 id='url-3'>URL</h3>
+<p><code>https://accounts.dowjones.com/oauth2/v1/token</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<p>The following table lists the parameters that configure the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access token</code>*</td>
+<td>Specifies the AuthN Access token obtained in the <code>access_token</code> response parameter of Step 2.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>assertion</code>*</td>
+<td>Specifies one of the following:</br> - The AuthN ID token obtained in the <code>id_token</code> response parameter of Step 2. </br> - The renewed AuthN ID token obtained in the <code>access_token</code> response parameter of Step 5.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>client_id</code>*</td>
+<td>Specifies the unique Auth0-registered client identifier.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>grant_type</code>*</td>
+<td>Identifies the passed AuthN ID token as the grant type to get an access token. Set its value to <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>scope</code>*</td>
+<td>Specifies the level of access that the client requests. Set its value to <code>openid pib</code>.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: The asterisk indicates a required parameter.</p>
+<h3 id='sample-http-request-3'>Sample HTTP Request</h3><pre class="highlight plaintext"><code>POST
+https://accounts.dowjones.com/oauth2/v1/token
+access_token: "AUTHN_ACCESS_TOKEN_RECEIVED",
+assertion: "AUTHN_ID_TOKEN_RECEIVED",
+client_id: "CLIENT_ID",
+grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+scope: "openid pib"
+</code></pre><h3 id='response-body-2'>Response Body</h3>
+<p>The following table lists the elements sent in the response. A successful response returns the AuthZ Access token as a JSON object with status = 200. If any error occurs, status ≠ 200.</p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access_token</code></td>
+<td>Represents the final AuthZ Access token issued that serves to access the resources. It is a signed JWTA, containing the claims requested in the scope parameter. For the <code>pib</code> scope, there is a <code>pib</code> object in the JWT, which contains PIB-specific user properties such as <code>session_id</code>, <code>ctc</code> (client type code), <code>apc</code> (access point code), etc.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>expires_in</code></td>
+<td>Represents the duration of the AuthZ Access token in seconds.</td>
+<td>integer</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td>Represents the token type. Generally, access tokens are of type Bearer.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response-2'>Sample Response</h3>
+<p>The following is an example of a typical successful response showing all the elements of the token object.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik0wRkNRakJUaENOek5CTVRGRU56TkVPQSJ9.eyJwaWIiOnsibWFzdGVyX2FwcF9pZCI6IkpiOEU0UGxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4Iiwic2Vzc2lvbl9pZCI6IjI3MTQ0WHhYX2NkYzVkNzE0LWQ1MGEtNDAzMy1lOGM2LWNjMGZiNDU5Njc3NCIsImFsbG93X2F1dG9fb9naW4iOiJ0cnVlIiwiYXBjIjoiOSIsImN0YyI6IkQifSwiaXNzIjoiaHR0cHM6Ly9hdXRoLmludC5hY2vdW50cy5kb3dqb25lcy5jb20vIiwic3ViIjoiYXV0aDB8Vk5KUUVQSlYzUUJEMk5QWSIsImF1ZCI6IkpiOEU0UGxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4IiiZXhwIjoxNTAzODQ2NTU3LCJpYXQiOjE1MDM1ODczNTcsImF6cCI6IkpiOEU0UGxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4In0.AdGy4iNtRnB1sEUOdx8iqWaCiJS0MkGOrRCt6SsDl3HyxLa5SoNczb2rCu9x7fYbyDnjKUn0ZkLHDS_DDyio6JrJ5qXF9p07IGhKhouDW1ouX6GEZ_LyTsJ7gFK0830N_VjBMFJcDiTOQ89Pz8QwaNlrkKgjq11bEVOxSsiWFzjDAhB23fUiIN6Fn8ABezySZhDzWOM87H7fG2t8gOlC0aPRwAHGZvyrUopApyK2G7v6ODyvD6S5ghqAmqB_BsgAyr4urvGg2euH5MNCCepclK09BMgb9KqoNoFQe0Q34H9wzjFlu1FPWP-GZm3cgJZYqhx7G4ih12FVOMA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">259200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><span id="grant-4-using-the-authz-access-token-to-make-api-calls"></span></p>
+<h2 id='4-using-the-authz-access-token-in-api-calls'>4. Using the AuthZ Access Token in API Calls</h2>
+<p>Any time the client application makes an API request to the Resource server, include the AuthZ Access token obtained from the Authorization server. If the Resource server determines that the Access token is valid, it authorizes access to the resources and returns an API response.</p>
+
+<p><span id="grant-5-refreshing-the-access-token"></span></p>
+<h2 id='5-refreshing-the-authz-access-token'>5. Refreshing the AuthZ Access Token</h2>
+<p>Use the endpoint <code>POST /token</code> to refresh the AuthN ID token previously issued. After refreshing, <a href="#grant-3-retrieving-the-authz-access-token">retrieve a new AuthZ Access token</a> to continue having access to the Resource server.</p>
+
+<p>In Auth0, the number of requests to this endpoint using the same Refresh token from the same IP address has a limit. When this limit is reached, all subsequent requests fail for a certain time. For this reason, obtain new tokens using the Refresh token, only if the AuthZ Access token has expired.</p>
+<h3 id='url-4'>URL</h3>
+<p><code>https://accounts.dowjones.com/oauth2/v1/token</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<p>The following table lists the parameters that configure the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>client_id</code>*</td>
+<td>Specifies the unique Auth0-registered client identifier.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>grant_type</code>*</td>
+<td>Specifies the OAuth 2.0 specification value for refresh tokens. Set its value to <code>refresh_token</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>refresh_token</code>*</td>
+<td>Specifies the Refresh token previously returned in the <code>refresh_token</code> parameter of Step 2. </br><strong>Note</strong>: Refresh tokens are returned only if the value of the <code>scope</code> parameter of the <code>GET /authorize</code> request of Step 1 equals <code>openid pib offline_access</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>scope</code>*</td>
+<td>Specifies the level of access of the regenerated AuthN ID token. Set its value to <code>openid pib</code>.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: The asterisk indicates a required parameter.</p>
+<h3 id='sample-http-request-4'>Sample HTTP Request</h3><pre class="highlight plaintext"><code>POST https://accounts.dowjones.com/oauth2/v1/token
+client_id: "CLIENT_ID",
+grant_type: "refresh_token",
+refresh_token: "REFRESH_TOKEN_RECEIVED",
+scope: "openid pib"
+</code></pre><h3 id='response-body-3'>Response Body</h3>
+<p>The following table lists the elements sent in the response. The token returns as a JSON object with status = 200. If any error occurs, status ≠ 200.</p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access_token</code></td>
+<td>Represents the renewed AuthN ID token as a signed JWT. This new token is used to produce a new AuthZ Access token. Assign its value to the <code>assertion</code> parameter when re-executing Step 3.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>expires_in</code></td>
+<td>Represents the duration of the new AuthN ID token in seconds.</td>
+<td>integer</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td>Represents the token type. Generally, access tokens are of type Bearer.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response-3'>Sample Response</h3>
+<p>The following is an example of a typical successful response showing all the elements of the token object.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik0w5ViOnsic2lkIjoiNUVnTmNLYXdfWGp2ZEx0em9GLVRTOFAzT0M4cm9LMlAiLCJrbWxpIjoiMCIsImlsIjoiZW4ifSwiaXNzIjoiaHR0cHM6Ly9hdXRoLmludC5hY2NvdW50cy5kb3db25lcy5jb20vIiwic3ViIjoiYX0aDB8Vk5KUUVSlYzUUJEMk5QWSIsImF1ZCI6IkpiOEU0UGxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4IiwiZXhwIjoxNTA5MDE3NDcyLCJpYXQiOjE1MDg3NTgyNzIsImF6cCI6IkpiOEU0UGxiaGRCMmFOWURRMEE4NFVyQVQ0TmRqRjA4In0.QqRSbYxlPXwICoAYLRloUakI1Wgv5Tfqxy903W_gEcMqr3LgAhL-LaBNvBtyiaaWOMNkZ1HHPyFspUO-szBBHuBi5bQ4y1YhXh9zM3S8IikDL55W6RmnLftazv3gponIsUNmZ0KIDr2QK3Fxxv8tc0yGypNko9k3gXboa7JDjsaVHdQdgDPwImFr_W0Xoip6pu9-Rhdo9gfSf811kPyeuOtzQvE-acL4TIAFIszvrtqi0hktukvgPgmfvQ3iHK4j4ZxEurWF36RsA-m0_gP13RXLp7-a2tnoGqWg-zIXR-elXtpMDFGAaIlrLq3Y22XK0PVorUHmw3txanyPgQQ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">259200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><span id="grant—6-logging-out"></span></p>
+<h2 id='6-logging-out'>6. Logging Out</h2>
+<p>Use the endpoint <code>GET /logout</code> or <code>POST /logout</code> to invalidate the PIB session ID contained in the AuthZ Access token and to delete the browser auto-login session established.
+</br><strong>Note</strong>: You must perform this step on a user agent (browser).</p>
+<h3 id='url-5'>URL</h3>
+<p><code>https://accounts.dowjones.com/oauth2/v1/logout</code></p>
+<h3 id='parameters-4'>Parameters</h3>
+<p>The following table lists the parameters that configure the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access_token</code>*</td>
+<td>Specifies the AuthZ Access token returned in Step 3.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>productname</code></td>
+<td>Specifies the PIB product. Default value: <code>dna</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>return_uri</code></td>
+<td>Specifies the URL where to return after logging out. If it&#39;s not provided, the user is redirected to www.dowjones.com.</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: The asterisk indicates a required parameter.</p>
+<h3 id='sample-http-request-5'>Sample HTTP Request</h3><pre class="highlight plaintext"><code>GET https://accounts.dowjones.com/oauth2/v1/logout?
+access_token=AUTHZ_ACCESS_TOKEN_RECEIVED&amp;
+return_uri=RETURN_URI
+</code></pre><h3 id='response-2'>Response</h3>
+<p>A successful response sends an authorization code to the URL specified in the parameter <code>redirect_uri</code>.</p>

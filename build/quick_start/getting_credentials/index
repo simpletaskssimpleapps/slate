@@ -1,0 +1,17 @@
+<h1 id='getting-credentials'>Getting Credentials</h1>
+<p>To get initial credentials you can follow these steps:</p>
+
+<ol>
+<li><a href="https://developer.dowjones.com/site/global/request-trial/index.gsp">Request a Trial</a>.</li>
+<li>A Dow Jones representative will reach out and help match your use case with our products.</li>
+<li>You will receive an email with (depending on products)
+
+<ol>
+<li>API Key</li>
+<li>User/Pwd</li>
+<li>Tokens</li>
+<li>Link to details</li>
+</ol></li>
+</ol>
+
+<p>You can then use the relevant authentication method of your API to connect and specific SFTP or SSH connection details for feeds.</p>

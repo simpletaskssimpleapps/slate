@@ -1,0 +1,36 @@
+<h1 id='authentication-scopes'>Authentication Scopes</h1>
+<p>The Dow Jones Identity Service supports the following scopes.</p>
+
+<table><thead>
+<tr>
+<th>Identifier</th>
+<th>Descriptor</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>openid</code></td>
+<td>Access your identity in Factiva</td>
+<td>Provides the ID token (JWT).</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>View your email address</td>
+<td>Provides the user&#39;s email included in the ID token (JWT).</td>
+</tr>
+<tr>
+<td><code>family_name</code></td>
+<td>View your family name</td>
+<td>Provides the user&#39;s family name included in the ID token (JWT).</td>
+</tr>
+<tr>
+<td><code>given_name</code></td>
+<td>View your given name</td>
+<td>Provides the user&#39;s given name included in the ID token (JWT).</td>
+</tr>
+<tr>
+<td><code>offline_access</code></td>
+<td></td>
+<td>Indicates that a refresh token is returned.</td>
+</tr>
+</tbody></table>
