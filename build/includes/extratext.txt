@@ -1,0 +1,2 @@
+# <%= partial 'includes/REST2/REST2_Alert.md.erb' %>
+# <%= partial 'includes/REST2/REST2_Author.md.erb' %>

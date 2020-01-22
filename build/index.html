@@ -220,6 +220,9 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#dow-jones-dna-web-services" class="toc-h1 toc-link" data-title="Dow Jones DNA Web Services">Dow Jones DNA Web Services</a>
+          </li>
+          <li>
+            <a href="#rest-2-apis" class="toc-h1 toc-link" data-title="REST 2 APIs">REST 2 APIs</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#alert-api" class="toc-h2 toc-link" data-title="Alert API">Alert API</a>
@@ -633,10 +636,22 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='dow-jones-dna-web-services'>Dow Jones DNA Web Services</h1><h3 id='alert-api'>Alert API</h3><h4 id='create-alert'>Create Alert</h4><h5 id='description'>Description</h5>
+        <h1 id='dow-jones-dna-web-services'>Dow Jones DNA Web Services</h1>
+<p><a href="http://openid.net" target="_blank">Link to external site</a></p>
+
+<p><a href="https://simpletaskssimpleapps.github.io/slate/#author-api" target="_blank">Link to REST 2 Alert API</a></p>
+
+<p><a href="/includes/REST2/REST2_Alert.md">I&#39;m a relative link</a></p>
+
+<h1 id='rest-2-apis'>REST 2 APIs</h1>
+
+<p><h3 id='alert-api'>Alert API</h3><h4 id='create-alert'>Create Alert</h4><h5 id='description'>Description</h5>
 <p>This transaction creates a news alert.</p>
+
 <h5 id='url-post'>URL (POST)</h5>
+
 <p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback</p>
+
 <h5 id='xml-payload'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertRequest&gt;</span>
       <span class="nt">&lt;Alert&gt;</span>
         <span class="nt">&lt;AlertName&gt;&lt;/AlertName&gt;</span>
@@ -677,9 +692,10 @@
           <span class="nt">&lt;/SourceGenres&gt;</span>
         <span class="nt">&lt;/AlertQuery&gt;</span>
       <span class="nt">&lt;/Alert&gt;</span>
-    <span class="nt">&lt;/CreateAlertRequest&gt;</span>
+    <span class="nt">&lt;/CreateAlertRequest&gt;</span></p>
 
-</code></pre><h5 id='request-parameters'>Request Parameters</h5>
+<p></code></pre><h5 id='request-parameters'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -893,7 +909,9 @@
 <td style="text-align: left">Possible values:<li>Publications<li>NewsSites<li>Blogs<li><strong>Thisis a payload parameter.</strong></td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -918,14 +936,17 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload-2'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
       <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
-    <span class="nt">&lt;/CreateAlertResponse&gt;</span>
+    <span class="nt">&lt;/CreateAlertResponse&gt;</span></p>
 
-</code></pre>
+<p></code></pre>
 <p> </p>
 <h5 id='url-post-2'>URL (POST)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId</p>
+
 <h5 id='request'>Request</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertRequest&gt;</span>
       <span class="nt">&lt;Alert&gt;</span>
         <span class="nt">&lt;AlertName&gt;</span>createAlert_test12<span class="nt">&lt;/AlertName&gt;</span>
@@ -958,73 +979,79 @@
           <span class="nt">&lt;/SourceGenres&gt;</span>
         <span class="nt">&lt;/AlertQuery&gt;</span>
       <span class="nt">&lt;/Alert&gt;</span>
-    <span class="nt">&lt;/CreateAlertRequest&gt;</span>
+    <span class="nt">&lt;/CreateAlertRequest&gt;</span></p>
 
-</code></pre><h5 id='response'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
+<p></code></pre><h5 id='response'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;CreateAlertResponse&gt;</span>
           <span class="nt">&lt;AlertId&gt;</span>27845254<span class="nt">&lt;/AlertId&gt;</span>
-        <span class="nt">&lt;/CreateAlertResponse&gt;</span>
+        <span class="nt">&lt;/CreateAlertResponse&gt;</span></p>
 
-</code></pre><h5 id='url-post-3'>URL (POST)</h5>
+<p></code></pre><h5 id='url-post-3'>URL (POST)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId</p>
+
 <h5 id='request-2'>Request</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="err">    </span><span class="s2">"Alert"</span><span class="p">:</span><span class="w">
+    </span><span class="err">    </span><span class="s2">&quot;Alert&quot;</span><span class="p">:</span><span class="w">
     </span><span class="err">    </span><span class="p">{</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="s2">"testing1219"</span><span class="p">,</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"DeduplicationLevel"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">        </span><span class="s2">&quot;AlertName&quot;</span><span class="p">:</span><span class="s2">&quot;testing1219&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;DeduplicationLevel&quot;</span><span class="p">:</span><span class="s2">&quot;Off&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;DeliveryOptions&quot;</span><span class="p">:</span><span class="w"> </p>
 
-    </span><span class="err">        </span><span class="p">{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"user@domain.com"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"TimeZone"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"+4:30"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"MaximumNumberofHeadlinesPerDelivery"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"LanguageCode"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"EmailDeliveryContentTypes"</span><span class="p">:</span><span class="w"> 
+<p></span><span class="err">        </span><span class="p">{</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;Email&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;user@domain.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;TimeZone&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;+4:30&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;MaximumNumberofHeadlinesPerDelivery&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;LanguageCode&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;en&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;EmailDeliveryContentTypes&quot;</span><span class="p">:</span><span class="w"> </p>
 
-    </span><span class="err">            </span><span class="p">{</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"EmailDeliveryContentType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"publication"</span><span class="w">
+<p></span><span class="err">            </span><span class="p">{</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;EmailDeliveryContentType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;publication&quot;</span><span class="w">
     </span><span class="err">            </span><span class="p">},</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Batch"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Afternoon"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"FULL"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"SortBy"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Date"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"ResultDisplayFormat"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Plaintext"</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DeliveryMethod&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Batch&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DeliveryTimes&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Afternoon&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DocumentType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;FULL&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;SortBy&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Date&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;ResultDisplayFormat&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Plaintext&quot;</span><span class="w">
     </span><span class="err">         </span><span class="p">},</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"AlertQuery"</span><span class="p">:</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;AlertQuery&quot;</span><span class="p">:</span><span class="w">
     </span><span class="err">        </span><span class="p">{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"Queries"</span><span class="p">:</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;Queries&quot;</span><span class="p">:</span><span class="w">
     </span><span class="err">            </span><span class="p">[{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"QueryString"</span><span class="p">:</span><span class="s2">"fds=APPLC 
-     and Watch"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"SearchMode"</span><span class="p">:</span><span class="s2">"simple"</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;QueryString&quot;</span><span class="p">:</span><span class="s2">&quot;fds=APPLC 
+     and Watch&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;SearchMode&quot;</span><span class="p">:</span><span class="s2">&quot;simple&quot;</span><span class="w">
     </span><span class="err">            </span><span class="p">}],</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"SourceGenres"</span><span class="p">:</span><span class="w"> 
-     </span><span class="p">{</span><span class="w"> </span><span class="s2">"SourceGenre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"publications"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;SourceGenres&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;SourceGenre&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;publications&quot;</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="err">        </span><span class="p">},</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"ProductType"</span><span class="w"> 
-     </span><span class="p">:</span><span class="w"> </span><span class="s2">"Global"</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;ProductType&quot;</span><span class="w"> 
+     </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Global&quot;</span><span class="w">
     </span><span class="err">    </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre><h5 id='response-2'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-         </span><span class="err">   </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="mi">301672344</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+<p></span></code></pre><h5 id='response-2'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+         </span><span class="err">   </span><span class="s2">&quot;AlertId&quot;</span><span class="p">:</span><span class="mi">301672344</span><span class="w">
+        </span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre>
+<p></span></code></pre>
 <p> </p>
 <h4 id='update-alert'>Update Alert</h4><h5 id='description-2'>Description</h5>
+
 <p>This transaction updates a news alert.</p>
+
 <h5 id='url-put'>URL (PUT)</h5>
+
 <p>http://webserver/api/Public/version/Alert/format?SessionId=SessionId&amp;Callback=Callback</p>
+
 <h5 id='xml-payload-3'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertRequest&gt;</span>
       <span class="nt">&lt;Alert&gt;</span>
         <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
@@ -1066,9 +1093,10 @@
           <span class="nt">&lt;/SourceGenres&gt;</span>
         <span class="nt">&lt;/AlertQuery&gt;</span>
       <span class="nt">&lt;/Alert&gt;</span>
-    <span class="nt">&lt;/UpdateAlertRequest&gt;</span>
+    <span class="nt">&lt;/UpdateAlertRequest&gt;</span></p>
 
-</code></pre><h5 id='request-parameters-2'>Request Parameters</h5>
+<p></code></pre><h5 id='request-parameters-2'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -1289,7 +1317,9 @@
 <td style="text-align: left">Possible values:<li>Publications<li>NewsSites<li>Blogs<li><strong>Thisis a payload parameter.</strong></td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-2'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -1314,14 +1344,17 @@
 <td style="text-align: left">Valid values are True (successful)and False (unsuccessful).</td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload-4'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
       <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
-    <span class="nt">&lt;/UpdateAlertResponse&gt;</span>
+    <span class="nt">&lt;/UpdateAlertResponse&gt;</span></p>
 
-</code></pre>
+<p></code></pre>
 <p> </p>
 <h5 id='url-put-2'>URL (PUT)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/xml?sessionId=YourSessionId</p>
+
 <h5 id='request-3'>Request</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertRequest&gt;</span>
       <span class="nt">&lt;Alert&gt;</span>
         <span class="nt">&lt;AlertId&gt;</span>300279626<span class="nt">&lt;/AlertId&gt;</span>
@@ -1354,80 +1387,87 @@
           <span class="nt">&lt;/SourceGenres&gt;</span>
         <span class="nt">&lt;/AlertQuery&gt;</span>
       <span class="nt">&lt;/Alert&gt;</span>
-    <span class="nt">&lt;/UpdateAlertRequest&gt;</span>
+    <span class="nt">&lt;/UpdateAlertRequest&gt;</span></p>
 
-</code></pre><h5 id='response-3'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
+<p></code></pre><h5 id='response-3'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UpdateAlertResponse&gt;</span>
           <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
-        <span class="nt">&lt;/UpdateAlertResponse&gt;</span>
+        <span class="nt">&lt;/UpdateAlertResponse&gt;</span></p>
 
-</code></pre><h5 id='url-put-3'>URL (PUT)</h5>
+<p></code></pre><h5 id='url-put-3'>URL (PUT)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/json?sessionId=YourSessionId</p>
+
 <h5 id='request-4'>Request</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="err">    </span><span class="s2">"Alert"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"301669213"</span><span class="p">,</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"test123"</span><span class="p">,</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"DeduplicationLevel"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Global"</span><span class="p">,</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">    </span><span class="s2">&quot;Alert&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;AlertId&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;301669213&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;AlertName&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;test123&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;DeduplicationLevel&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Off&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;ProductType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Global&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">        </span><span class="s2">&quot;DeliveryOptions&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"user@domain.com"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"TimeZone"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"+4:30"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"MaximumNumberofHeadlinesPerDelivery"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"LanguageCode"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"EmailDeliveryContentTypes"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;Email&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;user@domain.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;TimeZone&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;+4:30&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;MaximumNumberofHeadlinesPerDelivery&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;LanguageCode&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;en&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;EmailDeliveryContentTypes&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">{</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"EmailDeliveryContentType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Publication"</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;EmailDeliveryContentType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Publication&quot;</span><span class="w">
     </span><span class="err">            </span><span class="p">},</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Afternoon"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"FULL"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"SortBy"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Date"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"ResultDisplayFormat"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Plaintext"</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DeliveryMethod&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Online&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DeliveryTimes&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Afternoon&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DocumentType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;FULL&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;SortBy&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Date&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;ResultDisplayFormat&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Plaintext&quot;</span><span class="w">
     </span><span class="err">        </span><span class="p">},</span><span class="w">
-    </span><span class="err">        </span><span class="s2">"AlertQuery"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">        </span><span class="s2">&quot;AlertQuery&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"Queries"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;Queries&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">[</span><span class="w">
     </span><span class="err">                </span><span class="p">{</span><span class="w">
-    </span><span class="err">                    </span><span class="s2">"QueryString"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"fds=APPLC or Watch"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                    </span><span class="s2">"SearchMode"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"traditional"</span><span class="w">
+    </span><span class="err">                    </span><span class="s2">&quot;QueryString&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;fds=APPLC or Watch&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                    </span><span class="s2">&quot;SearchMode&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;traditional&quot;</span><span class="w">
     </span><span class="err">                </span><span class="p">}</span><span class="w">
     </span><span class="err">            </span><span class="p">],</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"SourceGenres"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;SourceGenres&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">[</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"Publications"</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;Publications&quot;</span><span class="w">
     </span><span class="err">            </span><span class="p">]</span><span class="w">
     </span><span class="err">        </span><span class="p">}</span><span class="w">
     </span><span class="err">    </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre><h5 id='response-4'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-         </span><span class="err">   Message</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+<p></span></code></pre><h5 id='response-4'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+         </span><span class="err">   Message</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">
+        </span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre>
+<p></span></code></pre>
 <p> </p>
 <h4 id='get-alerts-by-product-type'>Get Alerts by Product Type</h4><h5 id='description-3'>Description</h5>
+
 <p>This transaction retrieves alert information by Product Type.</p>
+
 <h5 id='url-get'>URL (GET)</h5>
+
 <p>http://webserver/api/Public/version/Alert/list/format?SessionId=SessionId&amp;Callback=Callback&amp;ProductType=ProductType&amp;Parts=Parts</p>
+
 <h5 id='request-parameters-3'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -1536,7 +1576,9 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-3'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -1715,6 +1757,7 @@
 <td style="text-align: left">Valid values are True and False.</td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload-5'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
       <span class="nt">&lt;AlertDetails&gt;</span>
         <span class="nt">&lt;AlertDetail&gt;</span>
@@ -1745,10 +1788,12 @@
         <span class="nt">&lt;/AlertDetail&gt;</span>
         ...
       <span class="nt">&lt;/AlertDetails&gt;</span>
-    <span class="nt">&lt;/AlertResponse&gt;</span>
+    <span class="nt">&lt;/AlertResponse&gt;</span></p>
 
-</code></pre><h5 id='ab90d23f74'> </h5>
+<p></code></pre><h5 id='ab90d23f74'> </h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
       <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
       <span class="nt">&lt;TotalRecords&gt;</span>2<span class="nt">&lt;/TotalRecords&gt;</span>
@@ -1783,73 +1828,79 @@
           <span class="nt">&lt;NewHits&gt;</span>true<span class="nt">&lt;/NewHits&gt;</span>
         <span class="nt">&lt;/AlertDetail&gt;</span>
       <span class="nt">&lt;/AlertDetails&gt;</span>
-    <span class="nt">&lt;/AlertResponse&gt;</span>
+    <span class="nt">&lt;/AlertResponse&gt;</span></p>
 
-</code></pre>
+<p></code></pre>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/json?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="err">    </span><span class="s2">"AlertDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">    </span><span class="s2">&quot;Records&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">&quot;TotalRecords&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">&quot;AlertDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="err">        </span><span class="p">{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;AlertId&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="mi">300271887</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"1719_test"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;AlertName&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;1719_test&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DeliveryOptions&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">{</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"naresh@naresh1.com"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Morning"</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;Email&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;naresh@naresh1.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;DeliveryMethod&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Online&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;DeliveryTimes&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Morning&quot;</span><span class="w">
     </span><span class="err">            </span><span class="p">},</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;IsGroupAlert&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300271887&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShQvtlkO57o8J8vKcrwg86DEVG1OmvAPNru1fn0MiaLZ6e4iECja37Tx2DBitb%2fR6DpQ8MObdP7syk6gYMMRFPsvjACWRo2ueYlS90Y3D86ypkS8Dgu6azTE2csb3StPQNTip6mFbVYDlWnV0GjHsJ1r7Fr57J4mi%2ffc430vb1PrdhZ47SNeTNbvobGCkM9Kxjp1h6CM9wNJUIYUCixG0UeA5ycME1r5kgM%3d%7c2"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"IFF"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"NewHits"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;OwnershipType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Personal&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;PrivateRSSLink&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;http://rss.int.factiva.com/headlines.aspx?folderid=300271887&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShQvtlkO57o8J8vKcrwg86DEVG1OmvAPNru1fn0MiaLZ6e4iECja37Tx2DBitb%2fR6DpQ8MObdP7syk6gYMMRFPsvjACWRo2ueYlS90Y3D86ypkS8Dgu6azTE2csb3StPQNTip6mFbVYDlWnV0GjHsJ1r7Fr57J4mi%2ffc430vb1PrdhZ47SNeTNbvobGCkM9Kxjp1h6CM9wNJUIYUCixG0UeA5ycME1r5kgM%3d%7c2&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;ProductType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;IFF&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;NewHits&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="kc">true</span><span class="w">
     </span><span class="err">        </span><span class="p">},</span><span class="w">
     </span><span class="err">        </span><span class="p">{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;AlertId&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="mi">300271343</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"a_twst"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;AlertName&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;a_twst&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DeliveryOptions&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">{</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"new1@new.com"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"TimeZone"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"-05:00|1"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Batch"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Both"</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;Email&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;new1@new.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;TimeZone&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;-05:00|1&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;DeliveryMethod&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Batch&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;DeliveryTimes&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Both&quot;</span><span class="w">
     </span><span class="err">            </span><span class="p">},</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;IsGroupAlert&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300271343&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShRY7vfCUZ73JTYMBcpGF%2bm646zrokgh0V8j3fm2TlDpXGKypeaIDqIpvPKIAP7xRYVz9xaN3e376eZ%2b7w23yPzEVU2CzuMjoS7diKj7ei4ci8kcHU%2fJ%2b4FMz9CatOzhiv58HF9YJzZLL4X75l91eupTJ7Kv4GWmMkiBtD38mkAl3RQFAp2Xr9IApwK91CTE0XziX4vj3JW9ZojHPtphKZbO%7c2"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"IFF"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"NewHits"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;OwnershipType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Personal&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;PrivateRSSLink&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;http://rss.int.factiva.com/headlines.aspx?folderid=300271343&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShRY7vfCUZ73JTYMBcpGF%2bm646zrokgh0V8j3fm2TlDpXGKypeaIDqIpvPKIAP7xRYVz9xaN3e376eZ%2b7w23yPzEVU2CzuMjoS7diKj7ei4ci8kcHU%2fJ%2b4FMz9CatOzhiv58HF9YJzZLL4X75l91eupTJ7Kv4GWmMkiBtD38mkAl3RQFAp2Xr9IApwK91CTE0XziX4vj3JW9ZojHPtphKZbO%7c2&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;ProductType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;IFF&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;NewHits&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="kc">true</span><span class="w">
     </span><span class="err">        </span><span class="p">}</span><span class="w">
     </span><span class="err">    </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre>
+<p></span></code></pre>
+
 <p> </p>
+
 <h5 id='url-get-2'>URL (GET)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/xml?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-5'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertResponse&gt;</span>
       <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
       <span class="nt">&lt;TotalRecords&gt;</span>2<span class="nt">&lt;/TotalRecords&gt;</span>
@@ -1884,76 +1935,83 @@
           <span class="nt">&lt;NewHits&gt;</span>true<span class="nt">&lt;/NewHits&gt;</span>
         <span class="nt">&lt;/AlertDetail&gt;</span>
       <span class="nt">&lt;/AlertDetails&gt;</span>
-    <span class="nt">&lt;/AlertResponse&gt;</span>
+    <span class="nt">&lt;/AlertResponse&gt;</span></p>
 
-</code></pre><h5 id='url-get-3'>URL (GET)</h5>
+<p></code></pre><h5 id='url-get-3'>URL (GET)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/list/json?productType=investmentbankingalerts&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-6'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="err">    </span><span class="s2">"TotalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="err">    </span><span class="s2">"AlertDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">    </span><span class="s2">&quot;Records&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">&quot;TotalRecords&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">    </span><span class="s2">&quot;AlertDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="err">        </span><span class="p">{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;AlertId&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="mi">300271887</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"1719_test"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;AlertName&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;1719_test&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DeliveryOptions&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">{</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"naresh@naresh1.com"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Morning"</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;Email&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;naresh@naresh1.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;DeliveryMethod&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Online&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;DeliveryTimes&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Morning&quot;</span><span class="w">
     </span><span class="err">            </span><span class="p">},</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;IsGroupAlert&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300271887&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShQvtlkO57o8J8vKcrwg86DEVG1OmvAPNru1fn0MiaLZ6e4iECja37Tx2DBitb%2fR6DpQ8MObdP7syk6gYMMRFPsvjACWRo2ueYlS90Y3D86ypkS8Dgu6azTE2csb3StPQNTip6mFbVYDlWnV0GjHsJ1r7Fr57J4mi%2ffc430vb1PrdhZ47SNeTNbvobGCkM9Kxjp1h6CM9wNJUIYUCixG0UeA5ycME1r5kgM%3d%7c2"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"IFF"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"NewHits"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;OwnershipType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Personal&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;PrivateRSSLink&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;http://rss.int.factiva.com/headlines.aspx?folderid=300271887&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShQvtlkO57o8J8vKcrwg86DEVG1OmvAPNru1fn0MiaLZ6e4iECja37Tx2DBitb%2fR6DpQ8MObdP7syk6gYMMRFPsvjACWRo2ueYlS90Y3D86ypkS8Dgu6azTE2csb3StPQNTip6mFbVYDlWnV0GjHsJ1r7Fr57J4mi%2ffc430vb1PrdhZ47SNeTNbvobGCkM9Kxjp1h6CM9wNJUIYUCixG0UeA5ycME1r5kgM%3d%7c2&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;ProductType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;IFF&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;NewHits&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="kc">true</span><span class="w">
     </span><span class="err">        </span><span class="p">},</span><span class="w">
     </span><span class="err">        </span><span class="p">{</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;AlertId&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="mi">300271343</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"a_twst"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;AlertName&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;a_twst&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;DeliveryOptions&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="p">{</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"new1@new.com"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"TimeZone"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"-05:00|1"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Batch"</span><span class="p">,</span><span class="w">
-    </span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Both"</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;Email&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;new1@new.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;TimeZone&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;-05:00|1&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;DeliveryMethod&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Batch&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">                </span><span class="s2">&quot;DeliveryTimes&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Both&quot;</span><span class="w">
     </span><span class="err">            </span><span class="p">},</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;IsGroupAlert&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300271343&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShRY7vfCUZ73JTYMBcpGF%2bm646zrokgh0V8j3fm2TlDpXGKypeaIDqIpvPKIAP7xRYVz9xaN3e376eZ%2b7w23yPzEVU2CzuMjoS7diKj7ei4ci8kcHU%2fJ%2b4FMz9CatOzhiv58HF9YJzZLL4X75l91eupTJ7Kv4GWmMkiBtD38mkAl3RQFAp2Xr9IApwK91CTE0XziX4vj3JW9ZojHPtphKZbO%7c2"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> 
-     </span><span class="s2">"IFF"</span><span class="p">,</span><span class="w">
-    </span><span class="err">            </span><span class="s2">"NewHits"</span><span class="p">:</span><span class="w"> 
+    </span><span class="err">            </span><span class="s2">&quot;OwnershipType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;Personal&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;PrivateRSSLink&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;http://rss.int.factiva.com/headlines.aspx?folderid=300271343&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FvYc86KrKShRY7vfCUZ73JTYMBcpGF%2bm646zrokgh0V8j3fm2TlDpXGKypeaIDqIpvPKIAP7xRYVz9xaN3e376eZ%2b7w23yPzEVU2CzuMjoS7diKj7ei4ci8kcHU%2fJ%2b4FMz9CatOzhiv58HF9YJzZLL4X75l91eupTJ7Kv4GWmMkiBtD38mkAl3RQFAp2Xr9IApwK91CTE0XziX4vj3JW9ZojHPtphKZbO%7c2&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;ProductType&quot;</span><span class="p">:</span><span class="w"> 
+     </span><span class="s2">&quot;IFF&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">            </span><span class="s2">&quot;NewHits&quot;</span><span class="p">:</span><span class="w"> 
      </span><span class="kc">true</span><span class="w">
     </span><span class="err">        </span><span class="p">}</span><span class="w">
     </span><span class="err">    </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre>
+<p></span></code></pre>
 <p> </p>
 <h4 id='get-alert-by-id'>Get Alert by Id</h4><h5 id='description-4'>Description</h5>
+
 <p>This transaction retrieves alert details by Alert Id.</p>
+
 <h5 id='url-get-4'>URL (GET)</h5>
+
 <p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId&amp;Parts=Parts</p>
+
 <h5 id='request-parameters-4'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2062,7 +2120,9 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-4'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2269,6 +2329,7 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload-6'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
   <span class="nt">&lt;Alerts&gt;</span>
     <span class="nt">&lt;Alert&gt;</span>
@@ -2314,10 +2375,12 @@
       <span class="nt">&lt;Contact&gt;&lt;/Contact&gt;</span>
     <span class="nt">&lt;/Alert&gt;</span>
   <span class="nt">&lt;/Alerts&gt;</span>
-<span class="nt">&lt;/AlertByIdResponse&gt;</span>
+<span class="nt">&lt;/AlertByIdResponse&gt;</span></p>
 
-</code></pre><h5 id='ab90d23f74-2'> </h5>
+<p></code></pre><h5 id='ab90d23f74-2'> </h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
   <span class="nt">&lt;Alerts&gt;</span>
     <span class="nt">&lt;Alert&gt;</span>
@@ -2354,51 +2417,57 @@
       <span class="nt">&lt;Contact&gt;</span>contactperson<span class="nt">&lt;/Contact&gt;</span>
     <span class="nt">&lt;/Alert&gt;</span>
   <span class="nt">&lt;/Alerts&gt;</span>
-<span class="nt">&lt;/AlertByIdResponse&gt;</span>
+<span class="nt">&lt;/AlertByIdResponse&gt;</span></p>
 
-</code></pre>
+<p></code></pre>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/json?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-</span><span class="err">    </span><span class="s2">"Alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">    </span><span class="s2">&quot;Alerts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="err">        </span><span class="p">{</span><span class="w">
-</span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> </span><span class="mi">300272176</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InfyTestAlert_10"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"MaximumNumberofHeadlinesPerDelivery"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNIP"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"EmailDeliveryContentTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="err">                    </span><span class="s2">"publication"</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;AlertId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300272176</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;AlertName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;InfyTestAlert_10&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;DeliveryOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;MaximumNumberofHeadlinesPerDelivery&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;DeliveryMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Online&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;DeliveryTimes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;None&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;DocumentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SNIP&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;EmailDeliveryContentTypes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="s2">&quot;publication&quot;</span><span class="w">
 </span><span class="err">                </span><span class="p">],</span><span class="w">
-</span><span class="err">                </span><span class="s2">"ResultDisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HTML"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"SortBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date"</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;ResultDisplayFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HTML&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;SortBy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Date&quot;</span><span class="w">
 </span><span class="err">            </span><span class="p">},</span><span class="w">
-</span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300272176&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FdBObL1FYBTMwyfFdusyqpGQTuZvic5pr8C2%2bZ9jF%2faaEnlGhmAQpLrJRXGJ3ldjKpVGmNNgXZKqaQrzFINL2sEGe7SbQTj1mE67hOPnyWYhJcI1S%2fgT2puts%2fC85qm1uz5fljam8t3HoWwov6S5z1SbNOrNcPFyI0Tyjvs%2fXY7L%2bqvoGjoWJUpmsUXyoR5ldkhK8lRD24hFan32BwflSrDfUFW3d0tqbE1nIkLPfEKbMA%2finah5jc3AqZTlrwUl0%7c2"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvestmentBankingAlerts"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"AlertQuery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Queries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;IsGroupAlert&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;OwnershipType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Personal&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;PrivateRSSLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://rss.int.factiva.com/headlines.aspx?folderid=300272176&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FdBObL1FYBTMwyfFdusyqpGQTuZvic5pr8C2%2bZ9jF%2faaEnlGhmAQpLrJRXGJ3ldjKpVGmNNgXZKqaQrzFINL2sEGe7SbQTj1mE67hOPnyWYhJcI1S%2fgT2puts%2fC85qm1uz5fljam8t3HoWwov6S5z1SbNOrNcPFyI0Tyjvs%2fXY7L%2bqvoGjoWJUpmsUXyoR5ldkhK8lRD24hFan32BwflSrDfUFW3d0tqbE1nIkLPfEKbMA%2finah5jc3AqZTlrwUl0%7c2&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;ProductType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;InvestmentBankingAlerts&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;AlertQuery&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Queries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="err">                    </span><span class="p">{</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"QueryString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"obama"</span><span class="p">,</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"SearchMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simple"</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;QueryString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;obama&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;SearchMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Simple&quot;</span><span class="w">
 </span><span class="err">                    </span><span class="p">}</span><span class="w">
 </span><span class="err">                </span><span class="p">],</span><span class="w">
-</span><span class="err">                </span><span class="s2">"SourceGenres"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="err">                    </span><span class="s2">"Publications"</span><span class="p">,</span><span class="w">
-</span><span class="err">                    </span><span class="s2">"NewsSites"</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;SourceGenres&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="s2">&quot;Publications&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                    </span><span class="s2">&quot;NewsSites&quot;</span><span class="w">
 </span><span class="err">                </span><span class="p">]</span><span class="w">
 </span><span class="err">            </span><span class="p">},</span><span class="w">
-</span><span class="err">            </span><span class="s2">"Contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactperson"</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;Contact&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;contactperson&quot;</span><span class="w">
 </span><span class="err">        </span><span class="p">}</span><span class="w">
 </span><span class="err">    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre>
+<p></span></code></pre>
+
 <p> </p>
+
 <h5 id='url-get-5'>URL (GET)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/xml?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-7'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AlertByIdResponse&gt;</span>
   <span class="nt">&lt;Alerts&gt;</span>
     <span class="nt">&lt;Alert&gt;</span>
@@ -2435,54 +2504,61 @@
       <span class="nt">&lt;Contact&gt;</span>contactperson<span class="nt">&lt;/Contact&gt;</span>
     <span class="nt">&lt;/Alert&gt;</span>
   <span class="nt">&lt;/Alerts&gt;</span>
-<span class="nt">&lt;/AlertByIdResponse&gt;</span>
+<span class="nt">&lt;/AlertByIdResponse&gt;</span></p>
 
-</code></pre><h5 id='url-get-6'>URL (GET)</h5>
+<p></code></pre><h5 id='url-get-6'>URL (GET)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/id/json?id=300272176&amp;parts=rssurl&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-8'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-</span><span class="err">    </span><span class="s2">"Alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">    </span><span class="s2">&quot;Alerts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="err">        </span><span class="p">{</span><span class="w">
-</span><span class="err">            </span><span class="s2">"AlertId"</span><span class="p">:</span><span class="w"> </span><span class="mi">300272176</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"AlertName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InfyTestAlert_10"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"DeliveryOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"MaximumNumberofHeadlinesPerDelivery"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"DeliveryMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"DeliveryTimes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNIP"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"EmailDeliveryContentTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="err">                    </span><span class="s2">"publication"</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;AlertId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300272176</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;AlertName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;InfyTestAlert_10&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;DeliveryOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;MaximumNumberofHeadlinesPerDelivery&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;DeliveryMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Online&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;DeliveryTimes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;None&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;DocumentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SNIP&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;EmailDeliveryContentTypes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="s2">&quot;publication&quot;</span><span class="w">
 </span><span class="err">                </span><span class="p">],</span><span class="w">
-</span><span class="err">                </span><span class="s2">"ResultDisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HTML"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"SortBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date"</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;ResultDisplayFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HTML&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;SortBy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Date&quot;</span><span class="w">
 </span><span class="err">            </span><span class="p">},</span><span class="w">
-</span><span class="err">            </span><span class="s2">"IsGroupAlert"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"OwnershipType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"PrivateRSSLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://rss.int.factiva.com/headlines.aspx?folderid=300272176&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FdBObL1FYBTMwyfFdusyqpGQTuZvic5pr8C2%2bZ9jF%2faaEnlGhmAQpLrJRXGJ3ldjKpVGmNNgXZKqaQrzFINL2sEGe7SbQTj1mE67hOPnyWYhJcI1S%2fgT2puts%2fC85qm1uz5fljam8t3HoWwov6S5z1SbNOrNcPFyI0Tyjvs%2fXY7L%2bqvoGjoWJUpmsUXyoR5ldkhK8lRD24hFan32BwflSrDfUFW3d0tqbE1nIkLPfEKbMA%2finah5jc3AqZTlrwUl0%7c2"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvestmentBankingAlerts"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"AlertQuery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Queries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;IsGroupAlert&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;OwnershipType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Personal&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;PrivateRSSLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://rss.int.factiva.com/headlines.aspx?folderid=300272176&amp;EID3=XqTZ%2fV5fX6pvwJzlx2RJKvbKODY7fGMZIowAsacNfzvjdnMpu44J03MFzZu4RU652mu7ghkMnY9BhUYcoP%2fWYyKoFzVm6Z3FdBObL1FYBTMwyfFdusyqpGQTuZvic5pr8C2%2bZ9jF%2faaEnlGhmAQpLrJRXGJ3ldjKpVGmNNgXZKqaQrzFINL2sEGe7SbQTj1mE67hOPnyWYhJcI1S%2fgT2puts%2fC85qm1uz5fljam8t3HoWwov6S5z1SbNOrNcPFyI0Tyjvs%2fXY7L%2bqvoGjoWJUpmsUXyoR5ldkhK8lRD24hFan32BwflSrDfUFW3d0tqbE1nIkLPfEKbMA%2finah5jc3AqZTlrwUl0%7c2&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;ProductType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;InvestmentBankingAlerts&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;AlertQuery&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Queries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="err">                    </span><span class="p">{</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"QueryString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"obama"</span><span class="p">,</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"SearchMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simple"</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;QueryString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;obama&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;SearchMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Simple&quot;</span><span class="w">
 </span><span class="err">                    </span><span class="p">}</span><span class="w">
 </span><span class="err">                </span><span class="p">],</span><span class="w">
-</span><span class="err">                </span><span class="s2">"SourceGenres"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="err">                    </span><span class="s2">"Publications"</span><span class="p">,</span><span class="w">
-</span><span class="err">                    </span><span class="s2">"NewsSites"</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;SourceGenres&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                    </span><span class="s2">&quot;Publications&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                    </span><span class="s2">&quot;NewsSites&quot;</span><span class="w">
 </span><span class="err">                </span><span class="p">]</span><span class="w">
 </span><span class="err">            </span><span class="p">},</span><span class="w">
-</span><span class="err">            </span><span class="s2">"Contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactperson"</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;Contact&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;contactperson&quot;</span><span class="w">
 </span><span class="err">        </span><span class="p">}</span><span class="w">
 </span><span class="err">    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre>
+<p></span></code></pre>
 <p> </p>
 <h4 id='share-alert'>Share Alert</h4><h5 id='description-5'>Description</h5>
+
 <p>This transaction shares an alert by Alert Id. Shared alerts can be subscribed by other users.</p>
+
 <h5 id='url-put-4'>URL (PUT)</h5>
+
 <p>http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+
 <h5 id='request-parameters-5'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2521,7 +2597,9 @@
 <td style="text-align: left">This value can be obtained from Get Alerts by Product Type response.</td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-5'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2545,35 +2623,46 @@
 <td style="text-align: left">Message indicating the result of the requested operation.</td>
 <td style="text-align: left">Valid values are True (successful) and False (unsuccessful).</td>
 </tr>
-</tbody></table>
+</tbody></table></p>
 
 <p>Boldface indicates container element.</p>
+
 <h5 id='xml-payload-7'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
 <span class="nt">&lt;/ShareAlertResponse&gt;</span>
 
 </code></pre><h5 id='ab90d23f74-3'> </h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/ShareAlertResponse&gt;</span>
 
 </code></pre>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
+
 <p> </p>
+
 <h5 id='url-put-5'>URL (PUT)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-9'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;ShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/ShareAlertResponse&gt;</span>
 
 </code></pre><h5 id='url-put-6'>URL (PUT)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-10'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2581,10 +2670,15 @@
 </span></code></pre>
 <p> </p>
 <h4 id='unshare-alert'>Unshare Alert</h4><h5 id='description-6'>Description</h5>
+
 <p>This transaction uhshares an alert by Alert Id. An unshared alert cannot be subscribed by other users.</p>
+
 <h5 id='url-delete'>URL (DELETE)</h5>
+
 <p>http://webserver/api/Public/version/Alert/Share/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+
 <h5 id='request-parameters-6'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2623,7 +2717,9 @@
 <td style="text-align: left">This value can be obtained from Get Alerts by Product Type response.</td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-6'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2650,32 +2746,43 @@
 </tbody></table>
 
 <p> </p>
+
 <h5 id='xml-payload-8'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnShareAlertResponse&gt;</span>
 
 </code></pre><h5 id='ab90d23f74-4'> </h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnShareAlertResponse&gt;</span>
 
 </code></pre>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
+
 <p> </p>
+
 <h5 id='url-delete-2'>URL (DELETE)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/xml?id=8976&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-11'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnShareAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnShareAlertResponse&gt;</span>
 
 </code></pre><h5 id='url-delete-3'>URL (DELETE)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/share/json?id=8976&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-12'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2683,10 +2790,15 @@
 </span></code></pre>
 <p> </p>
 <h4 id='subscribe-alert-by-id'>Subscribe Alert by Id</h4><h5 id='description-7'>Description</h5>
+
 <p>This transaction allows the logged-in user to subscribe to an alert by Alert Id.</p>
+
 <h5 id='url-put-7'>URL (PUT)</h5>
+
 <p>http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+
 <h5 id='request-parameters-7'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2767,7 +2879,9 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-7'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2792,6 +2906,7 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload-9'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SubscribeAlertResponse&gt;</span>
   <span class="nt">&lt;AlertId&gt;&lt;/AlertId&gt;</span>
 <span class="nt">&lt;/SubscribeAlertResponse&gt;</span>
@@ -2799,13 +2914,17 @@
 </code></pre>
 <p> </p>
 <h5 id='url-put-8'>URL (PUT)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-13'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;SubscribeAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/SubscribeAlertResponse&gt;</span>
 
 </code></pre><h5 id='url-put-9'>URL (PUT)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-14'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2813,10 +2932,15 @@
 </span></code></pre>
 <p> </p>
 <h4 id='unsubscribe-alert-by-id'>Unsubscribe Alert by Id</h4><h5 id='description-8'>Description</h5>
+
 <p>This transaction allows the logged-in user to unsubscribe from an alert by Alert Id.</p>
+
 <h5 id='url-delete-4'>URL (DELETE)</h5>
+
 <p>http://webserver/api/Public/version/Alert/Subscribe/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+
 <h5 id='request-parameters-8'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2897,7 +3021,9 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-8'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -2922,18 +3048,23 @@
 <td style="text-align: left">Valid values are True (successful) and False (unsuccessful).</td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload-10'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnSubscribeAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnSubscribeAlertResponse&gt;</span>
 
 </code></pre><h5 id='url-delete-5'>URL (DELETE)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/xml?id=300270713&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-15'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;UnSubscribeAlertResponse&gt;</span>
   <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
 <span class="nt">&lt;/UnSubscribeAlertResponse&gt;</span>
 
 </code></pre><h5 id='url-delete-6'>URL (DELETE)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/subscribe/json?id=300270713&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-16'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2941,10 +3072,15 @@
 </span></code></pre>
 <p> </p>
 <h4 id='delete-alert-by-id'>Delete Alert By Id</h4><h5 id='description-9'>Description</h5>
+
 <p>This transaction deletes an alert by Alert Id.</p>
+
 <h5 id='url-delete-7'>URL (DELETE)</h5>
+
 <p>http://webserver/api/Public/version/Alert/Id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AlertId</p>
+
 <h5 id='parameters'>Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -3025,7 +3161,9 @@
 <td style="text-align: left">This value can be obtained from Get  Alerts by Product Type response.</td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-9'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -3050,18 +3188,23 @@
 <td style="text-align: left">Valid values are True (successful)and False (unsuccessful).</td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload-11'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
      <span class="nt">&lt;Message&gt;</span>String content<span class="nt">&lt;/Message&gt;</span>
     <span class="nt">&lt;/DeleteAlertResponse&gt;</span>
 
 </code></pre><h5 id='ab90d23f74-5'> </h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/xml?Id=34834&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;DeleteAlertResponse&gt;</span>
          <span class="nt">&lt;Message&gt;</span>True<span class="nt">&lt;/Message&gt;</span>
         <span class="nt">&lt;/DeleteAlertResponse&gt;</span>
 
 </code></pre>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Alert/Id/json?Id=34834&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -3078,13 +3221,19 @@
     </span><span class="err">    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='author-api'>Author API</h3><h4 id='get-authors-by-search-string'>Get Authors By Search String</h4><h5 id='description'>Description</h5>
+</span></code></pre>
+
+<p><h3 id='author-api'>Author API</h3><h4 id='get-authors-by-search-string'>Get Authors By Search String</h4><h5 id='description'>Description</h5>
 <p>This transaction allows a user to search for authors by a search 
      string. The results can be filtered by Author Id(s), Outlet Id(s), 
      and Outlet Name.</p>
+
 <h5 id='url-get'>URL (GET)</h5>
+
 <p>http://webserver/api/Public/version/Author/format?SessionId=SessionId&amp;Callback=Callback&amp;Offset=Offset&amp;Records=Records&amp;SortBy=SortBy&amp;SearchString=SearchString</p>
+
 <h5 id='request-parameters'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -3171,13 +3320,15 @@
 <td style="text-align: left">The  Outlet Name to filter the search results.</td>
 <td style="text-align: left"></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
 
 <ul>
 <li>
 indicates Required parameter.</li>
 </ul>
+
 <h5 id='response-tags'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -3356,6 +3507,7 @@ indicates Required parameter.</li>
 <td style="text-align: left"><Subject>&lt;Id&gt;Integer&lt;/Id&gt;&lt;Name&gt;String&lt;/Name&gt;&lt;ParentId&gt;Integer&lt;/ParentId&gt;&lt;Description&gt;String&lt;/Description&gt;&lt;/Subject&gt;</td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;&lt;/Offset&gt;</span>
       <span class="nt">&lt;Records&gt;&lt;/Records&gt;</span>
@@ -3371,7 +3523,9 @@ indicates Required parameter.</li>
     <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
 
 </code></pre><h5 id='ab90d23f74'> </h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&amp;records=2&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;</span>2<span class="nt">&lt;/Offset&gt;</span>
       <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
@@ -3391,7 +3545,9 @@ indicates Required parameter.</li>
     <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
 
 </code></pre>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&amp;searchstring=moss&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -3409,9 +3565,13 @@ indicates Required parameter.</li>
     </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
+
 <p> </p>
+
 <h5 id='url-get-2'>URL (GET)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/xml?searchstring=moss&amp;records=2&amp;sessionId=YourSessionId</p>
+
 <h5 id='response'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorSearchResponse&gt;</span>
       <span class="nt">&lt;Offset&gt;</span>2<span class="nt">&lt;/Offset&gt;</span>
       <span class="nt">&lt;Records&gt;</span>2<span class="nt">&lt;/Records&gt;</span>
@@ -3431,7 +3591,9 @@ indicates Required parameter.</li>
     <span class="nt">&lt;/AuthorSearchResponse&gt;</span>
 
 </code></pre><h5 id='url-get-3'>URL (GET)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/json?records=1&amp;searchstring=moss&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-2'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="err">    </span><span class="s2">"Records"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -3451,10 +3613,15 @@ indicates Required parameter.</li>
 </span></code></pre>
 <p> </p>
 <h4 id='get-author-by-id'>Get Author By Id</h4><h5 id='description-2'>Description</h5>
+
 <p>This transaction retrieves information about an author by Author Id.</p>
+
 <h5 id='url-get-4'>URL (GET)</h5>
+
 <p>http://webserver/api/Public/version/Author/id/format?SessionId=SessionId&amp;Callback=Callback&amp;Id=AuthorId</p>
+
 <h5 id='request-parameters-2'>Request Parameters</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -3535,7 +3702,9 @@ indicates Required parameter.</li>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='response-tags-2'>Response Tags</h5>
+
 <table><thead>
 <tr>
 <th style="text-align: right"></th>
@@ -3588,6 +3757,7 @@ indicates Required parameter.</li>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
 <h5 id='xml-payload-2'>XML Payload</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Authors&gt;</span>
     <span class="nt">&lt;Author&gt;</span>
@@ -3843,7 +4013,9 @@ indicates Required parameter.</li>
 <span class="nt">&lt;/AuthorByIdResponse&gt;</span>
 
 </code></pre><h5 id='ab90d23f74-2'> </h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Author&gt;</span>
     <span class="nt">&lt;FirstName&gt;</span>Adam<span class="nt">&lt;/FirstName&gt;</span>
@@ -3931,7 +4103,9 @@ indicates Required parameter.</li>
 <span class="nt">&lt;/AuthorByIdResponse&gt;</span>
 
 </code></pre>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/json?id=1089207&amp;sessionId=YourSessionId</p>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="err">    </span><span class="s2">"Author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="err">        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
@@ -4018,9 +4192,13 @@ indicates Required parameter.</li>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
+
 <p> </p>
+
 <h5 id='url-get-5'>URL (GET)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/xml?id=1089207&amp;sessionId=YourSessionId</p>
+
 <h5 id='response-3'>Response</h5><pre class="highlight xml tab-xml"><code><span class="nt">&lt;AuthorByIdResponse&gt;</span>
   <span class="nt">&lt;Author&gt;</span>
     <span class="nt">&lt;FirstName&gt;</span>Adam<span class="nt">&lt;/FirstName&gt;</span>
@@ -4108,94 +4286,96 @@ indicates Required parameter.</li>
 <span class="nt">&lt;/AuthorByIdResponse&gt;</span>
 
 </code></pre><h5 id='url-get-6'>URL (GET)</h5>
+
 <p>http://api.beta.dowjones.com/api/Public/2.0/Author/id/json?id=1089207&amp;sessionId=YourSessionId</p>
-<h5 id='response-4'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-</span><span class="err">    </span><span class="s2">"Author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">709596</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24655</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="w">
+
+<p><h5 id='response-4'>Response</h5><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="err">    </span><span class="s2">&quot;Author&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;FirstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Adam&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">709596</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;LastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Moss&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;City&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24655</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New York&quot;</span><span class="w">
 </span><span class="err">            </span><span class="p">},</span><span class="w">
-</span><span class="err">            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;Country&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;United States&quot;</span><span class="w">
 </span><span class="err">            </span><span class="p">},</span><span class="w">
-</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">307683</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"Line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75 Varick Street"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"PostOrZip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10013"</span><span class="p">,</span><span class="w">
-</span><span class="err">            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">346</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">307683</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;Line1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;75 Varick Street&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;PostOrZip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10013&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;State&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">346</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New York&quot;</span><span class="w">
 </span><span class="err">            </span><span class="p">}</span><span class="w">
 </span><span class="err">        </span><span class="p">},</span><span class="w">
-</span><span class="err">        </span><span class="s2">"Biography"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/Adam_Moss"</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-</span><span class="err">        </span><span class="s2">"EmploymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;Biography&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://en.wikipedia.org/wiki/Adam_Moss&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;Contacts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;EmploymentDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="err">            </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Contacts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="err">                    </span><span class="p">{</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone, Office, Department"</span><span class="p">,</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1 (212) 508-0700"</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;TypeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Telephone, Office, Department&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;Value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+1 (212) 508-0700&quot;</span><span class="w">
 </span><span class="err">                    </span><span class="p">},</span><span class="w">
 </span><span class="err">                    </span><span class="p">{</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email, Work"</span><span class="p">,</span><span class="w">
-</span><span class="err">                        </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adam_moss@newyorkmag.com"</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;TypeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Email, Work&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                        </span><span class="s2">&quot;Value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;adam_moss@newyorkmag.com&quot;</span><span class="w">
 </span><span class="err">                    </span><span class="p">}</span><span class="w">
 </span><span class="err">                </span><span class="p">],</span><span class="w">
-</span><span class="err">                </span><span class="s2">"DateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"DateUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adam_moss@newyorkmag.com"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3546658</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"IsPrimaryEmployer"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Editor in Chief"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"OutletId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5210</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">                    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-</span><span class="err">                    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Editor"</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;DateCreated&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Date(-62135578800000-0500)/&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;DateUpdated&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Date(-62135578800000-0500)/&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;adam_moss@newyorkmag.com&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3546658</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;IsPrimaryEmployer&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;JobTitle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Editor in Chief&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;OutletId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5210</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Role&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">                    </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+</span><span class="err">                    </span><span class="s2">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Editor&quot;</span><span class="w">
 </span><span class="err">                </span><span class="p">},</span><span class="w">
-</span><span class="err">                </span><span class="s2">"TypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Staff"</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"YearEnd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"YearStart"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;TypeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Staff&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;YearEnd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;YearStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="w">
 </span><span class="err">            </span><span class="p">}</span><span class="w">
 </span><span class="err">        </span><span class="p">],</span><span class="w">
-</span><span class="err">        </span><span class="s2">"OutletId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"WorkingLanguages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;OutletId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;WorkingLanguages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="err">            </span><span class="p">{</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w">
-</span><span class="err">                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w">
+</span><span class="err">                </span><span class="s2">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;English&quot;</span><span class="w">
 </span><span class="err">            </span><span class="p">}</span><span class="w">
 </span><span class="err">        </span><span class="p">],</span><span class="w">
-</span><span class="err">        </span><span class="s2">"Books"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-</span><span class="err">        </span><span class="s2">"DayBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"Deceased"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"EducationDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-</span><span class="err">        </span><span class="s2">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"HomeCity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;Books&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;DayBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;Deceased&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;EducationDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;Gender&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;HomeCity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="err">        </span><span class="p">},</span><span class="w">
-</span><span class="err">        </span><span class="s2">"HomeCountry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;HomeCountry&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="err">        </span><span class="p">},</span><span class="w">
-</span><span class="err">        </span><span class="s2">"HomeState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="err">            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;HomeState&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err">            </span><span class="s2">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="err">        </span><span class="p">},</span><span class="w">
-</span><span class="err">        </span><span class="s2">"LastArticleWrittenDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-62135578800000-0500)/"</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"MonthBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"NNID"</span><span class="p">:</span><span class="w"> </span><span class="mi">256885</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"NameVariations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-</span><span class="err">        </span><span class="s2">"ProprietaryInfoID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-</span><span class="err">        </span><span class="s2">"SocialNetworks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-</span><span class="err">        </span><span class="s2">"YearBirth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;LastArticleWrittenDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Date(-62135578800000-0500)/&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;MonthBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;NNID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256885</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;NameVariations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;ProprietaryInfoID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;SocialNetworks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="err">        </span><span class="s2">&quot;YearBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="err">    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w"></p>
 
-</span></code></pre>
-<p> </p>
+<p></span></code></pre>
+<p> </p></p>
 
       </div>
       <div class="dark-box">
