@@ -86,8 +86,9 @@ main() {
   parse_args "$@"
 
   enable_expanded_output
+
   # Renames all index files to index.html
-  for i in $(find . -name 'index'); do mv $i $i.html; done
+  while for i in $(find . -name 'index'); do mv $i $i.html; done
 
   if ! git diff --exit-code --quiet --cached; then
     echo Aborting due to uncommitted changes in the index >&2
