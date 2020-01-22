@@ -15,10 +15,10 @@ set :markdown,
     renderer: UniqueHeadCounter
 
 # Assets
-set :css_dir, '~/Desktop/Art/SelfProjects/slate/slate/source/stylesheets'
-set :js_dir, '~/Desktop/Art/SelfProjects/slate/slate/source/javascripts'
-set :images_dir, '~/Desktop/Art/SelfProjects/slate/slate/source/images'
-set :fonts_dir, '~/Desktop/Art/SelfProjects/slate/slate/source/fonts'
+set :css_dir, 'stylesheets'
+set :js_dir, 'javascripts'
+set :images_dir, 'images'
+set :fonts_dir, 'fonts'
 
 # Activate the syntax highlighter
 activate :syntax
