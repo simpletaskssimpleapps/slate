@@ -1,0 +1,9 @@
+<p>-&gt; If you are looking for the following pages, they have moved. Please update any bookmarks that you have to these pages. <li><a href="/site/docs/quick_start/service_account_integration">Service Account Integration</a></li><li><a href="/site/docs/quick_start/implicit_grant_flow">Implicit Grant Flow</a></li></p>
+<h1 id='overview'>Overview</h1>
+<p>Dow Jones Identity Service is an authorization and authentication framework based on the <a href="#oauth-20">OAuth 2.0</a> protocol and uses <a href="http://openid.net" target="_blank">OpenID Connect</a>. It provides secure access to Dow Jones&#39; protected resources through REST APIs.</p>
+
+<p>Before using the Dow Jones Identity Service with a client application, register the client application with Dow Jones to receive a client ID and a client secret. Customers and partners that want to access these APIs should contact their Dow Jones Account Manager or <a href="mailto:service@dowjones.com">service@dowjones.com</a>.</p>
+
+<p><span id="oauth-20"></span></p>
+<h1 id='oauth-2-0'>OAuth 2.0</h1>
+<p><a href="http://oauth.net/about/" target="_blank">OAuth 2.0</a> is a delegation protocol and authorization framework that defines a flow for securing delegated application access to protected resources on behalf of a resource owner, see <a href="relationship/index">Relationship to Other Standards</a>.</p>
