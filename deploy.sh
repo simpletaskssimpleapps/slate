@@ -95,7 +95,7 @@ main() {
   #   x = false
   # done
 
-  while i = $(find . -name 'index'); do mv $i $i.html; done
+ find . -type f -name 'index' -execdir mv {} {}.html ';'
 
   if ! git diff --exit-code --quiet --cached; then
     echo Aborting due to uncommitted changes in the index >&2
