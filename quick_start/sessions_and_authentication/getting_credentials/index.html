@@ -238,10 +238,23 @@
         <h1 id='dow-jones-sessions-and-authentication-services'>Dow Jones Sessions and Authentication Services</h1>
 <p>-&gt; If you are looking for the following pages, they have moved. Please update any bookmarks that you have to these pages. <li><a href="/site/docs/quick_start/service_account_integration">Service Account Integration</a></li><li><a href="/site/docs/quick_start/implicit_grant_flow">Implicit Grant Flow</a></li></p>
 
-<h1 id='relationship-to-other-standards'>Relationship to Other Standards</h1>
-<p>OAuth 2.0 does not exist in isolation from existing identity and security standards. On its own, OAuth 2.0 does not provide an identifier for the user. The access token is not an identifier, but rather a means to obtain such information subsequently. An identity layer such as <a href="http://openid.net">OpenID Connect</a> can be added on top of the OAUth 2.0 protocol. This identity layer specifies how to add to the existing OAuth 2.0 messages the necessary identifiers to make Single Sign On (SSO) possible. Rather than having a distinct SSO protocol for sharing identifiers and a separate protocol for sharing access tokens, OAuth 2.0 and OpenID Connect can be combined.</p>
+<h1 id='getting-credentials'>Getting Credentials</h1>
+<p>To get initial credentials you can follow these steps:</p>
 
-<p>OpenID is an open standard and decentralized protocol provided by the OpenID Foundation that allows users to be authenticated by cooperating sites, known as Relying Parties (RP), using a third-party service.         </p>
+<ol>
+<li><a href="https://developer.dowjones.com/site/global/request-trial/index.gsp">Request a Trial</a>.</li>
+<li>A Dow Jones representative will reach out and help match your use case with our products.</li>
+<li>You will receive an email with (depending on products)
+
+<ol>
+<li>API Key</li>
+<li>User/Pwd</li>
+<li>Tokens</li>
+<li>Link to details</li>
+</ol></li>
+</ol>
+
+<p>You can then use the relevant authentication method of your API to connect and specific SFTP or SSH connection details for feeds.</p>
 
 
 
