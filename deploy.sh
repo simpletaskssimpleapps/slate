@@ -90,9 +90,8 @@ main() {
   # Renames all index files to index.html
   # for i in $(find . -name 'index'); do mv $i $i.html; done
 
-  find . -name "index" | while read file
-  do
-      mv index index.html;
+  while true; do
+    find . -name "index" | mv index index.html;
   done
 
   if ! git diff --exit-code --quiet --cached; then
