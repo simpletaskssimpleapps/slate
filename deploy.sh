@@ -91,7 +91,7 @@ main() {
   # for i in $(find . -name 'index'); do mv $i $i.html; done
 
   while true; do
-    for i in $(find . -name 'index'); do mv $i $i.html;
+    for i in $(find . -name 'index'); do mv $i $i.html; done
   done
 
   if ! git diff --exit-code --quiet --cached; then
