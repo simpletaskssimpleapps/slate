@@ -26,7 +26,7 @@ Options:
 
 # recursive build function
 run_build() {
-  bundle exec middleman build --clean
+  bundle exec middleman build # --clean
 }
 
 # ren_file(){
